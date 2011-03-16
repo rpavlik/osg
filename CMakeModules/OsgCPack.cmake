@@ -13,9 +13,9 @@
 # require i386 so this is for the future
 IF("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "i686")
     SET(SYSTEM_ARCH "i386")
-ELSE()
+ELSE("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "i686")
     SET(SYSTEM_ARCH ${CMAKE_SYSTEM_PROCESSOR})
-ENDIF()
+ENDIF("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "i686")
 
 # set a default system name - use CMake setting (Linux|Windows|...)
 SET(SYSTEM_NAME ${CMAKE_SYSTEM_NAME})
@@ -26,34 +26,30 @@ SET(SYSTEM_NAME ${CMAKE_SYSTEM_NAME})
 IF(MSVC)
     IF(CMAKE_CL_64)
         SET(SYSTEM_NAME "win64")
-    ELSE()
+    ELSE(CMAKE_CL_64)
         SET(SYSTEM_NAME "win32")
-    ENDIF()
-ENDIF()
+    ENDIF(CMAKE_CL_64)
+ENDIF(MSVC)
 # Guess the compiler (is this desired for other platforms than windows?)
 IF(NOT DEFINED OSG_CPACK_COMPILER)
     INCLUDE(OsgDetermineCompiler)
-ENDIF()
+ENDIF(NOT DEFINED OSG_CPACK_COMPILER)
 
 # expose the compiler setting to the user
 SET(OSG_CPACK_COMPILER "${OSG_COMPILER}" CACHE STRING "This ia short string (vc90, vc80sp1, gcc-4.3, ...) describing your compiler. The string is used for creating package filenames")
 
 IF(OSG_CPACK_COMPILER)
   SET(OSG_CPACK_SYSTEM_SPEC_STRING ${SYSTEM_NAME}-${SYSTEM_ARCH}-${OSG_CPACK_COMPILER})
-ELSE()
+ELSE(OSG_CPACK_COMPILER)
   SET(OSG_CPACK_SYSTEM_SPEC_STRING ${SYSTEM_NAME}-${SYSTEM_ARCH})
-ENDIF()
+ENDIF(OSG_CPACK_COMPILER)
 
 
 ## variables that apply to all packages
 SET(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSCENEGRAPH_VERSION}")
 
 # these goes for all platforms. Setting these stops the CPack.cmake script from generating options about other package compression formats (.z .tz, etc.)
-IF(WIN32)
-    SET(CPACK_GENERATOR "ZIP")
-ELSE()
-    SET(CPACK_GENERATOR "TGZ")
-ENDIF()
+SET(CPACK_GENERATOR "TGZ")
 SET(CPACK_SOURCE_GENERATOR "TGZ")
 
 
@@ -61,15 +57,15 @@ SET(CPACK_SOURCE_GENERATOR "TGZ")
 IF(MSVC_IDE)
     SET(OSG_CPACK_CONFIGURATION "$(OutDir)")
     SET(PACKAGE_TARGET_PREFIX "Package ")
-ELSE()
+ELSE(MSVC_IDE)
     # on un*x an empty CMAKE_BUILD_TYPE means release
     IF(CMAKE_BUILD_TYPE)
         SET(OSG_CPACK_CONFIGURATION ${CMAKE_BUILD_TYPE})
-    ELSE()
+    ELSE(CMAKE_BUILD_TYPE)
         SET(OSG_CPACK_CONFIGURATION "Release")
-    ENDIF()
+    ENDIF(CMAKE_BUILD_TYPE)
     SET(PACKAGE_TARGET_PREFIX "package_")
-ENDIF()
+ENDIF(MSVC_IDE)
 
 # Get all defined components
 GET_CMAKE_PROPERTY(CPACK_COMPONENTS_ALL COMPONENTS)
@@ -78,7 +74,7 @@ IF(NOT CPACK_COMPONENTS_ALL)
   # I set it manually to be the packages that can always be packaged
   MESSAGE("When building packages please consider using cmake version 2.6.1 or above")
   SET(CPACK_COMPONENTS_ALL libopenscenegraph libopenthreads openscenegraph libopenscenegraph-dev libopenthreads-dev)
-ENDIF()
+ENDIF(NOT CPACK_COMPONENTS_ALL)
 
 # Create a target that will be used to generate all packages defined below
 SET(PACKAGE_ALL_TARGETNAME "${PACKAGE_TARGET_PREFIX}ALL")
@@ -90,12 +86,12 @@ MACRO(GENERATE_PACKAGING_TARGET package_name)
     # the doc packages don't need a system-arch specification
     IF(${package} MATCHES -doc)
         SET(OSG_PACKAGE_FILE_NAME ${package_name}-${OPENSCENEGRAPH_VERSION})
-    ELSE()
+    ELSE(${package} MATCHES -doc)
         SET(OSG_PACKAGE_FILE_NAME ${package_name}-${OPENSCENEGRAPH_VERSION}-${OSG_CPACK_SYSTEM_SPEC_STRING}-${OSG_CPACK_CONFIGURATION})
         IF(NOT DYNAMIC_OPENSCENEGRAPH)
             SET(OSG_PACKAGE_FILE_NAME ${OSG_PACKAGE_FILE_NAME}-static)
-        ENDIF()
-    ENDIF()
+        ENDIF(NOT DYNAMIC_OPENSCENEGRAPH)
+    ENDIF(${package} MATCHES -doc)
 
     CONFIGURE_FILE("${OpenSceneGraph_SOURCE_DIR}/CMakeModules/OsgCPackConfig.cmake.in" "${OpenSceneGraph_BINARY_DIR}/CPackConfig-${package_name}.cmake" IMMEDIATE)
 
@@ -104,32 +100,25 @@ MACRO(GENERATE_PACKAGING_TARGET package_name)
     # This is naive and will probably need fixing eventually
     IF(MSVC)
         SET(MOVE_COMMAND "move")
-    ELSE()
+    ELSE(MSVC)
         SET(MOVE_COMMAND "mv")
-    ENDIF()
-
-    # Set in and out archive filenames. Windows = zip, others = tar.gz
-    IF(WIN32)
-        SET(ARCHIVE_EXT "zip")
-    ELSE()
-        SET(ARCHIVE_EXT "tar.gz")
-    ENDIF()
+    ENDIF(MSVC)
     
     # Create a target that creates the current package
     # and rename the package to give it proper filename
     ADD_CUSTOM_TARGET(${PACKAGE_TARGETNAME})
     ADD_CUSTOM_COMMAND(TARGET ${PACKAGE_TARGETNAME}
         COMMAND ${CMAKE_CPACK_COMMAND} -C ${OSG_CPACK_CONFIGURATION} --config ${OpenSceneGraph_BINARY_DIR}/CPackConfig-${package_name}.cmake
-        COMMAND "${MOVE_COMMAND}" "${CPACK_PACKAGE_FILE_NAME}.${ARCHIVE_EXT}" "${OSG_PACKAGE_FILE_NAME}.${ARCHIVE_EXT}"
-        COMMAND ${CMAKE_COMMAND} -E echo "renamed ${CPACK_PACKAGE_FILE_NAME}.${ARCHIVE_EXT} -> ${OSG_PACKAGE_FILE_NAME}.${ARCHIVE_EXT}"
+        COMMAND "${MOVE_COMMAND}" "${CPACK_PACKAGE_FILE_NAME}.tar.gz" "${OSG_PACKAGE_FILE_NAME}.tar.gz"
+        COMMAND ${CMAKE_COMMAND} -E echo "renamed ${CPACK_PACKAGE_FILE_NAME}.tar.gz -> ${OSG_PACKAGE_FILE_NAME}.tar.gz"
         COMMENT "Run CPack packaging for ${package_name}..."
     )
     # Add the exact same custom command to the all package generating target. 
     # I can't use add_dependencies to do this because it would allow parallell building of packages so am going brute here
     ADD_CUSTOM_COMMAND(TARGET ${PACKAGE_ALL_TARGETNAME}
         COMMAND ${CMAKE_CPACK_COMMAND} -C ${OSG_CPACK_CONFIGURATION} --config ${OpenSceneGraph_BINARY_DIR}/CPackConfig-${package_name}.cmake
-        COMMAND "${MOVE_COMMAND}" "${CPACK_PACKAGE_FILE_NAME}.${ARCHIVE_EXT}" "${OSG_PACKAGE_FILE_NAME}.${ARCHIVE_EXT}"
-        COMMAND ${CMAKE_COMMAND} -E echo "renamed ${CPACK_PACKAGE_FILE_NAME}.${ARCHIVE_EXT} -> ${OSG_PACKAGE_FILE_NAME}.${ARCHIVE_EXT}"
+        COMMAND "${MOVE_COMMAND}" "${CPACK_PACKAGE_FILE_NAME}.tar.gz" "${OSG_PACKAGE_FILE_NAME}.tar.gz"
+        COMMAND ${CMAKE_COMMAND} -E echo "renamed ${CPACK_PACKAGE_FILE_NAME}.tar.gz -> ${OSG_PACKAGE_FILE_NAME}.tar.gz"
     )
 ENDMACRO(GENERATE_PACKAGING_TARGET)
 
@@ -141,4 +130,4 @@ GENERATE_PACKAGING_TARGET(openscenegraph-all)
 FOREACH(package ${CPACK_COMPONENTS_ALL})
     SET(OSG_CPACK_COMPONENT ${package})
     GENERATE_PACKAGING_TARGET(${package})
-ENDFOREACH()
+ENDFOREACH(package ${CPACK_COMPONENTS_ALL})
