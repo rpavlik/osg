@@ -12,6 +12,7 @@ class OrientationConverter {
 	void setRotation( const osg::Vec3 &from, 
 	                    const osg::Vec3 &to  );
 	void setRotation( float degrees, const osg::Vec3 &axis  );
+	void setWorldRotation(bool bsTransform);
 	void setTranslation( const osg::Vec3 &trans);
 	void setScale( const osg::Vec3 &trans);
         
@@ -25,6 +26,8 @@ class OrientationConverter {
 
 	osg::Matrix R, T, S;
 	bool _trans_set;
+	bool _bs_set;
+	bool bsTransform;
 
 };
 #endif

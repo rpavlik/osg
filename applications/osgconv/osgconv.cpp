@@ -467,6 +467,29 @@ static void usage( const char *prog, const char *msg )
                               "                          or\n"
                               "                             -90-1,0,0\n"
                               "\n" << std::endl;
+	osg::notify(osg::NOTICE)<<"    -w worldorientation     - Convert geometry from input files to output files."<< std::endl;
+	osg::notify(osg::NOTICE)<<
+                              "                         Format of orientation argument must be the following:\n"
+                              "\n"
+                              "                             X1,Y1,Z1-X2,Y2,Z2\n"
+                              "                         or\n"
+                              "                             degrees-A0,A1,A2\n"
+                              "\n"
+                              "                         where X1,Y1,Z1 represent the UP vector in the input\n"
+                              "                         files and X2,Y2,Z2 represent the UP vector of the\n"
+                              "                         output file, or degrees is the rotation angle in degrees\n"
+                              "                         around axis (A0,A1,A2).  For example, to convert a model\n"
+                              "                         built in a Y-Up coordinate system to a model with a Z-up\n"
+                              "                         coordinate system, the argument may look like\n"
+                              "\n"
+                              "                             0,1,0-0,0,1"
+                              "\n"
+                              "                          or\n"
+                              "                             -90-1,0,0\n"
+							  "\n"
+							  "							Note: this will perform the same operations as the -o flag\n"
+							  "							however, it will rotate objects about the world coordinate system.\n"
+                              "\n" << std::endl;
     osg::notify(osg::NOTICE)<<"    -t translation     - Convert spatial position of output files.  Format of\n"
                               "                         translation argument must be the following :\n"
                               "\n"
@@ -634,7 +657,37 @@ int main( int argc, char **argv )
             do_convert = true;
         }
     }    
-
+    while (arguments.read("-w",str))
+    {
+        osg::Vec3 from, to;
+        if( sscanf( str.c_str(), "%f,%f,%f-%f,%f,%f",
+                &from[0], &from[1], &from[2],
+                &to[0], &to[1], &to[2]  )
+            != 6 )
+        {
+            float degrees;
+            osg::Vec3 axis;
+            // Try deg-axis format
+            if( sscanf( str.c_str(), "%f-%f,%f,%f",
+                    &degrees, &axis[0], &axis[1], &axis[2]  ) != 4 )
+            {
+                usage( argv[0], "Orientation argument format incorrect." );
+                return 1;
+            }
+            else
+            {
+				oc.setWorldRotation(true);
+                oc.setRotation( degrees, axis );
+                do_convert = true;
+            }
+        }
+        else
+        {
+			oc.setWorldRotation(true);
+            oc.setRotation( from, to );
+            do_convert = true;
+        }
+    }
     while (arguments.read("-s",str))
     {
         osg::Vec3 scale(0,0,0);
