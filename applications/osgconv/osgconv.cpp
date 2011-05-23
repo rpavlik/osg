@@ -475,6 +475,9 @@ static void usage( const char *prog, const char *msg )
                               "                         where X, Y, and Z represent the coordinates of the\n"
                               "                         absolute position in world space\n"
                               << std::endl;
+    osg::notify(osg::NOTICE)<<"    --use-world-frame  - Perform transformations in the world frame, rather\n"
+                              "                         than relative to the center of the bounding sphere.\n"
+                              << std::endl;
     osg::notify(osg::NOTICE)<<"    --simplify n       - Run simplifier on prior to output. Argument must be a" << std::endl
                             <<"                         normalized value for the resultant percentage reduction." << std::endl
                             <<"                         Example: --simplify .5 will produce an 50 reduced model." << std::endl
@@ -584,6 +587,11 @@ int main( int argc, char **argv )
     FileNameList fileNames;
     OrientationConverter oc;
     bool do_convert = false;
+
+    if (arguments.read("--use-world-frame"))
+    {
+        oc.useWorldFrame(true);
+    }
 
     std::string str;
     while (arguments.read("-O",str))
