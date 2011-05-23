@@ -12,6 +12,7 @@ OrientationConverter::OrientationConverter( void )
    R.makeIdentity();
    T.makeIdentity();
    _trans_set = false;
+   _bs_set = true; 
    S.makeIdentity();
 }
 
@@ -23,6 +24,11 @@ void OrientationConverter::setRotation( const Vec3 &from, const Vec3 &to )
 void OrientationConverter::setRotation( float degrees, const Vec3 &axis )
 {
     R = Matrix::rotate( osg::DegreesToRadians(degrees), axis );
+}
+
+void OrientationConverter::setWorldRotation( bool bsTransform )
+{
+    _bs_set = !bsTransform;
 }
 
 void OrientationConverter::setTranslation( const Vec3 &trans )
@@ -47,17 +53,21 @@ Node* OrientationConverter::convert( Node *node )
     //        - translate to absolute translation in world coordinates
     //    else
     //        - translate back to model's original origin. 
-    BoundingSphere bs = node->getBound();
-    Matrix C = Matrix::translate( -bs.center() );
-    if( _trans_set == false )
-        T = Matrix::translate( bs.center() );
+	osg::Group* root = new osg::Group;
+   	osg::MatrixTransform* transform = new osg::MatrixTransform;
 
-    osg::Group* root = new osg::Group;
-    osg::MatrixTransform* transform = new osg::MatrixTransform;
+	if( _trans_set == true && _bs_set == true)  {
+    	BoundingSphere bs = node->getBound();
+		Matrix C = Matrix::translate( -bs.center() );
+		transform->setDataVariance(osg::Object::STATIC);
+		transform->setMatrix( C * R * S * T );
+	}
 
-    transform->setDataVariance(osg::Object::STATIC);
-    transform->setMatrix( C * R * S * T );
-    
+	if(_bs_set == false)  {
+	//Do none of the above bounding sphere translations 
+		transform->setMatrix( T * R * S );
+    }
+
     if (!S.isIdentity())
     {
         // Add a normalize state. This will be removed if the FlattenStaticTransformsVisitor works
