@@ -50,6 +50,7 @@ BEGIN_ENUM_REFLECTOR(osgText::Text::BackdropImplementation)
 	I_EnumLabel(osgText::Text::NO_DEPTH_BUFFER);
 	I_EnumLabel(osgText::Text::DEPTH_RANGE);
 	I_EnumLabel(osgText::Text::STENCIL_BUFFER);
+	I_EnumLabel(osgText::Text::DELAYED_DEPTH_WRITES);
 END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osgText::Text::ColorGradientMode)
@@ -58,6 +59,8 @@ BEGIN_ENUM_REFLECTOR(osgText::Text::ColorGradientMode)
 	I_EnumLabel(osgText::Text::PER_CHARACTER);
 	I_EnumLabel(osgText::Text::OVERALL);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::map< osg::ref_ptr< osgText::Font::GlyphTexture > COMMA  osgText::Text::GlyphQuads >, osgText::Text::TextureGlyphQuadMap)
 
 BEGIN_OBJECT_REFLECTOR(osgText::Text)
 	I_DeclaringFile("osgText/Text");
@@ -122,6 +125,16 @@ BEGIN_OBJECT_REFLECTOR(osgText::Text)
 	I_Method0(const osg::Vec4 &, getColor,
 	          Properties::NON_VIRTUAL,
 	          __C5_osg_Vec4_R1__getColor,
+	          "",
+	          "");
+	I_Method0(bool, setEnableDepthWrites,
+	          Properties::NON_VIRTUAL,
+	          __bool__setEnableDepthWrites,
+	          "Turns off writing to the depth buffer when rendering text. ",
+	          "This only affects text with no backdrop or text using the DELAYED_DEPTH_WRITES implementation, since the other backdrop implementations are really only useful for backwards compatibility and are not worth updating to utilize this flag. ");
+	I_Method1(void, setEnableDepthWrites, IN, bool, enable,
+	          Properties::NON_VIRTUAL,
+	          __void__setEnableDepthWrites__bool,
 	          "",
 	          "");
 	I_Method1(void, setBackdropType, IN, osgText::Text::BackdropType, type,
@@ -342,6 +355,12 @@ BEGIN_OBJECT_REFLECTOR(osgText::Text)
 	                   __void__drawForegroundText__osg_State_R1__C5_GlyphQuads_R1__C5_osg_Vec4_R1,
 	                   "",
 	                   "");
+	I_ProtectedMethod2(void, drawTextWithBackdrop, IN, osg::State &, state, IN, const osg::Vec4 &, colorMultiplier,
+	                   Properties::NON_VIRTUAL,
+	                   Properties::CONST,
+	                   __void__drawTextWithBackdrop__osg_State_R1__C5_osg_Vec4_R1,
+	                   "",
+	                   "");
 	I_ProtectedMethod2(void, renderOnlyForegroundText, IN, osg::State &, state, IN, const osg::Vec4 &, colorMultiplier,
 	                   Properties::NON_VIRTUAL,
 	                   Properties::CONST,
@@ -370,6 +389,12 @@ BEGIN_OBJECT_REFLECTOR(osgText::Text)
 	                   Properties::NON_VIRTUAL,
 	                   Properties::CONST,
 	                   __void__renderWithStencilBuffer__osg_State_R1__C5_osg_Vec4_R1,
+	                   "",
+	                   "");
+	I_ProtectedMethod2(void, renderWithDelayedDepthWrites, IN, osg::State &, state, IN, const osg::Vec4 &, colorMultiplier,
+	                   Properties::NON_VIRTUAL,
+	                   Properties::CONST,
+	                   __void__renderWithDelayedDepthWrites__osg_State_R1__C5_osg_Vec4_R1,
 	                   "",
 	                   "");
 	I_ProtectedMethod10(float, bilinearInterpolate, IN, float, x1, IN, float, x2, IN, float, y1, IN, float, y2, IN, float, x, IN, float, y, IN, float, q11, IN, float, q12, IN, float, q21, IN, float, q22,
@@ -426,6 +451,9 @@ BEGIN_OBJECT_REFLECTOR(osgText::Text)
 	I_SimpleProperty(const osg::Vec4 &, ColorGradientTopRight, 
 	                 __C5_osg_Vec4_R1__getColorGradientTopRight, 
 	                 0);
+	I_SimpleProperty(bool, EnableDepthWrites, 
+	                 0, 
+	                 __void__setEnableDepthWrites__bool);
 	I_SimpleProperty(osg::ref_ptr< osgText::Font >, Font, 
 	                 0, 
 	                 __void__setFont__osg_ref_ptrT1_Font_);
