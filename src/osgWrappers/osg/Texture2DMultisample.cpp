@@ -25,7 +25,7 @@
 #undef OUT
 #endif
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::Texture2DMultisample)
+BEGIN_OBJECT_REFLECTOR(osg::Texture2DMultisample)
 	I_DeclaringFile("osg/Texture2DMultisample");
 	I_BaseType(osg::Texture);
 	I_Constructor0(____Texture2DMultisample,
