@@ -203,6 +203,7 @@ struct RetrieveQueriesCallback : public osg::Camera::DrawCallback
             GLint ready( 0 );
             while( !ready )
             {
+
                 // Apparently, must actually sleep here to avoid issues w/ NVIDIA Quadro.
                 OpenThreads::Thread::microSleep( 5 );
                 ext->glGetQueryObjectiv( tr->_id, GL_QUERY_RESULT_AVAILABLE, &ready );
@@ -411,12 +412,13 @@ QueryGeometry::getNumPixels()
 
 
 void
-QueryGeometry::releaseGLObjects( osg::State* state )
+QueryGeometry::releaseGLObjects( osg::State* state ) const
 {
     if (!state)
+    {
         // delete all query IDs for all contexts.
-        reset();
-
+        const_cast<QueryGeometry*>(this)->reset();
+    }
     else
     {
         // Delete all query IDs for the specified context.

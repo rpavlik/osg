@@ -220,7 +220,7 @@ Viewer::~Viewer()
 
 }
 
-void Viewer::take(View& rhs)
+void Viewer::take(osg::View& rhs)
 {
     osgViewer::View::take(rhs);
     
