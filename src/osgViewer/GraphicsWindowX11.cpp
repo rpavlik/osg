@@ -960,8 +960,6 @@ void GraphicsWindowX11::checkEvents()
     int windowWidth = _traits->width;
     int windowHeight = _traits->height;
 
-    bool destroyWindowRequested = false;
-    
     Time firstEventTime = 0;
      
          // osg::notify(osg::NOTICE)<<"Check events"<<std::endl;    
@@ -979,7 +977,6 @@ void GraphicsWindowX11::checkEvents()
                 {
                     osg::notify(osg::NOTICE)<<"DeleteWindow event received"<<std::endl;
                     // FIXME only do if _ownsWindow ?
-                    destroyWindowRequested = true;
                     getEventQueue()->closeWindow(eventTime);
                 }
             }
@@ -1298,13 +1295,6 @@ void GraphicsWindowX11::checkEvents()
         resized(windowX, windowY, windowWidth, windowHeight); 
         getEventQueue()->windowResize(windowX, windowY, windowWidth, windowHeight, resizeTime);
     }
-    
-#if 0
-    if (destroyWindowRequested)
-    {
-        close();
-    }
-#endif
 }
 
 void GraphicsWindowX11::grabFocus()
