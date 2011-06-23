@@ -156,6 +156,7 @@ View::View():
 
 
 View::View(const osgViewer::View& view, const osg::CopyOp& copyop):
+    osg::Object(true),
     osg::View(view,copyop),
     osgGA::GUIActionAdapter(),
     _fusionDistanceMode(view._fusionDistanceMode),

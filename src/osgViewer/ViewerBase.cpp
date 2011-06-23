@@ -50,7 +50,7 @@ ViewerBase::ViewerBase():
     _endBarrierPosition = AfterSwapBuffers;
 }
 
-ViewerBase::ViewerBase(const ViewerBase& base):
+ViewerBase::ViewerBase(const ViewerBase&):
     osg::Object(true)
 {
     _firstFrame = true;
