@@ -42,6 +42,9 @@
 #include <osg/ShapeDrawable>
 #include <osg/TexEnv>
 #include <osg/TexGen>
+
+#include "SafeInventorInclude.h"
+
 #include <Inventor/nodes/SoBaseColor.h>
 #include <Inventor/nodes/SoCoordinate3.h>
 #include <Inventor/nodes/SoCoordinate4.h>

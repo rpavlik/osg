@@ -6,6 +6,9 @@
 #include <osg/PrimitiveSet>
 #include <osg/Texture2D>
 #include <osg/Light>
+
+#include "SafeInventorInclude.h"
+
 #include <Inventor/actions/SoCallbackAction.h>
 #include <Inventor/SbLinear.h>
 #include <vector>

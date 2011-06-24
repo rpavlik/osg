@@ -12,6 +12,7 @@ SET(TARGET_HDRS
     ConvertFromInventor.h
     PendulumCallback.h
     ReaderWriterIV.h
+    SafeInventorInclude.h
     ShuttleCallback.h
 )
 

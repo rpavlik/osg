@@ -4,6 +4,7 @@
 #include <osgDB/FileNameUtils>
 
 // Inventor headers
+#include "SafeInventorInclude.h"
 #include <Inventor/SoDB.h>
 #include <Inventor/SoInteraction.h>
 #include <Inventor/nodekits/SoNodeKit.h>
