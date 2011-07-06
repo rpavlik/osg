@@ -82,7 +82,7 @@ ENDIF(CMAKE_SYSTEM MATCHES IRIX)
 
 # Add support for using Qt threads
 IF(QT4_FOUND)
-    OPTION(BUILD_OPENTHREADS_WITH_QT "Build OpenThreads with Qt threading support." OFF)
+    OPTION(BUILD_OPENTHREADS_WITH_QT "Build OpenThreads with Qt threading support - primarily for porting to mobile devices." OFF)
 ENDIF()
 
 # Maybe we should be using the FindThreads.cmake module?
