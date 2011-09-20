@@ -236,6 +236,106 @@ BEGIN_OBJECT_REFLECTOR(osg::ElementBufferObject)
 	                  0);
 END_REFLECTOR
 
+BEGIN_OBJECT_REFLECTOR(osg::BufferObject::Extensions)
+	I_DeclaringFile("osg/BufferObject");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::BufferObject::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::BufferObject::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method0(bool, isBufferObjectSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isBufferObjectSupported,
+	          "",
+	          "");
+	I_Method0(bool, isPBOSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isPBOSupported,
+	          "",
+	          "");
+	I_Method2(void, glGenBuffers, IN, GLsizei, n, IN, GLuint *, buffers,
+	          Properties::NON_VIRTUAL,
+	          __void__glGenBuffers__GLsizei__GLuint_P1,
+	          "",
+	          "");
+	I_Method2(void, glBindBuffer, IN, GLenum, target, IN, GLuint, buffer,
+	          Properties::NON_VIRTUAL,
+	          __void__glBindBuffer__GLenum__GLuint,
+	          "",
+	          "");
+	I_Method4(void, glBufferData, IN, GLenum, target, IN, GLsizeiptrARB, size, IN, const GLvoid *, data, IN, GLenum, usage,
+	          Properties::NON_VIRTUAL,
+	          __void__glBufferData__GLenum__GLsizeiptrARB__C5_GLvoid_P1__GLenum,
+	          "",
+	          "");
+	I_Method4(void, glBufferSubData, IN, GLenum, target, IN, GLintptrARB, offset, IN, GLsizeiptrARB, size, IN, const GLvoid *, data,
+	          Properties::NON_VIRTUAL,
+	          __void__glBufferSubData__GLenum__GLintptrARB__GLsizeiptrARB__C5_GLvoid_P1,
+	          "",
+	          "");
+	I_Method2(void, glDeleteBuffers, IN, GLsizei, n, IN, const GLuint *, buffers,
+	          Properties::NON_VIRTUAL,
+	          __void__glDeleteBuffers__GLsizei__C5_GLuint_P1,
+	          "",
+	          "");
+	I_Method1(GLboolean, glIsBuffer, IN, GLuint, buffer,
+	          Properties::NON_VIRTUAL,
+	          __GLboolean__glIsBuffer__GLuint,
+	          "",
+	          "");
+	I_Method4(void, glGetBufferSubData, IN, GLenum, target, IN, GLintptrARB, offset, IN, GLsizeiptrARB, size, IN, GLvoid *, data,
+	          Properties::NON_VIRTUAL,
+	          __void__glGetBufferSubData__GLenum__GLintptrARB__GLsizeiptrARB__GLvoid_P1,
+	          "",
+	          "");
+	I_Method2(GLvoid *, glMapBuffer, IN, GLenum, target, IN, GLenum, access,
+	          Properties::NON_VIRTUAL,
+	          __GLvoid_P1__glMapBuffer__GLenum__GLenum,
+	          "",
+	          "");
+	I_Method1(GLboolean, glUnmapBuffer, IN, GLenum, target,
+	          Properties::NON_VIRTUAL,
+	          __GLboolean__glUnmapBuffer__GLenum,
+	          "",
+	          "");
+	I_Method3(void, glGetBufferParameteriv, IN, GLenum, target, IN, GLenum, pname, IN, GLint *, params,
+	          Properties::NON_VIRTUAL,
+	          __void__glGetBufferParameteriv__GLenum__GLenum__GLint_P1,
+	          "",
+	          "");
+	I_Method3(void, glGetBufferPointerv, IN, GLenum, target, IN, GLenum, pname, IN, GLvoid **, params,
+	          Properties::NON_VIRTUAL,
+	          __void__glGetBufferPointerv__GLenum__GLenum__GLvoid_P1P1,
+	          "",
+	          "");
+
+
+
+
+
+
+
+
+
+
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::pair< osg::BufferObject::BufferEntry COMMA  osg::Image * >, osg::PixelBufferObject::BufferEntryImagePair)
 
 BEGIN_OBJECT_REFLECTOR(osg::PixelBufferObject)

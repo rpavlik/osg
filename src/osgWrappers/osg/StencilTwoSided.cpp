@@ -24,6 +24,50 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osg::StencilTwoSided::Extensions)
+	I_DeclaringFile("osg/StencilTwoSided");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::StencilTwoSided::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::StencilTwoSided::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, setStencilTwoSidedSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setStencilTwoSidedSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isStencilTwoSidedSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isStencilTwoSidedSupported,
+	          "",
+	          "");
+	I_Method1(void, glActiveStencilFace, IN, GLenum, face,
+	          Properties::NON_VIRTUAL,
+	          __void__glActiveStencilFace__GLenum,
+	          "",
+	          "");
+
+	I_SimpleProperty(bool, StencilTwoSidedSupported, 
+	                 0, 
+	                 __void__setStencilTwoSidedSupported__bool);
+END_REFLECTOR
+
 BEGIN_ENUM_REFLECTOR(osg::StencilTwoSided::Face)
 	I_DeclaringFile("osg/StencilTwoSided");
 	I_EnumLabel(osg::StencilTwoSided::FRONT);

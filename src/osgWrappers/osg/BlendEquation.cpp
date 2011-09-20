@@ -122,3 +122,57 @@ BEGIN_OBJECT_REFLECTOR(osg::BlendEquation)
 	                 0);
 END_REFLECTOR
 
+BEGIN_OBJECT_REFLECTOR(osg::BlendEquation::Extensions)
+	I_DeclaringFile("osg/BlendEquation");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::BlendEquation::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::BlendEquation::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, setBlendEquationSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setBlendEquationSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isBlendEquationSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isBlendEquationSupported,
+	          "",
+	          "");
+	I_Method0(bool, isSGIXMinMaxSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isSGIXMinMaxSupported,
+	          "",
+	          "");
+	I_Method0(bool, isLogicOpSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isLogicOpSupported,
+	          "",
+	          "");
+	I_Method1(void, glBlendEquation, IN, GLenum, mode,
+	          Properties::NON_VIRTUAL,
+	          __void__glBlendEquation__GLenum,
+	          "",
+	          "");
+
+	I_SimpleProperty(bool, BlendEquationSupported, 
+	                 0, 
+	                 __void__setBlendEquationSupported__bool);
+END_REFLECTOR
+

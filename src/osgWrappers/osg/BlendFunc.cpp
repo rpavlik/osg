@@ -207,3 +207,47 @@ BEGIN_OBJECT_REFLECTOR(osg::BlendFunc)
 	                 0);
 END_REFLECTOR
 
+BEGIN_OBJECT_REFLECTOR(osg::BlendFunc::Extensions)
+	I_DeclaringFile("osg/BlendFunc");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::BlendFunc::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::BlendFunc::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, setBlendFuncSeparateSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setBlendFuncSeparateSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isBlendFuncSeparateSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isBlendFuncSeparateSupported,
+	          "",
+	          "");
+	I_Method4(void, glBlendFuncSeparate, IN, GLenum, sfactorRGB, IN, GLenum, dfactorRGB, IN, GLenum, sfactorAlpha, IN, GLenum, dfactorAlpha,
+	          Properties::NON_VIRTUAL,
+	          __void__glBlendFuncSeparate__GLenum__GLenum__GLenum__GLenum,
+	          "",
+	          "");
+
+	I_SimpleProperty(bool, BlendFuncSeparateSupported, 
+	                 0, 
+	                 __void__setBlendFuncSeparateSupported__bool);
+END_REFLECTOR
+

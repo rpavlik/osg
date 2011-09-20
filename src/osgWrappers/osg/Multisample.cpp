@@ -24,6 +24,63 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osg::Multisample::Extensions)
+	I_DeclaringFile("osg/Multisample");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::Multisample::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::Multisample::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, setMultisampleSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setMultisampleSupported__bool,
+	          "",
+	          "");
+	I_Method1(void, setMultisampleFilterHintSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setMultisampleFilterHintSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isMultisampleSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isMultisampleSupported,
+	          "",
+	          "");
+	I_Method0(bool, isMultisampleFilterHintSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isMultisampleFilterHintSupported,
+	          "",
+	          "");
+	I_Method2(void, glSampleCoverage, IN, GLclampf, value, IN, GLboolean, invert,
+	          Properties::NON_VIRTUAL,
+	          __void__glSampleCoverage__GLclampf__GLboolean,
+	          "",
+	          "");
+
+	I_SimpleProperty(bool, MultisampleFilterHintSupported, 
+	                 0, 
+	                 __void__setMultisampleFilterHintSupported__bool);
+	I_SimpleProperty(bool, MultisampleSupported, 
+	                 0, 
+	                 __void__setMultisampleSupported__bool);
+END_REFLECTOR
+
 BEGIN_ENUM_REFLECTOR(osg::Multisample::Mode)
 	I_DeclaringFile("osg/Multisample");
 	I_EnumLabel(osg::Multisample::FASTEST);

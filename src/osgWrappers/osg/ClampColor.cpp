@@ -130,3 +130,47 @@ BEGIN_OBJECT_REFLECTOR(osg::ClampColor)
 	                 0);
 END_REFLECTOR
 
+BEGIN_OBJECT_REFLECTOR(osg::ClampColor::Extensions)
+	I_DeclaringFile("osg/ClampColor");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::ClampColor::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::ClampColor::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, setClampColorSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setClampColorSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isClampColorSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isClampColorSupported,
+	          "",
+	          "");
+	I_Method2(void, glClampColor, IN, GLenum, target, IN, GLenum, mode,
+	          Properties::NON_VIRTUAL,
+	          __void__glClampColor__GLenum__GLenum,
+	          "",
+	          "");
+
+	I_SimpleProperty(bool, ClampColorSupported, 
+	                 0, 
+	                 __void__setClampColorSupported__bool);
+END_REFLECTOR
+

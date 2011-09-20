@@ -116,3 +116,47 @@ BEGIN_OBJECT_REFLECTOR(osg::BlendColor)
 	                 0);
 END_REFLECTOR
 
+BEGIN_OBJECT_REFLECTOR(osg::BlendColor::Extensions)
+	I_DeclaringFile("osg/BlendColor");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::BlendColor::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::BlendColor::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, setBlendColorSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setBlendColorSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isBlendColorSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isBlendColorSupported,
+	          "",
+	          "");
+	I_Method4(void, glBlendColor, IN, GLclampf, red, IN, GLclampf, green, IN, GLclampf, blue, IN, GLclampf, alpha,
+	          Properties::NON_VIRTUAL,
+	          __void__glBlendColor__GLclampf__GLclampf__GLclampf__GLclampf,
+	          "",
+	          "");
+
+	I_SimpleProperty(bool, BlendColorSupported, 
+	                 0, 
+	                 __void__setBlendColorSupported__bool);
+END_REFLECTOR
+

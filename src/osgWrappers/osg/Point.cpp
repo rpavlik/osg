@@ -25,6 +25,75 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osg::Point::Extensions)
+	I_DeclaringFile("osg/Point");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::Point::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::Point::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, setPointParametersSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setPointParametersSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isPointParametersSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isPointParametersSupported,
+	          "",
+	          "");
+	I_Method1(void, setPointSpriteCoordOriginSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setPointSpriteCoordOriginSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isPointSpriteCoordOriginSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isPointSpriteCoordOriginSupported,
+	          "",
+	          "");
+	I_Method2(void, glPointParameteri, IN, GLenum, pname, IN, GLint, param,
+	          Properties::NON_VIRTUAL,
+	          __void__glPointParameteri__GLenum__GLint,
+	          "",
+	          "");
+	I_Method2(void, glPointParameterf, IN, GLenum, pname, IN, GLfloat, param,
+	          Properties::NON_VIRTUAL,
+	          __void__glPointParameterf__GLenum__GLfloat,
+	          "",
+	          "");
+	I_Method2(void, glPointParameterfv, IN, GLenum, pname, IN, const GLfloat *, params,
+	          Properties::NON_VIRTUAL,
+	          __void__glPointParameterfv__GLenum__C5_GLfloat_P1,
+	          "",
+	          "");
+
+
+
+	I_SimpleProperty(bool, PointParametersSupported, 
+	                 0, 
+	                 __void__setPointParametersSupported__bool);
+	I_SimpleProperty(bool, PointSpriteCoordOriginSupported, 
+	                 0, 
+	                 __void__setPointSpriteCoordOriginSupported__bool);
+END_REFLECTOR
+
 BEGIN_OBJECT_REFLECTOR(osg::Point)
 	I_DeclaringFile("osg/Point");
 	I_BaseType(osg::StateAttribute);

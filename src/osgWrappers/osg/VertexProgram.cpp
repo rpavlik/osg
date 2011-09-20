@@ -26,6 +26,74 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osg::VertexProgram::Extensions)
+	I_DeclaringFile("osg/VertexProgram");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, unsigned int, contextID,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__unsigned_int,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::VertexProgram::Extensions &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Extensions__C5_Extensions_R1,
+	               "",
+	               "");
+	I_Method1(void, lowestCommonDenominator, IN, const osg::VertexProgram::Extensions &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __void__lowestCommonDenominator__C5_Extensions_R1,
+	          "",
+	          "");
+	I_Method1(void, setupGLExtensions, IN, unsigned int, contextID,
+	          Properties::NON_VIRTUAL,
+	          __void__setupGLExtensions__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, setVertexProgramSupported, IN, bool, flag,
+	          Properties::NON_VIRTUAL,
+	          __void__setVertexProgramSupported__bool,
+	          "",
+	          "");
+	I_Method0(bool, isVertexProgramSupported,
+	          Properties::NON_VIRTUAL,
+	          __bool__isVertexProgramSupported,
+	          "",
+	          "");
+	I_Method2(void, glBindProgram, IN, GLenum, target, IN, GLuint, id,
+	          Properties::NON_VIRTUAL,
+	          __void__glBindProgram__GLenum__GLuint,
+	          "",
+	          "");
+	I_Method2(void, glGenPrograms, IN, GLsizei, n, IN, GLuint *, programs,
+	          Properties::NON_VIRTUAL,
+	          __void__glGenPrograms__GLsizei__GLuint_P1,
+	          "",
+	          "");
+	I_Method2(void, glDeletePrograms, IN, GLsizei, n, IN, GLuint *, programs,
+	          Properties::NON_VIRTUAL,
+	          __void__glDeletePrograms__GLsizei__GLuint_P1,
+	          "",
+	          "");
+	I_Method4(void, glProgramString, IN, GLenum, target, IN, GLenum, format, IN, GLsizei, len, IN, const void *, string,
+	          Properties::NON_VIRTUAL,
+	          __void__glProgramString__GLenum__GLenum__GLsizei__C5_void_P1,
+	          "",
+	          "");
+	I_Method3(void, glProgramLocalParameter4fv, IN, GLenum, target, IN, GLuint, index, IN, const GLfloat *, params,
+	          Properties::NON_VIRTUAL,
+	          __void__glProgramLocalParameter4fv__GLenum__GLuint__C5_GLfloat_P1,
+	          "",
+	          "");
+
+
+
+
+
+	I_SimpleProperty(bool, VertexProgramSupported, 
+	                 0, 
+	                 __void__setVertexProgramSupported__bool);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::map< GLuint COMMA  osg::Vec4 >, osg::VertexProgram::LocalParamList)
 
 TYPE_NAME_ALIAS(std::map< GLenum COMMA  osg::Matrix >, osg::VertexProgram::MatrixList)
