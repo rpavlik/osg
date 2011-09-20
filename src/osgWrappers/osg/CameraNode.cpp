@@ -20,5 +20,3 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(osg::Camera, osg::CameraNode)
-
