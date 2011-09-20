@@ -630,11 +630,16 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	          __C5_Program_PerContextProgram_P1__getLastAppliedProgramObject,
 	          "",
 	          "");
-	I_Method1(GLint, getUniformLocation, IN, const std::string &, name,
+	I_Method1(GLint, getUniformLocation, IN, unsigned int, uniformNameID,
 	          Properties::NON_VIRTUAL,
-	          __GLint__getUniformLocation__C5_std_string_R1,
+	          __GLint__getUniformLocation__unsigned_int,
 	          "",
 	          "");
+	I_Method1(GLint, getUniformLocation, IN, const std::string &, uniformName,
+	          Properties::NON_VIRTUAL,
+	          __GLint__getUniformLocation__C5_std_string_R1,
+	          "Alternative version of getUniformLocation( unsigned int uniformNameID ) retrofited into OSG for backward compatibility with osgCal, after uniform ids were refactored from std::strings to GLints in OSG version 2.9.10. ",
+	          "Drawbacks: This method is not particularly fast. It has to access mutexed static map of uniform ids. So don't overuse it or your app performance will suffer. ");
 	I_Method1(GLint, getAttribLocation, IN, const std::string &, name,
 	          Properties::NON_VIRTUAL,
 	          __GLint__getAttribLocation__C5_std_string_R1,
