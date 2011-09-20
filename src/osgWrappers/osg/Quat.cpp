@@ -160,7 +160,7 @@ BEGIN_VALUE_REFLECTOR(osg::Quat)
 	I_Method0(osg::Quat::value_type, length,
 	          Properties::NON_VIRTUAL,
 	          __value_type__length,
-	          "Length of the quaternion = sqrt( vec . vec ). ",
+	          "Length of the quaternion = sqrt( vec . vec ) ",
 	          "");
 	I_Method0(osg::Quat::value_type, length2,
 	          Properties::NON_VIRTUAL,
@@ -175,7 +175,7 @@ BEGIN_VALUE_REFLECTOR(osg::Quat)
 	I_Method0(const osg::Quat, inverse,
 	          Properties::NON_VIRTUAL,
 	          __C5_Quat__inverse,
-	          "Multiplicative inverse method: q^(-1) = q^*/(q.q^*). ",
+	          "Multiplicative inverse method: q^(-1) = q^*/(q.q^*) ",
 	          "");
 	I_Method4(void, makeRotate, IN, osg::Quat::value_type, angle, IN, osg::Quat::value_type, x, IN, osg::Quat::value_type, y, IN, osg::Quat::value_type, z,
 	          Properties::NON_VIRTUAL,

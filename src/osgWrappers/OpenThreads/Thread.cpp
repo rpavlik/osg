@@ -40,6 +40,34 @@ END_REFLECTOR
 
 BEGIN_ABSTRACT_OBJECT_REFLECTOR(OpenThreads::Thread)
 	I_DeclaringFile("OpenThreads/Thread");
+	I_StaticMethod1(int, SetConcurrency, IN, int, concurrencyLevel,
+	                __int__SetConcurrency__int_S,
+	                "Set the concurrency level for a running application. ",
+	                "This method only has effect if the pthreads thread model is being used, and then only when that model is many-to-one (eg. irix). in other cases it is ignored. The concurrency level is only a *hint* as to the number of execution vehicles to use, the actual implementation may do anything it wants. Setting the value to 0 returns things to their default state.previous concurrency level, -1 indicates no-op.  ");
+	I_StaticMethod0(int, GetConcurrency,
+	                __int__GetConcurrency_S,
+	                "Get the concurrency level for a running application. ",
+	                "In this case, a return code of 0 means that the application is in default mode. A return code of -1 means that the application is incapable of setting an arbitrary concurrency, because it is a one-to-one execution model (sprocs, linuxThreads) ");
+	I_StaticMethod0(OpenThreads::Thread *, CurrentThread,
+	                __Thread_P1__CurrentThread_S,
+	                "Return a pointer to the current running thread. ",
+	                "");
+	I_StaticMethod0(void, Init,
+	                __void__Init_S,
+	                "Initialize Threading in a program. ",
+	                "This method must be called before you can do any threading in a program. ");
+	I_StaticMethod0(int, YieldCurrentThread,
+	                __int__YieldCurrentThread_S,
+	                "Yield the processor. ",
+	                "This method operates on the calling process. And is equivalent to calling sched_yield(). 0 if normal, -1 if errno set, errno code otherwise.  ");
+	I_StaticMethod0(OpenThreads::Thread::ThreadPriority, GetMasterPriority,
+	                __ThreadPriority__GetMasterPriority_S,
+	                "This method will return the ThreadPriority of the master process. ",
+	                "(ie, the one calling the thread->start() methods for the first time) The method will almost certainly return Thread::THREAD_PRIORITY_DEFAULT if Init() has not been called.the Thread::ThreadPriority of the master thread.  ");
+	I_StaticMethod1(int, microSleep, IN, unsigned int, microsec,
+	                __int__microSleep__unsigned_int_S,
+	                "microSleep method, equivilant to the posix usleep(microsec). ",
+	                "This is not strictly thread API but is used so often with threads. It's basically UNIX usleep. Parameter is number of microseconds we current thread to sleep. Returns 0 on succes, non-zero on failure (UNIX errno or GetLastError() will give detailed description. ");
 	I_Constructor0(____Thread,
 	               "Constructor. ",
 	               "");
@@ -81,17 +109,17 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(OpenThreads::Thread)
 	I_Method0(int, getSchedulePriority,
 	          Properties::NON_VIRTUAL,
 	          __int__getSchedulePriority,
-	          "Get the thread's schedule priority (if able). ",
+	          "Get the thread's schedule priority (if able) ",
 	          "seting the environment variable OUTPUT_THREADLIB_SCHEDULING_INFO will output scheduling information for each thread to stdout. 0 if normal, -1 if errno set, errno code otherwise.  ");
 	I_Method1(int, setSchedulePolicy, IN, OpenThreads::Thread::ThreadPolicy, policy,
 	          Properties::NON_VIRTUAL,
 	          __int__setSchedulePolicy__ThreadPolicy,
-	          "Set the thread's scheduling policy (if able). ",
+	          "Set the thread's scheduling policy (if able) ",
 	          "On some implementations (notably IRIX Sprocs & LinuxThreads) The policy may prohibit the use of SCHEDULE_ROUND_ROBIN and SCHEDULE_FIFO policies - due to their real-time nature, and the danger of deadlocking the machine when used as super-user. In such cases, the command is a no-op.seting the environment variable OUTPUT_THREADLIB_SCHEDULING_INFO will output scheduling information for each thread to stdout. 0 if normal, -1 if errno set, errno code otherwise.  ");
 	I_Method0(int, getSchedulePolicy,
 	          Properties::NON_VIRTUAL,
 	          __int__getSchedulePolicy,
-	          "Get the thread's policy (if able). ",
+	          "Get the thread's policy (if able) ",
 	          "seting the environment variable OUTPUT_THREADLIB_SCHEDULING_INFO will output scheduling information for each thread to stdout. policy if normal, -1 if errno set, errno code otherwise.  ");
 	I_Method1(int, setStackSize, IN, size_t, size,
 	          Properties::NON_VIRTUAL,
@@ -131,7 +159,7 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(OpenThreads::Thread)
 	I_Method0(int, setCancelModeDeferred,
 	          Properties::NON_VIRTUAL,
 	          __int__setCancelModeDeferred,
-	          "Mark the thread to cancel at the earliest convenience on Thread::cancel() (This is the default). ",
+	          "Mark the thread to cancel at the earliest convenience on Thread::cancel() (This is the default) ",
 	          "0 if normal, -1 if errno set, errno code otherwise.  ");
 	I_Method0(bool, isRunning,
 	          Properties::NON_VIRTUAL,
@@ -158,34 +186,6 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(OpenThreads::Thread)
 	          __int__setProcessorAffinity__unsigned_int,
 	          "Thread's processor affinity method. ",
 	          "This binds a thread to a processor whenever possible. This call must be made before start() or startThread() and has no effect after the thread has been running. In the pthreads implementation, this is only implemented on sgi, through a pthread extension. On other pthread platforms this is ignored. Returns 0 on success, implementation's error on failure, or -1 if ignored. ");
-	I_StaticMethod1(int, SetConcurrency, IN, int, concurrencyLevel,
-	                __int__SetConcurrency__int_S,
-	                "Set the concurrency level for a running application. ",
-	                "This method only has effect if the pthreads thread model is being used, and then only when that model is many-to-one (eg. irix). in other cases it is ignored. The concurrency level is only a *hint* as to the number of execution vehicles to use, the actual implementation may do anything it wants. Setting the value to 0 returns things to their default state.previous concurrency level, -1 indicates no-op.  ");
-	I_StaticMethod0(int, GetConcurrency,
-	                __int__GetConcurrency_S,
-	                "Get the concurrency level for a running application. ",
-	                "In this case, a return code of 0 means that the application is in default mode. A return code of -1 means that the application is incapable of setting an arbitrary concurrency, because it is a one-to-one execution model (sprocs, linuxThreads) ");
-	I_StaticMethod0(OpenThreads::Thread *, CurrentThread,
-	                __Thread_P1__CurrentThread_S,
-	                "Return a pointer to the current running thread. ",
-	                "");
-	I_StaticMethod0(void, Init,
-	                __void__Init_S,
-	                "Initialize Threading in a program. ",
-	                "This method must be called before you can do any threading in a program. ");
-	I_StaticMethod0(int, YieldCurrentThread,
-	                __int__YieldCurrentThread_S,
-	                "Yield the processor. ",
-	                "This method operates on the calling process. And is equivalent to calling sched_yield(). 0 if normal, -1 if errno set, errno code otherwise.  ");
-	I_StaticMethod0(OpenThreads::Thread::ThreadPriority, GetMasterPriority,
-	                __ThreadPriority__GetMasterPriority_S,
-	                "This method will return the ThreadPriority of the master process. ",
-	                "(ie, the one calling the thread->start() methods for the first time) The method will almost certainly return Thread::THREAD_PRIORITY_DEFAULT if Init() has not been called.the Thread::ThreadPriority of the master thread.  ");
-	I_StaticMethod1(int, microSleep, IN, unsigned int, microsec,
-	                __int__microSleep__unsigned_int_S,
-	                "microSleep method, equivilant to the posix usleep(microsec). ",
-	                "This is not strictly thread API but is used so often with threads. It's basically UNIX usleep. Parameter is number of microseconds we current thread to sleep. Returns 0 on succes, non-zero on failure (UNIX errno or GetLastError() will give detailed description. ");
 	I_SimpleProperty(void *, Implementation, 
 	                 __void_P1__getImplementation, 
 	                 0);

@@ -34,8 +34,6 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(unsigned int, osg::CopyOp::CopyFlags)
-
 BEGIN_ENUM_REFLECTOR(osg::CopyOp::Options)
 	I_DeclaringFile("osg/CopyOp");
 	I_EnumLabel(osg::CopyOp::SHALLOW_COPY);
@@ -53,6 +51,8 @@ BEGIN_ENUM_REFLECTOR(osg::CopyOp::Options)
 	I_EnumLabel(osg::CopyOp::DEEP_COPY_CALLBACKS);
 	I_EnumLabel(osg::CopyOp::DEEP_COPY_ALL);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(unsigned int, osg::CopyOp::CopyFlags)
 
 BEGIN_VALUE_REFLECTOR(osg::CopyOp)
 	I_DeclaringFile("osg/CopyOp");

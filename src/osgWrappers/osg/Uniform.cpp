@@ -31,6 +31,43 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osg::Uniform::Callback)
+	I_DeclaringFile("osg/Uniform");
+	I_VirtualBaseType(osg::Object);
+	I_Constructor0(____Callback,
+	               "",
+	               "");
+	I_Constructor2(IN, const osg::Uniform::Callback &, x, IN, const osg::CopyOp &, x,
+	               ____Callback__C5_Callback_R1__C5_CopyOp_R1,
+	               "",
+	               "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+END_REFLECTOR
+
 BEGIN_VALUE_REFLECTOR(osg::Matrix2)
 	I_DeclaringFile("osg/Uniform");
 	I_Constructor0(____Matrix2,
@@ -123,8 +160,6 @@ BEGIN_VALUE_REFLECTOR(osg::Matrix3)
 	          "");
 END_REFLECTOR
 
-TYPE_NAME_ALIAS(std::vector< osg::StateSet * >, osg::Uniform::ParentList)
-
 BEGIN_ENUM_REFLECTOR(osg::Uniform::Type)
 	I_DeclaringFile("osg/Uniform");
 	I_EnumLabel(osg::Uniform::FLOAT);
@@ -183,6 +218,8 @@ BEGIN_ENUM_REFLECTOR(osg::Uniform::Type)
 	I_EnumLabel(osg::Uniform::UNDEFINED);
 END_REFLECTOR
 
+TYPE_NAME_ALIAS(std::vector< osg::StateSet * >, osg::Uniform::ParentList)
+
 BEGIN_OBJECT_REFLECTOR(osg::Uniform)
 	I_DeclaringFile("osg/Uniform");
 	I_BaseType(osg::Object);
@@ -202,7 +239,7 @@ BEGIN_OBJECT_REFLECTOR(osg::Uniform)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -233,19 +270,19 @@ BEGIN_OBJECT_REFLECTOR(osg::Uniform)
 	          "Get the type of glUniform as enum. ",
 	          "");
 	I_Method1(void, setName, IN, const std::string &, name,
-	          Properties::VIRTUAL,
+	          Properties::NON_VIRTUAL,
 	          __void__setName__C5_std_string_R1,
 	          "Set the name of the glUniform, ensuring it is only set once. ",
 	          "");
 	I_Method1(void, setNumElements, IN, unsigned int, numElements,
 	          Properties::NON_VIRTUAL,
 	          __void__setNumElements__unsigned_int,
-	          "Set the length of a uniform, ensuring it is only set once (1==scalar). ",
+	          "Set the length of a uniform, ensuring it is only set once (1==scalar) ",
 	          "");
 	I_Method0(unsigned int, getNumElements,
 	          Properties::NON_VIRTUAL,
 	          __unsigned_int__getNumElements,
-	          "Get the number of GLSL elements of the osg::Uniform (1==scalar). ",
+	          "Get the number of GLSL elements of the osg::Uniform (1==scalar) ",
 	          "");
 	I_Method0(unsigned int, getInternalArrayNumElements,
 	          Properties::NON_VIRTUAL,
@@ -979,42 +1016,5 @@ BEGIN_OBJECT_REFLECTOR(osg::Uniform)
 	I_SimpleProperty(osg::Uniform::Callback *, UpdateCallback, 
 	                 __Callback_P1__getUpdateCallback, 
 	                 __void__setUpdateCallback__Callback_P1);
-END_REFLECTOR
-
-BEGIN_OBJECT_REFLECTOR(osg::Uniform::Callback)
-	I_DeclaringFile("osg/Uniform");
-	I_VirtualBaseType(osg::Object);
-	I_Constructor0(____Callback,
-	               "",
-	               "");
-	I_Constructor2(IN, const osg::Uniform::Callback &, x, IN, const osg::CopyOp &, x,
-	               ____Callback__C5_Callback_R1__C5_CopyOp_R1,
-	               "",
-	               "");
-	I_Method0(osg::Object *, cloneType,
-	          Properties::VIRTUAL,
-	          __osg_Object_P1__cloneType,
-	          "Clone the type of an object, with Object* return type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
-	          Properties::VIRTUAL,
-	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "Clone an object, with Object* return type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
-	          Properties::VIRTUAL,
-	          __bool__isSameKindAs__C5_osg_Object_P1,
-	          "",
-	          "");
-	I_Method0(const char *, libraryName,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__libraryName,
-	          "return the name of the object's library. ",
-	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
-	I_Method0(const char *, className,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__className,
-	          "return the name of the object's class type. ",
-	          "Must be defined by derived classes. ");
 END_REFLECTOR
 

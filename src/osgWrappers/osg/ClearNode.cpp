@@ -87,8 +87,8 @@ BEGIN_OBJECT_REFLECTOR(osg::ClearNode)
 	I_Method1(void, setClearMask, IN, GLbitfield, mask,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearMask__GLbitfield,
-	          "Set the clear mask used in glClear(. ",
-	          ".). Defaults to GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT. ");
+	          "Set the clear mask used in glClear(..). ",
+	          "Defaults to GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT. ");
 	I_Method0(GLbitfield, getClearMask,
 	          Properties::NON_VIRTUAL,
 	          __GLbitfield__getClearMask,

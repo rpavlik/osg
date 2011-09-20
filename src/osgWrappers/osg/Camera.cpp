@@ -43,7 +43,35 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::map< osg::Camera::BufferComponent COMMA  osg::Camera::Attachment >, osg::Camera::BufferAttachmentMap)
+BEGIN_VALUE_REFLECTOR(osg::Camera::Attachment)
+	I_DeclaringFile("osg/Camera");
+	I_Constructor0(____Attachment,
+	               "",
+	               "");
+I_Method0(int, width,
+	          Properties::NON_VIRTUAL,
+	          __int__width,
+	          "",
+	          "");
+I_Method0(int, height,
+	          Properties::NON_VIRTUAL,
+	          __int__height,
+	          "",
+	          "");
+I_Method0(int, depth,
+	          Properties::NON_VIRTUAL,
+	          __int__depth,
+	          "",
+	          "");
+	I_PublicMemberProperty(GLenum, _internalFormat);
+	I_PublicMemberProperty(osg::ref_ptr< osg::Image >, _image);
+	I_PublicMemberProperty(osg::ref_ptr< osg::Texture >, _texture);
+	I_PublicMemberProperty(unsigned int, _level);
+	I_PublicMemberProperty(unsigned int, _face);
+	I_PublicMemberProperty(bool, _mipMapGeneration);
+	I_PublicMemberProperty(unsigned int, _multisampleSamples);
+	I_PublicMemberProperty(unsigned int, _multisampleColorSamples);
+END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osg::Camera::TransformOrder)
 	I_DeclaringFile("osg/Camera");
@@ -97,6 +125,8 @@ BEGIN_ENUM_REFLECTOR(osg::Camera::BufferComponent)
 	I_EnumLabel(osg::Camera::COLOR_BUFFER14);
 	I_EnumLabel(osg::Camera::COLOR_BUFFER15);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::map< osg::Camera::BufferComponent COMMA  osg::Camera::Attachment >, osg::Camera::BufferAttachmentMap)
 
 BEGIN_OBJECT_REFLECTOR(osg::Camera)
 	I_DeclaringFile("osg/Camera");
@@ -197,8 +227,8 @@ BEGIN_OBJECT_REFLECTOR(osg::Camera)
 	I_Method1(void, setClearMask, IN, GLbitfield, mask,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearMask__GLbitfield,
-	          "Set the clear mask used in glClear(. ",
-	          ".). Defaults to GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT. ");
+	          "Set the clear mask used in glClear(..). ",
+	          "Defaults to GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT. ");
 	I_Method0(GLbitfield, getClearMask,
 	          Properties::NON_VIRTUAL,
 	          __GLbitfield__getClearMask,
@@ -207,8 +237,8 @@ BEGIN_OBJECT_REFLECTOR(osg::Camera)
 	I_Method1(void, setClearColor, IN, const osg::Vec4 &, color,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearColor__C5_osg_Vec4_R1,
-	          "Set the clear color used in glClearColor(. ",
-	          ".). glClearColor is only called if mask & GL_COLOR_BUFFER_BIT is true ");
+	          "Set the clear color used in glClearColor(..). ",
+	          "glClearColor is only called if mask & GL_COLOR_BUFFER_BIT is true ");
 	I_Method0(const osg::Vec4 &, getClearColor,
 	          Properties::NON_VIRTUAL,
 	          __C5_osg_Vec4_R1__getClearColor,
@@ -217,8 +247,8 @@ BEGIN_OBJECT_REFLECTOR(osg::Camera)
 	I_Method1(void, setClearAccum, IN, const osg::Vec4 &, color,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearAccum__C5_osg_Vec4_R1,
-	          "Set the clear accum used in glClearAccum(. ",
-	          ".). glClearAcumm is only called if mask & GL_ACCUM_BUFFER_BIT is true. ");
+	          "Set the clear accum used in glClearAccum(..). ",
+	          "glClearAcumm is only called if mask & GL_ACCUM_BUFFER_BIT is true. ");
 	I_Method0(const osg::Vec4 &, getClearAccum,
 	          Properties::NON_VIRTUAL,
 	          __C5_osg_Vec4_R1__getClearAccum,
@@ -227,8 +257,8 @@ BEGIN_OBJECT_REFLECTOR(osg::Camera)
 	I_Method1(void, setClearDepth, IN, double, depth,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearDepth__double,
-	          "Set the clear depth used in glClearDepth(. ",
-	          ".). Defaults to 1.0 glClearDepth is only called if mask & GL_DEPTH_BUFFER_BIT is true. ");
+	          "Set the clear depth used in glClearDepth(..). ",
+	          "Defaults to 1.0 glClearDepth is only called if mask & GL_DEPTH_BUFFER_BIT is true. ");
 	I_Method0(double, getClearDepth,
 	          Properties::NON_VIRTUAL,
 	          __double__getClearDepth,
@@ -742,36 +772,6 @@ BEGIN_OBJECT_REFLECTOR(osg::Camera)
 	                 __void__setViewport__osg_Viewport_P1);
 END_REFLECTOR
 
-BEGIN_VALUE_REFLECTOR(osg::Camera::Attachment)
-	I_DeclaringFile("osg/Camera");
-	I_Constructor0(____Attachment,
-	               "",
-	               "");
-	I_Method0(int, width,
-	          Properties::NON_VIRTUAL,
-	          __int__width,
-	          "",
-	          "");
-	I_Method0(int, height,
-	          Properties::NON_VIRTUAL,
-	          __int__height,
-	          "",
-	          "");
-	I_Method0(int, depth,
-	          Properties::NON_VIRTUAL,
-	          __int__depth,
-	          "",
-	          "");
-	I_PublicMemberProperty(GLenum, _internalFormat);
-	I_PublicMemberProperty(osg::ref_ptr< osg::Image >, _image);
-	I_PublicMemberProperty(osg::ref_ptr< osg::Texture >, _texture);
-	I_PublicMemberProperty(unsigned int, _level);
-	I_PublicMemberProperty(unsigned int, _face);
-	I_PublicMemberProperty(bool, _mipMapGeneration);
-	I_PublicMemberProperty(unsigned int, _multisampleSamples);
-	I_PublicMemberProperty(unsigned int, _multisampleColorSamples);
-END_REFLECTOR
-
 BEGIN_OBJECT_REFLECTOR(osg::Camera::DrawCallback)
 	I_DeclaringFile("osg/Camera");
 	I_VirtualBaseType(osg::Object);
@@ -787,7 +787,7 @@ BEGIN_OBJECT_REFLECTOR(osg::Camera::DrawCallback)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",

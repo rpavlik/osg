@@ -26,17 +26,22 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(GLenum, osg::StateAttribute::GLMode)
-
-TYPE_NAME_ALIAS(unsigned int, osg::StateAttribute::GLModeValue)
-
-TYPE_NAME_ALIAS(unsigned int, osg::StateAttribute::OverrideValue)
-
-TYPE_NAME_ALIAS(std::pair< osg::StateAttribute::Type COMMA  unsigned int >, osg::StateAttribute::TypeMemberPair)
-
-TYPE_NAME_ALIAS(std::vector< osg::StateSet * >, osg::StateAttribute::ParentList)
-
-TYPE_NAME_ALIAS(osg::StateAttributeCallback, osg::StateAttribute::Callback)
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::StateAttribute::ModeUsage)
+	I_DeclaringFile("osg/StateAttribute");
+	I_Constructor0(____ModeUsage,
+	               "",
+	               "");
+	I_Method1(void, usesMode, IN, osg::StateAttribute::GLMode, mode,
+	          Properties::PURE_VIRTUAL,
+	          __void__usesMode__GLMode,
+	          "",
+	          "");
+	I_Method1(void, usesTextureMode, IN, osg::StateAttribute::GLMode, mode,
+	          Properties::PURE_VIRTUAL,
+	          __void__usesTextureMode__GLMode,
+	          "",
+	          "");
+END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osg::StateAttribute::Values)
 	I_DeclaringFile("osg/StateAttribute");
@@ -98,6 +103,18 @@ BEGIN_ENUM_REFLECTOR(osg::StateAttribute::Type)
 	I_EnumLabel(osg::StateAttribute::OSGNVSLANG_PROGRAM);
 	I_EnumLabel(osg::StateAttribute::OSGNVPARSE_PROGRAM_PARSER);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(GLenum, osg::StateAttribute::GLMode)
+
+TYPE_NAME_ALIAS(unsigned int, osg::StateAttribute::GLModeValue)
+
+TYPE_NAME_ALIAS(unsigned int, osg::StateAttribute::OverrideValue)
+
+TYPE_NAME_ALIAS(std::pair< osg::StateAttribute::Type COMMA  unsigned int >, osg::StateAttribute::TypeMemberPair)
+
+TYPE_NAME_ALIAS(std::vector< osg::StateSet * >, osg::StateAttribute::ParentList)
+
+TYPE_NAME_ALIAS(osg::StateAttributeCallback, osg::StateAttribute::Callback)
 
 BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::StateAttribute)
 	I_DeclaringFile("osg/StateAttribute");
@@ -286,23 +303,6 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::StateAttribute)
 	I_SimpleProperty(osg::StateAttributeCallback *, UpdateCallback, 
 	                 __StateAttributeCallback_P1__getUpdateCallback, 
 	                 __void__setUpdateCallback__StateAttributeCallback_P1);
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::StateAttribute::ModeUsage)
-	I_DeclaringFile("osg/StateAttribute");
-	I_Constructor0(____ModeUsage,
-	               "",
-	               "");
-	I_Method1(void, usesMode, IN, osg::StateAttribute::GLMode, mode,
-	          Properties::PURE_VIRTUAL,
-	          __void__usesMode__GLMode,
-	          "",
-	          "");
-	I_Method1(void, usesTextureMode, IN, osg::StateAttribute::GLMode, mode,
-	          Properties::PURE_VIRTUAL,
-	          __void__usesTextureMode__GLMode,
-	          "",
-	          "");
 END_REFLECTOR
 
 STD_PAIR_REFLECTOR(std::pair< osg::StateAttribute::Type COMMA  unsigned int >)

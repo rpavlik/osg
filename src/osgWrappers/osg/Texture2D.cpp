@@ -25,6 +25,24 @@
 #undef OUT
 #endif
 
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::Texture2D::SubloadCallback)
+	I_DeclaringFile("osg/Texture2D");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____SubloadCallback,
+	               "",
+	               "");
+	I_Method2(void, load, IN, const osg::Texture2D &, texture, IN, osg::State &, state,
+	          Properties::PURE_VIRTUAL,
+	          __void__load__C5_Texture2D_R1__State_R1,
+	          "",
+	          "");
+	I_Method2(void, subload, IN, const osg::Texture2D &, texture, IN, osg::State &, state,
+	          Properties::PURE_VIRTUAL,
+	          __void__subload__C5_Texture2D_R1__State_R1,
+	          "",
+	          "");
+END_REFLECTOR
+
 BEGIN_OBJECT_REFLECTOR(osg::Texture2D)
 	I_DeclaringFile("osg/Texture2D");
 	I_BaseType(osg::Texture);
@@ -45,7 +63,7 @@ BEGIN_OBJECT_REFLECTOR(osg::Texture2D)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an attribute, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an attribute, with Object* return type. ",
@@ -226,23 +244,5 @@ BEGIN_OBJECT_REFLECTOR(osg::Texture2D)
 	I_SimpleProperty(osg::StateAttribute::Type, Type, 
 	                 __Type__getType, 
 	                 0);
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::Texture2D::SubloadCallback)
-	I_DeclaringFile("osg/Texture2D");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____SubloadCallback,
-	               "",
-	               "");
-	I_Method2(void, load, IN, const osg::Texture2D &, texture, IN, osg::State &, state,
-	          Properties::PURE_VIRTUAL,
-	          __void__load__C5_Texture2D_R1__State_R1,
-	          "",
-	          "");
-	I_Method2(void, subload, IN, const osg::Texture2D &, texture, IN, osg::State &, state,
-	          Properties::PURE_VIRTUAL,
-	          __void__subload__C5_Texture2D_R1__State_R1,
-	          "",
-	          "");
 END_REFLECTOR
 

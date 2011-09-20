@@ -26,6 +26,21 @@
 #undef OUT
 #endif
 
+BEGIN_VALUE_REFLECTOR(osg::BufferObject::BufferEntry)
+	I_DeclaringFile("osg/BufferObject");
+	I_Constructor0(____BufferEntry,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::BufferObject::BufferEntry &, be,
+	               Properties::NON_EXPLICIT,
+	               ____BufferEntry__C5_BufferEntry_R1,
+	               "",
+	               "");
+	I_PublicMemberProperty(osg::buffered_value< unsigned int >, modifiedCount);
+	I_PublicMemberProperty(unsigned int, dataSize);
+	I_PublicMemberProperty(unsigned int, offset);
+END_REFLECTOR
+
 BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::BufferObject)
 	I_DeclaringFile("osg/BufferObject");
 	I_BaseType(osg::Object);
@@ -136,21 +151,6 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::BufferObject)
 	                 __void__setUsage__GLenum);
 END_REFLECTOR
 
-BEGIN_VALUE_REFLECTOR(osg::BufferObject::BufferEntry)
-	I_DeclaringFile("osg/BufferObject");
-	I_Constructor0(____BufferEntry,
-	               "",
-	               "");
-	I_Constructor1(IN, const osg::BufferObject::BufferEntry &, be,
-	               Properties::NON_EXPLICIT,
-	               ____BufferEntry__C5_BufferEntry_R1,
-	               "",
-	               "");
-	I_PublicMemberProperty(osg::buffered_value< unsigned int >, modifiedCount);
-	I_PublicMemberProperty(unsigned int, dataSize);
-	I_PublicMemberProperty(unsigned int, offset);
-END_REFLECTOR
-
 TYPE_NAME_ALIAS(std::pair< osg::BufferObject::BufferEntry COMMA  osg::DrawElements * >, osg::ElementBufferObject::BufferEntryDrawElementsPair)
 
 TYPE_NAME_ALIAS(std::vector< osg::ElementBufferObject::BufferEntryDrawElementsPair >, osg::ElementBufferObject::BufferEntryDrawElementsPairs)
@@ -170,7 +170,7 @@ BEGIN_OBJECT_REFLECTOR(osg::ElementBufferObject)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -255,7 +255,7 @@ BEGIN_OBJECT_REFLECTOR(osg::PixelBufferObject)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -332,7 +332,7 @@ BEGIN_OBJECT_REFLECTOR(osg::PixelDataBufferObject)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -365,17 +365,17 @@ BEGIN_OBJECT_REFLECTOR(osg::PixelDataBufferObject)
 	I_Method1(void, compileBuffer, IN, osg::State &, state,
 	          Properties::VIRTUAL,
 	          __void__compileBuffer__State_R1,
-	          "Compile the buffer (reallocate the memory if buffer is dirty). ",
+	          "Compile the buffer (reallocate the memory if buffer is dirty) ",
 	          "");
 	I_Method1(void, bindBufferInReadMode, IN, osg::State &, state,
 	          Properties::VIRTUAL,
 	          __void__bindBufferInReadMode__State_R1,
-	          "Bind the buffer in read mode, which means that data can be downloaded from the buffer (note: GL_PIXEL_UNPACK_BUFFER_ARB). ",
+	          "Bind the buffer in read mode, which means that data can be downloaded from the buffer (note: GL_PIXEL_UNPACK_BUFFER_ARB) ",
 	          "");
 	I_Method1(void, bindBufferInWriteMode, IN, osg::State &, state,
 	          Properties::VIRTUAL,
 	          __void__bindBufferInWriteMode__State_R1,
-	          "Bind the buffer in write mode, which means following OpenGL instructions will write data into the buffer (note: GL_PIXEL_PACK_BUFFER_ARB). ",
+	          "Bind the buffer in write mode, which means following OpenGL instructions will write data into the buffer (note: GL_PIXEL_PACK_BUFFER_ARB) ",
 	          "");
 	I_Method1(void, unbindBuffer, IN, unsigned int, contextID,
 	          Properties::VIRTUAL,
@@ -416,7 +416,7 @@ BEGIN_OBJECT_REFLECTOR(osg::VertexBufferObject)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",

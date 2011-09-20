@@ -27,6 +27,30 @@
 #undef OUT
 #endif
 
+BEGIN_VALUE_REFLECTOR(osg::KdTree::BuildOptions)
+	I_DeclaringFile("osg/KdTree");
+	I_Constructor0(____BuildOptions,
+	               "",
+	               "");
+	I_PublicMemberProperty(unsigned int, _numVerticesProcessed);
+	I_PublicMemberProperty(unsigned int, _targetNumTrianglesPerLeaf);
+	I_PublicMemberProperty(unsigned int, _maxNumLevels);
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osg::KdTree::KdNode)
+	I_DeclaringFile("osg/KdTree");
+	I_Constructor0(____KdNode,
+	               "",
+	               "");
+	I_Constructor2(IN, osg::KdTree::value_type, f, IN, osg::KdTree::value_type, s,
+	               ____KdNode__value_type__value_type,
+	               "",
+	               "");
+	I_PublicMemberProperty(osg::BoundingBox, bb);
+	I_PublicMemberProperty(osg::KdTree::value_type, first);
+	I_PublicMemberProperty(osg::KdTree::value_type, second);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::vector< osg::KdTree::LineSegmentIntersection >, osg::KdTree::LineSegmentIntersections)
 
 TYPE_NAME_ALIAS(int, osg::KdTree::value_type)
@@ -50,7 +74,7 @@ BEGIN_OBJECT_REFLECTOR(osg::KdTree)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an attribute, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an attribute, with Object* return type. ",
@@ -70,12 +94,12 @@ BEGIN_OBJECT_REFLECTOR(osg::KdTree)
 	          __C5_char_P1__className,
 	          "return the name of the attribute's class type. ",
 	          "");
-	I_Method1(void, accept, IN, osg::ShapeVisitor &, sv,
+	I_Method1(void, accept, IN, osg::ShapeVisitor &, x,
 	          Properties::VIRTUAL,
 	          __void__accept__osg_ShapeVisitor_R1,
 	          "accept a non const shape visitor which can be used on non const shape objects. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(void, accept, IN, osg::ConstShapeVisitor &, csv,
+	I_Method1(void, accept, IN, osg::ConstShapeVisitor &, x,
 	          Properties::VIRTUAL,
 	          __void__accept__osg_ConstShapeVisitor_R1,
 	          "accept a const shape visitor which can be used on const shape objects. ",
@@ -161,28 +185,39 @@ BEGIN_OBJECT_REFLECTOR(osg::KdTree)
 	                 __void__setVertices__osg_Vec3Array_P1);
 END_REFLECTOR
 
-BEGIN_VALUE_REFLECTOR(osg::KdTree::BuildOptions)
+BEGIN_OBJECT_REFLECTOR(osg::KdTreeBuilder)
 	I_DeclaringFile("osg/KdTree");
-	I_Constructor0(____BuildOptions,
+	I_BaseType(osg::NodeVisitor);
+	I_Constructor0(____KdTreeBuilder,
 	               "",
 	               "");
-	I_PublicMemberProperty(unsigned int, _numVerticesProcessed);
-	I_PublicMemberProperty(unsigned int, _targetNumTrianglesPerLeaf);
-	I_PublicMemberProperty(unsigned int, _maxNumLevels);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osg::KdTree::KdNode)
-	I_DeclaringFile("osg/KdTree");
-	I_Constructor0(____KdNode,
+	I_Constructor1(IN, const osg::KdTreeBuilder &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____KdTreeBuilder__C5_KdTreeBuilder_R1,
 	               "",
 	               "");
-	I_Constructor2(IN, osg::KdTree::value_type, f, IN, osg::KdTree::value_type, s,
-	               ____KdNode__value_type__value_type,
-	               "",
-	               "");
-	I_PublicMemberProperty(osg::BoundingBox, bb);
-	I_PublicMemberProperty(osg::KdTree::value_type, first);
-	I_PublicMemberProperty(osg::KdTree::value_type, second);
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the library name/namespapce of the visitor's. ",
+	          "Should be defined by derived classes. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the visitor's class type. ",
+	          "Should be defined by derived classes. ");
+	I_Method0(osg::KdTreeBuilder *, clone,
+	          Properties::VIRTUAL,
+	          __KdTreeBuilder_P1__clone,
+	          "",
+	          "");
+	I_Method1(void, apply, IN, osg::Geode &, geode,
+	          Properties::VIRTUAL,
+	          __void__apply__osg_Geode_R1,
+	          "",
+	          "");
+	I_PublicMemberProperty(osg::KdTree::BuildOptions, _buildOptions);
+	I_PublicMemberProperty(osg::ref_ptr< osg::KdTree >, _kdTreePrototype);
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(std::vector< unsigned int >, osg::KdTree::LineSegmentIntersection::IndexList)
@@ -218,41 +253,6 @@ BEGIN_VALUE_REFLECTOR(osg::KdTree::Triangle)
 	I_PublicMemberProperty(unsigned int, p0);
 	I_PublicMemberProperty(unsigned int, p1);
 	I_PublicMemberProperty(unsigned int, p2);
-END_REFLECTOR
-
-BEGIN_OBJECT_REFLECTOR(osg::KdTreeBuilder)
-	I_DeclaringFile("osg/KdTree");
-	I_BaseType(osg::NodeVisitor);
-	I_Constructor0(____KdTreeBuilder,
-	               "",
-	               "");
-	I_Constructor1(IN, const osg::KdTreeBuilder &, rhs,
-	               Properties::NON_EXPLICIT,
-	               ____KdTreeBuilder__C5_KdTreeBuilder_R1,
-	               "",
-	               "");
-	I_Method0(const char *, libraryName,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__libraryName,
-	          "return the library name/namespapce of the visitor's. ",
-	          "Should be defined by derived classes. ");
-	I_Method0(const char *, className,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__className,
-	          "return the name of the visitor's class type. ",
-	          "Should be defined by derived classes. ");
-	I_Method0(osg::KdTreeBuilder *, clone,
-	          Properties::VIRTUAL,
-	          __KdTreeBuilder_P1__clone,
-	          "",
-	          "");
-	I_Method1(void, apply, IN, osg::Geode &, geode,
-	          Properties::VIRTUAL,
-	          __void__apply__osg_Geode_R1,
-	          "",
-	          "");
-	I_PublicMemberProperty(osg::KdTree::BuildOptions, _buildOptions);
-	I_PublicMemberProperty(osg::ref_ptr< osg::KdTree >, _kdTreePrototype);
 END_REFLECTOR
 
 STD_VECTOR_REFLECTOR(std::vector< double >)

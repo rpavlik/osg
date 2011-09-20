@@ -31,6 +31,48 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osg::Node::ComputeBoundingSphereCallback)
+	I_DeclaringFile("osg/Node");
+	I_BaseType(osg::Object);
+	I_Constructor0(____ComputeBoundingSphereCallback,
+	               "",
+	               "");
+	I_Constructor2(IN, const osg::Node::ComputeBoundingSphereCallback &, x, IN, const osg::CopyOp &, x,
+	               ____ComputeBoundingSphereCallback__C5_ComputeBoundingSphereCallback_R1__C5_CopyOp_R1,
+	               "",
+	               "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::BoundingSphere, computeBound, IN, const osg::Node &, x,
+	          Properties::VIRTUAL,
+	          __BoundingSphere__computeBound__C5_osg_Node_R1,
+	          "",
+	          "");
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::vector< osg::Group * >, osg::Node::ParentList)
 
 TYPE_NAME_ALIAS(unsigned int, osg::Node::NodeMask)
@@ -483,48 +525,6 @@ BEGIN_OBJECT_REFLECTOR(osg::Node)
 	I_SimpleProperty(osg::NodeCallback *, UpdateCallback, 
 	                 __NodeCallback_P1__getUpdateCallback, 
 	                 __void__setUpdateCallback__NodeCallback_P1);
-END_REFLECTOR
-
-BEGIN_OBJECT_REFLECTOR(osg::Node::ComputeBoundingSphereCallback)
-	I_DeclaringFile("osg/Node");
-	I_BaseType(osg::Object);
-	I_Constructor0(____ComputeBoundingSphereCallback,
-	               "",
-	               "");
-	I_Constructor2(IN, const osg::Node::ComputeBoundingSphereCallback &, x, IN, const osg::CopyOp &, x,
-	               ____ComputeBoundingSphereCallback__C5_ComputeBoundingSphereCallback_R1__C5_CopyOp_R1,
-	               "",
-	               "");
-	I_Method0(osg::Object *, cloneType,
-	          Properties::VIRTUAL,
-	          __osg_Object_P1__cloneType,
-	          "Clone the type of an object, with Object* return type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
-	          Properties::VIRTUAL,
-	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "Clone an object, with Object* return type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
-	          Properties::VIRTUAL,
-	          __bool__isSameKindAs__C5_osg_Object_P1,
-	          "",
-	          "");
-	I_Method0(const char *, libraryName,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__libraryName,
-	          "return the name of the object's library. ",
-	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
-	I_Method0(const char *, className,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__className,
-	          "return the name of the object's class type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(osg::BoundingSphere, computeBound, IN, const osg::Node &, x,
-	          Properties::VIRTUAL,
-	          __BoundingSphere__computeBound__C5_osg_Node_R1,
-	          "",
-	          "");
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(std::vector< osg::Node * >, osg::NodePath)

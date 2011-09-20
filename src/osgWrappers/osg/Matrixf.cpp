@@ -518,20 +518,20 @@ BEGIN_VALUE_REFLECTOR(osg::Matrixf)
 	                "");
 	I_StaticMethod2(osg::Vec3f, transform3x3, IN, const osg::Vec3f &, v, IN, const osg::Matrixf &, m,
 	                __Vec3f__transform3x3__C5_Vec3f_R1__C5_Matrixf_R1_S,
-	                "apply a 3x3 transform of v*M[0. ",
-	                ".2,0..2]. ");
+	                "apply a 3x3 transform of v*M[0..2,0..2]. ",
+	                "");
 	I_StaticMethod2(osg::Vec3d, transform3x3, IN, const osg::Vec3d &, v, IN, const osg::Matrixf &, m,
 	                __Vec3d__transform3x3__C5_Vec3d_R1__C5_Matrixf_R1_S,
-	                "apply a 3x3 transform of v*M[0. ",
-	                ".2,0..2]. ");
+	                "apply a 3x3 transform of v*M[0..2,0..2]. ",
+	                "");
 	I_StaticMethod2(osg::Vec3f, transform3x3, IN, const osg::Matrixf &, m, IN, const osg::Vec3f &, v,
 	                __Vec3f__transform3x3__C5_Matrixf_R1__C5_Vec3f_R1_S,
-	                "apply a 3x3 transform of M[0. ",
-	                ".2,0..2]*v. ");
+	                "apply a 3x3 transform of M[0..2,0..2]*v. ",
+	                "");
 	I_StaticMethod2(osg::Vec3d, transform3x3, IN, const osg::Matrixf &, m, IN, const osg::Vec3d &, v,
 	                __Vec3d__transform3x3__C5_Matrixf_R1__C5_Vec3d_R1_S,
-	                "apply a 3x3 transform of M[0. ",
-	                ".2,0..2]*v. ");
+	                "apply a 3x3 transform of M[0..2,0..2]*v. ",
+	                "");
 	I_SimpleProperty(osg::Quat, Rotate, 
 	                 __Quat__getRotate, 
 	                 __void__setRotate__C5_Quat_R1);

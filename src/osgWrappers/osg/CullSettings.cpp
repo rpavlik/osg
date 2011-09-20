@@ -24,7 +24,23 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(unsigned int, osg::CullSettings::CullingMode)
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::CullSettings::ClampProjectionMatrixCallback)
+	I_DeclaringFile("osg/CullSettings");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____ClampProjectionMatrixCallback,
+	               "",
+	               "");
+	I_Method3(bool, clampProjectionMatrixImplementation, IN, osg::Matrixf &, projection, IN, double &, znear, IN, double &, zfar,
+	          Properties::PURE_VIRTUAL,
+	          __bool__clampProjectionMatrixImplementation__osg_Matrixf_R1__double_R1__double_R1,
+	          "",
+	          "");
+	I_Method3(bool, clampProjectionMatrixImplementation, IN, osg::Matrixd &, projection, IN, double &, znear, IN, double &, zfar,
+	          Properties::PURE_VIRTUAL,
+	          __bool__clampProjectionMatrixImplementation__osg_Matrixd_R1__double_R1__double_R1,
+	          "",
+	          "");
+END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osg::CullSettings::VariablesMask)
 	I_DeclaringFile("osg/CullSettings");
@@ -74,6 +90,8 @@ BEGIN_ENUM_REFLECTOR(osg::CullSettings::CullingModeValues)
 	I_EnumLabel(osg::CullSettings::DEFAULT_CULLING);
 	I_EnumLabel(osg::CullSettings::ENABLE_ALL_CULLING);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(unsigned int, osg::CullSettings::CullingMode)
 
 BEGIN_VALUE_REFLECTOR(osg::CullSettings)
 	I_DeclaringFile("osg/CullSettings");
@@ -333,23 +351,5 @@ BEGIN_VALUE_REFLECTOR(osg::CullSettings)
 	I_SimpleProperty(float, SmallFeatureCullingPixelSize, 
 	                 __float__getSmallFeatureCullingPixelSize, 
 	                 __void__setSmallFeatureCullingPixelSize__float);
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::CullSettings::ClampProjectionMatrixCallback)
-	I_DeclaringFile("osg/CullSettings");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____ClampProjectionMatrixCallback,
-	               "",
-	               "");
-	I_Method3(bool, clampProjectionMatrixImplementation, IN, osg::Matrixf &, projection, IN, double &, znear, IN, double &, zfar,
-	          Properties::PURE_VIRTUAL,
-	          __bool__clampProjectionMatrixImplementation__osg_Matrixf_R1__double_R1__double_R1,
-	          "",
-	          "");
-	I_Method3(bool, clampProjectionMatrixImplementation, IN, osg::Matrixd &, projection, IN, double &, znear, IN, double &, zfar,
-	          Properties::PURE_VIRTUAL,
-	          __bool__clampProjectionMatrixImplementation__osg_Matrixd_R1__double_R1__double_R1,
-	          "",
-	          "");
 END_REFLECTOR
 

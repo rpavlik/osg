@@ -28,14 +28,14 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::map< double COMMA  osg::AnimationPath::ControlPoint >, osg::AnimationPath::TimeControlPointMap)
-
 BEGIN_ENUM_REFLECTOR(osg::AnimationPath::LoopMode)
 	I_DeclaringFile("osg/AnimationPath");
 	I_EnumLabel(osg::AnimationPath::SWING);
 	I_EnumLabel(osg::AnimationPath::LOOP);
 	I_EnumLabel(osg::AnimationPath::NO_LOOPING);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::map< double COMMA  osg::AnimationPath::ControlPoint >, osg::AnimationPath::TimeControlPointMap)
 
 BEGIN_OBJECT_REFLECTOR(osg::AnimationPath)
 	I_DeclaringFile("osg/AnimationPath");
@@ -52,7 +52,7 @@ BEGIN_OBJECT_REFLECTOR(osg::AnimationPath)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -184,95 +184,6 @@ BEGIN_OBJECT_REFLECTOR(osg::AnimationPath)
 	                 __void__setTimeControlPointMap__TimeControlPointMap_R1);
 END_REFLECTOR
 
-BEGIN_VALUE_REFLECTOR(osg::AnimationPath::ControlPoint)
-	I_DeclaringFile("osg/AnimationPath");
-	I_Constructor0(____ControlPoint,
-	               "",
-	               "");
-	I_Constructor1(IN, const osg::Vec3d &, position,
-	               Properties::NON_EXPLICIT,
-	               ____ControlPoint__C5_osg_Vec3d_R1,
-	               "",
-	               "");
-	I_Constructor2(IN, const osg::Vec3d &, position, IN, const osg::Quat &, rotation,
-	               ____ControlPoint__C5_osg_Vec3d_R1__C5_osg_Quat_R1,
-	               "",
-	               "");
-	I_Constructor3(IN, const osg::Vec3d &, position, IN, const osg::Quat &, rotation, IN, const osg::Vec3d &, scale,
-	               ____ControlPoint__C5_osg_Vec3d_R1__C5_osg_Quat_R1__C5_osg_Vec3d_R1,
-	               "",
-	               "");
-	I_Method1(void, setPosition, IN, const osg::Vec3d &, position,
-	          Properties::NON_VIRTUAL,
-	          __void__setPosition__C5_osg_Vec3d_R1,
-	          "",
-	          "");
-	I_Method0(const osg::Vec3d &, getPosition,
-	          Properties::NON_VIRTUAL,
-	          __C5_osg_Vec3d_R1__getPosition,
-	          "",
-	          "");
-	I_Method1(void, setRotation, IN, const osg::Quat &, rotation,
-	          Properties::NON_VIRTUAL,
-	          __void__setRotation__C5_osg_Quat_R1,
-	          "",
-	          "");
-	I_Method0(const osg::Quat &, getRotation,
-	          Properties::NON_VIRTUAL,
-	          __C5_osg_Quat_R1__getRotation,
-	          "",
-	          "");
-	I_Method1(void, setScale, IN, const osg::Vec3d &, scale,
-	          Properties::NON_VIRTUAL,
-	          __void__setScale__C5_osg_Vec3d_R1,
-	          "",
-	          "");
-	I_Method0(const osg::Vec3d &, getScale,
-	          Properties::NON_VIRTUAL,
-	          __C5_osg_Vec3d_R1__getScale,
-	          "",
-	          "");
-	I_Method3(void, interpolate, IN, float, ratio, IN, const osg::AnimationPath::ControlPoint &, first, IN, const osg::AnimationPath::ControlPoint &, second,
-	          Properties::NON_VIRTUAL,
-	          __void__interpolate__float__C5_ControlPoint_R1__C5_ControlPoint_R1,
-	          "",
-	          "");
-	I_Method3(void, interpolate, IN, double, ratio, IN, const osg::AnimationPath::ControlPoint &, first, IN, const osg::AnimationPath::ControlPoint &, second,
-	          Properties::NON_VIRTUAL,
-	          __void__interpolate__double__C5_ControlPoint_R1__C5_ControlPoint_R1,
-	          "",
-	          "");
-	I_Method1(void, getMatrix, IN, osg::Matrixf &, matrix,
-	          Properties::NON_VIRTUAL,
-	          __void__getMatrix__Matrixf_R1,
-	          "",
-	          "");
-	I_Method1(void, getMatrix, IN, osg::Matrixd &, matrix,
-	          Properties::NON_VIRTUAL,
-	          __void__getMatrix__Matrixd_R1,
-	          "",
-	          "");
-	I_Method1(void, getInverse, IN, osg::Matrixf &, matrix,
-	          Properties::NON_VIRTUAL,
-	          __void__getInverse__Matrixf_R1,
-	          "",
-	          "");
-	I_Method1(void, getInverse, IN, osg::Matrixd &, matrix,
-	          Properties::NON_VIRTUAL,
-	          __void__getInverse__Matrixd_R1,
-	          "",
-	          "");
-	I_SimpleProperty(const osg::Vec3d &, Position, 
-	                 __C5_osg_Vec3d_R1__getPosition, 
-	                 __void__setPosition__C5_osg_Vec3d_R1);
-	I_SimpleProperty(const osg::Quat &, Rotation, 
-	                 __C5_osg_Quat_R1__getRotation, 
-	                 __void__setRotation__C5_osg_Quat_R1);
-	I_SimpleProperty(const osg::Vec3d &, Scale, 
-	                 __C5_osg_Vec3d_R1__getScale, 
-	                 __void__setScale__C5_osg_Vec3d_R1);
-END_REFLECTOR
-
 BEGIN_OBJECT_REFLECTOR(osg::AnimationPathCallback)
 	I_DeclaringFile("osg/AnimationPath");
 	I_BaseType(osg::NodeCallback);
@@ -288,7 +199,7 @@ BEGIN_OBJECT_REFLECTOR(osg::AnimationPathCallback)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -426,6 +337,95 @@ BEGIN_OBJECT_REFLECTOR(osg::AnimationPathCallback)
 	I_PublicMemberProperty(double, _latestTime);
 	I_PublicMemberProperty(bool, _pause);
 	I_PublicMemberProperty(double, _pauseTime);
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osg::AnimationPath::ControlPoint)
+	I_DeclaringFile("osg/AnimationPath");
+	I_Constructor0(____ControlPoint,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::Vec3d &, position,
+	               Properties::NON_EXPLICIT,
+	               ____ControlPoint__C5_osg_Vec3d_R1,
+	               "",
+	               "");
+	I_Constructor2(IN, const osg::Vec3d &, position, IN, const osg::Quat &, rotation,
+	               ____ControlPoint__C5_osg_Vec3d_R1__C5_osg_Quat_R1,
+	               "",
+	               "");
+	I_Constructor3(IN, const osg::Vec3d &, position, IN, const osg::Quat &, rotation, IN, const osg::Vec3d &, scale,
+	               ____ControlPoint__C5_osg_Vec3d_R1__C5_osg_Quat_R1__C5_osg_Vec3d_R1,
+	               "",
+	               "");
+	I_Method1(void, setPosition, IN, const osg::Vec3d &, position,
+	          Properties::NON_VIRTUAL,
+	          __void__setPosition__C5_osg_Vec3d_R1,
+	          "",
+	          "");
+	I_Method0(const osg::Vec3d &, getPosition,
+	          Properties::NON_VIRTUAL,
+	          __C5_osg_Vec3d_R1__getPosition,
+	          "",
+	          "");
+	I_Method1(void, setRotation, IN, const osg::Quat &, rotation,
+	          Properties::NON_VIRTUAL,
+	          __void__setRotation__C5_osg_Quat_R1,
+	          "",
+	          "");
+	I_Method0(const osg::Quat &, getRotation,
+	          Properties::NON_VIRTUAL,
+	          __C5_osg_Quat_R1__getRotation,
+	          "",
+	          "");
+	I_Method1(void, setScale, IN, const osg::Vec3d &, scale,
+	          Properties::NON_VIRTUAL,
+	          __void__setScale__C5_osg_Vec3d_R1,
+	          "",
+	          "");
+	I_Method0(const osg::Vec3d &, getScale,
+	          Properties::NON_VIRTUAL,
+	          __C5_osg_Vec3d_R1__getScale,
+	          "",
+	          "");
+	I_Method3(void, interpolate, IN, float, ratio, IN, const osg::AnimationPath::ControlPoint &, first, IN, const osg::AnimationPath::ControlPoint &, second,
+	          Properties::NON_VIRTUAL,
+	          __void__interpolate__float__C5_ControlPoint_R1__C5_ControlPoint_R1,
+	          "",
+	          "");
+	I_Method3(void, interpolate, IN, double, ratio, IN, const osg::AnimationPath::ControlPoint &, first, IN, const osg::AnimationPath::ControlPoint &, second,
+	          Properties::NON_VIRTUAL,
+	          __void__interpolate__double__C5_ControlPoint_R1__C5_ControlPoint_R1,
+	          "",
+	          "");
+	I_Method1(void, getMatrix, IN, osg::Matrixf &, matrix,
+	          Properties::NON_VIRTUAL,
+	          __void__getMatrix__Matrixf_R1,
+	          "",
+	          "");
+	I_Method1(void, getMatrix, IN, osg::Matrixd &, matrix,
+	          Properties::NON_VIRTUAL,
+	          __void__getMatrix__Matrixd_R1,
+	          "",
+	          "");
+	I_Method1(void, getInverse, IN, osg::Matrixf &, matrix,
+	          Properties::NON_VIRTUAL,
+	          __void__getInverse__Matrixf_R1,
+	          "",
+	          "");
+	I_Method1(void, getInverse, IN, osg::Matrixd &, matrix,
+	          Properties::NON_VIRTUAL,
+	          __void__getInverse__Matrixd_R1,
+	          "",
+	          "");
+	I_SimpleProperty(const osg::Vec3d &, Position, 
+	                 __C5_osg_Vec3d_R1__getPosition, 
+	                 __void__setPosition__C5_osg_Vec3d_R1);
+	I_SimpleProperty(const osg::Quat &, Rotation, 
+	                 __C5_osg_Quat_R1__getRotation, 
+	                 __void__setRotation__C5_osg_Quat_R1);
+	I_SimpleProperty(const osg::Vec3d &, Scale, 
+	                 __C5_osg_Vec3d_R1__getScale, 
+	                 __void__setScale__C5_osg_Vec3d_R1);
 END_REFLECTOR
 
 STD_MAP_REFLECTOR(std::map< double COMMA  osg::AnimationPath::ControlPoint >)

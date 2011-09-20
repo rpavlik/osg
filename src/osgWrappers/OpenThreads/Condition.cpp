@@ -34,7 +34,7 @@ BEGIN_OBJECT_REFLECTOR(OpenThreads::Condition)
 	I_Method2(int, wait, IN, OpenThreads::Mutex *, mutex, IN, unsigned long int, ms,
 	          Properties::VIRTUAL,
 	          __int__wait__Mutex_P1__unsigned_long_int,
-	          "Wait on a mutex for a given amount of time (ms). ",
+	          "Wait on a mutex for a given amount of time (ms) ",
 	          "0 if normal, -1 if errno set, errno code otherwise.  ");
 	I_Method0(int, signal,
 	          Properties::VIRTUAL,

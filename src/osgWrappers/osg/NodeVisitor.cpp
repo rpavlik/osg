@@ -47,6 +47,45 @@
 #undef OUT
 #endif
 
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::NodeVisitor::DatabaseRequestHandler)
+	I_DeclaringFile("osg/NodeVisitor");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____DatabaseRequestHandler,
+	               "",
+	               "");
+	I_Method5(void, requestNodeFile, IN, const std::string &, fileName, IN, osg::Group *, group, IN, float, priority, IN, const osg::FrameStamp *, framestamp, IN, osg::ref_ptr< osg::Referenced > &, databaseRequest,
+	          Properties::PURE_VIRTUAL,
+	          __void__requestNodeFile__C5_std_string_R1__osg_Group_P1__float__C5_FrameStamp_P1__osg_ref_ptrT1_osg_Referenced__R1,
+	          "",
+	          "");
+END_REFLECTOR
+
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::NodeVisitor::ImageRequestHandler)
+	I_DeclaringFile("osg/NodeVisitor");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____ImageRequestHandler,
+	               "",
+	               "");
+	I_Method0(double, getPreLoadTime,
+	          Properties::PURE_VIRTUAL,
+	          __double__getPreLoadTime,
+	          "",
+	          "");
+	I_Method1(osg::Image *, readImageFile, IN, const std::string &, fileName,
+	          Properties::PURE_VIRTUAL,
+	          __osg_Image_P1__readImageFile__C5_std_string_R1,
+	          "",
+	          "");
+	I_Method5(void, requestImageFile, IN, const std::string &, fileName, IN, osg::Object *, attachmentPoint, IN, int, attachmentIndex, IN, double, timeToMergeBy, IN, const osg::FrameStamp *, framestamp,
+	          Properties::PURE_VIRTUAL,
+	          __void__requestImageFile__C5_std_string_R1__osg_Object_P1__int__double__C5_FrameStamp_P1,
+	          "",
+	          "");
+	I_SimpleProperty(double, PreLoadTime, 
+	                 __double__getPreLoadTime, 
+	                 0);
+END_REFLECTOR
+
 BEGIN_VALUE_REFLECTOR(osg::NodeAcceptOp)
 	I_DeclaringFile("osg/NodeVisitor");
 	I_Constructor1(IN, osg::NodeVisitor &, nv,
@@ -193,13 +232,13 @@ BEGIN_OBJECT_REFLECTOR(osg::NodeVisitor)
 	I_Method1(void, pushOntoNodePath, IN, osg::Node *, node,
 	          Properties::NON_VIRTUAL,
 	          __void__pushOntoNodePath__Node_P1,
-	          "Method called by osg::Node::accept() method before a call to the NodeVisitor::apply(. ",
-	          ".). The back of the list will, therefore, be the current node being visited inside the apply(..), and the rest of the list will be the parental sequence of nodes from the top most node applied down the graph to the current node. Note, the user does not typically call pushNodeOnPath() as it will be called automatically by the Node::accept() method. ");
+	          "Method called by osg::Node::accept() method before a call to the NodeVisitor::apply(..). ",
+	          "The back of the list will, therefore, be the current node being visited inside the apply(..), and the rest of the list will be the parental sequence of nodes from the top most node applied down the graph to the current node. Note, the user does not typically call pushNodeOnPath() as it will be called automatically by the Node::accept() method. ");
 	I_Method0(void, popFromNodePath,
 	          Properties::NON_VIRTUAL,
 	          __void__popFromNodePath,
-	          "Method called by osg::Node::accept() method after a call to NodeVisitor::apply(. ",
-	          ".). Note, the user does not typically call popFromNodePath() as it will be called automatically by the Node::accept() method. ");
+	          "Method called by osg::Node::accept() method after a call to NodeVisitor::apply(..). ",
+	          "Note, the user does not typically call popFromNodePath() as it will be called automatically by the Node::accept() method. ");
 	I_Method0(osg::NodePath &, getNodePath,
 	          Properties::NON_VIRTUAL,
 	          __NodePath_R1__getNodePath,
@@ -411,45 +450,6 @@ BEGIN_OBJECT_REFLECTOR(osg::NodeVisitor)
 	I_SimpleProperty(osg::NodeVisitor::VisitorType, VisitorType, 
 	                 __VisitorType__getVisitorType, 
 	                 __void__setVisitorType__VisitorType);
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::NodeVisitor::DatabaseRequestHandler)
-	I_DeclaringFile("osg/NodeVisitor");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____DatabaseRequestHandler,
-	               "",
-	               "");
-	I_Method5(void, requestNodeFile, IN, const std::string &, fileName, IN, osg::Group *, group, IN, float, priority, IN, const osg::FrameStamp *, framestamp, IN, osg::ref_ptr< osg::Referenced > &, databaseRequest,
-	          Properties::PURE_VIRTUAL,
-	          __void__requestNodeFile__C5_std_string_R1__osg_Group_P1__float__C5_FrameStamp_P1__osg_ref_ptrT1_osg_Referenced__R1,
-	          "",
-	          "");
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::NodeVisitor::ImageRequestHandler)
-	I_DeclaringFile("osg/NodeVisitor");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____ImageRequestHandler,
-	               "",
-	               "");
-	I_Method0(double, getPreLoadTime,
-	          Properties::PURE_VIRTUAL,
-	          __double__getPreLoadTime,
-	          "",
-	          "");
-	I_Method1(osg::Image *, readImageFile, IN, const std::string &, fileName,
-	          Properties::PURE_VIRTUAL,
-	          __osg_Image_P1__readImageFile__C5_std_string_R1,
-	          "",
-	          "");
-	I_Method5(void, requestImageFile, IN, const std::string &, fileName, IN, osg::Object *, attachmentPoint, IN, int, attachmentIndex, IN, double, timeToMergeBy, IN, const osg::FrameStamp *, framestamp,
-	          Properties::PURE_VIRTUAL,
-	          __void__requestImageFile__C5_std_string_R1__osg_Object_P1__int__double__C5_FrameStamp_P1,
-	          "",
-	          "");
-	I_SimpleProperty(double, PreLoadTime, 
-	                 __double__getPreLoadTime, 
-	                 0);
 END_REFLECTOR
 
 BEGIN_VALUE_REFLECTOR(osg::ref_ptr< osg::Referenced >)

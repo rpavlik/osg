@@ -31,7 +31,18 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::vector< const osg::StateSet * >, osg::State::StateSetStack)
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::State::DynamicObjectRenderingCompletedCallback)
+	I_DeclaringFile("osg/State");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____DynamicObjectRenderingCompletedCallback,
+	               "",
+	               "");
+	I_Method1(void, completed, IN, osg::State *, x,
+	          Properties::PURE_VIRTUAL,
+	          __void__completed__osg_State_P1,
+	          "",
+	          "");
+END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osg::State::CheckForGLErrors)
 	I_DeclaringFile("osg/State");
@@ -39,6 +50,8 @@ BEGIN_ENUM_REFLECTOR(osg::State::CheckForGLErrors)
 	I_EnumLabel(osg::State::ONCE_PER_FRAME);
 	I_EnumLabel(osg::State::ONCE_PER_ATTRIBUTE);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::vector< const osg::StateSet * >, osg::State::StateSetStack)
 
 BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_DeclaringFile("osg/State");
@@ -255,8 +268,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method1(void, haveAppliedMode, IN, osg::StateAttribute::GLMode, mode,
 	          Properties::NON_VIRTUAL,
 	          __void__haveAppliedMode__StateAttribute_GLMode,
-	          "Mode has been set externally, therefore dirty the associated mode in osg::State so it is applied on next call to osg::State::apply(. ",
-	          ".) ");
+	          "Mode has been set externally, therefore dirty the associated mode in osg::State so it is applied on next call to osg::State::apply(..) ",
+	          "");
 	I_Method1(void, haveAppliedAttribute, IN, const osg::StateAttribute *, attribute,
 	          Properties::NON_VIRTUAL,
 	          __void__haveAppliedAttribute__C5_StateAttribute_P1,
@@ -265,8 +278,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_MethodWithDefaults2(void, haveAppliedAttribute, IN, osg::StateAttribute::Type, type, , IN, unsigned int, member, 0,
 	                      Properties::NON_VIRTUAL,
 	                      __void__haveAppliedAttribute__StateAttribute_Type__unsigned_int,
-	                      "Attribute has been applied externally, and therefore this attribute type has been dirtied and will need to be re-applied on next osg::State.apply(. ",
-	                      ".). note, if you have an osg::StateAttribute which you have applied externally then use the have_applied(attribute) method as this will cause the osg::State to track the current state more accurately and enable lazy state updating such that only changed state will be applied. ");
+	                      "Attribute has been applied externally, and therefore this attribute type has been dirtied and will need to be re-applied on next osg::State.apply(..). ",
+	                      "note, if you have an osg::StateAttribute which you have applied externally then use the have_applied(attribute) method as this will cause the osg::State to track the current state more accurately and enable lazy state updating such that only changed state will be applied. ");
 	I_Method1(bool, getLastAppliedMode, IN, osg::StateAttribute::GLMode, mode,
 	          Properties::NON_VIRTUAL,
 	          __bool__getLastAppliedMode__StateAttribute_GLMode,
@@ -285,8 +298,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method2(void, haveAppliedTextureMode, IN, unsigned int, unit, IN, osg::StateAttribute::GLMode, mode,
 	          Properties::NON_VIRTUAL,
 	          __void__haveAppliedTextureMode__unsigned_int__StateAttribute_GLMode,
-	          "texture Mode has been set externally, therefore dirty the associated mode in osg::State so it is applied on next call to osg::State::apply(. ",
-	          ".) ");
+	          "texture Mode has been set externally, therefore dirty the associated mode in osg::State so it is applied on next call to osg::State::apply(..) ",
+	          "");
 	I_Method2(void, haveAppliedTextureAttribute, IN, unsigned int, unit, IN, const osg::StateAttribute *, attribute,
 	          Properties::NON_VIRTUAL,
 	          __void__haveAppliedTextureAttribute__unsigned_int__C5_StateAttribute_P1,
@@ -295,8 +308,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_MethodWithDefaults3(void, haveAppliedTextureAttribute, IN, unsigned int, unit, , IN, osg::StateAttribute::Type, type, , IN, unsigned int, member, 0,
 	                      Properties::NON_VIRTUAL,
 	                      __void__haveAppliedTextureAttribute__unsigned_int__StateAttribute_Type__unsigned_int,
-	                      "texture Attribute has been applied externally, and therefore this attribute type has been dirtied and will need to be re-applied on next osg::State.apply(. ",
-	                      ".). note, if you have an osg::StateAttribute which you have applied externally then use the have_applied(attribute) method as this will the osg::State to track the current state more accurately and enable lazy state updating such that only changed state will be applied. ");
+	                      "texture Attribute has been applied externally, and therefore this attribute type has been dirtied and will need to be re-applied on next osg::State.apply(..). ",
+	                      "note, if you have an osg::StateAttribute which you have applied externally then use the have_applied(attribute) method as this will the osg::State to track the current state more accurately and enable lazy state updating such that only changed state will be applied. ");
 	I_Method2(bool, getLastAppliedTextureMode, IN, unsigned int, unit, IN, osg::StateAttribute::GLMode, mode,
 	          Properties::NON_VIRTUAL,
 	          __bool__getLastAppliedTextureMode__unsigned_int__StateAttribute_GLMode,
@@ -400,8 +413,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method3(void, setInterleavedArrays, IN, GLenum, format, IN, GLsizei, stride, IN, const GLvoid *, pointer,
 	          Properties::NON_VIRTUAL,
 	          __void__setInterleavedArrays__GLenum__GLsizei__C5_GLvoid_P1,
-	          "Wrapper around glInterleavedArrays(. ",
-	          ".). also resets the internal array points and modes within osg::State to keep the other vertex array operations consistent. ");
+	          "Wrapper around glInterleavedArrays(..). ",
+	          "also resets the internal array points and modes within osg::State to keep the other vertex array operations consistent. ");
 	I_Method1(void, setVertexPointer, IN, const osg::Array *, array,
 	          Properties::NON_VIRTUAL,
 	          __void__setVertexPointer__C5_Array_P1,
@@ -410,8 +423,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method4(void, setVertexPointer, IN, GLint, size, IN, GLenum, type, IN, GLsizei, stride, IN, const GLvoid *, ptr,
 	          Properties::NON_VIRTUAL,
 	          __void__setVertexPointer__GLint__GLenum__GLsizei__C5_GLvoid_P1,
-	          "wrapper around glEnableClientState(GL_VERTEX_ARRAY);glVertexPointer(. ",
-	          ".); note, only updates values that change. ");
+	          "wrapper around glEnableClientState(GL_VERTEX_ARRAY);glVertexPointer(..); note, only updates values that change. ",
+	          "");
 	I_Method0(void, disableVertexPointer,
 	          Properties::NON_VIRTUAL,
 	          __void__disableVertexPointer,
@@ -430,8 +443,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method3(void, setNormalPointer, IN, GLenum, type, IN, GLsizei, stride, IN, const GLvoid *, ptr,
 	          Properties::NON_VIRTUAL,
 	          __void__setNormalPointer__GLenum__GLsizei__C5_GLvoid_P1,
-	          "wrapper around glEnableClientState(GL_NORMAL_ARRAY);glNormalPointer(. ",
-	          ".); note, only updates values that change. ");
+	          "wrapper around glEnableClientState(GL_NORMAL_ARRAY);glNormalPointer(..); note, only updates values that change. ",
+	          "");
 	I_Method0(void, disableNormalPointer,
 	          Properties::NON_VIRTUAL,
 	          __void__disableNormalPointer,
@@ -450,8 +463,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method4(void, setColorPointer, IN, GLint, size, IN, GLenum, type, IN, GLsizei, stride, IN, const GLvoid *, ptr,
 	          Properties::NON_VIRTUAL,
 	          __void__setColorPointer__GLint__GLenum__GLsizei__C5_GLvoid_P1,
-	          "wrapper around glEnableClientState(GL_COLOR_ARRAY);glColorPointer(. ",
-	          ".); note, only updates values that change. ");
+	          "wrapper around glEnableClientState(GL_COLOR_ARRAY);glColorPointer(..); note, only updates values that change. ",
+	          "");
 	I_Method0(void, disableColorPointer,
 	          Properties::NON_VIRTUAL,
 	          __void__disableColorPointer,
@@ -475,8 +488,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method4(void, setSecondaryColorPointer, IN, GLint, size, IN, GLenum, type, IN, GLsizei, stride, IN, const GLvoid *, ptr,
 	          Properties::NON_VIRTUAL,
 	          __void__setSecondaryColorPointer__GLint__GLenum__GLsizei__C5_GLvoid_P1,
-	          "wrapper around glEnableClientState(GL_SECONDARY_COLOR_ARRAY);glSecondayColorPointer(. ",
-	          ".); note, only updates values that change. ");
+	          "wrapper around glEnableClientState(GL_SECONDARY_COLOR_ARRAY);glSecondayColorPointer(..); note, only updates values that change. ",
+	          "");
 	I_Method0(void, disableSecondaryColorPointer,
 	          Properties::NON_VIRTUAL,
 	          __void__disableSecondaryColorPointer,
@@ -490,8 +503,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method3(void, setIndexPointer, IN, GLenum, type, IN, GLsizei, stride, IN, const GLvoid *, ptr,
 	          Properties::NON_VIRTUAL,
 	          __void__setIndexPointer__GLenum__GLsizei__C5_GLvoid_P1,
-	          "wrapper around glEnableClientState(GL_INDEX_ARRAY);glIndexPointer(. ",
-	          ".); note, only updates values that change. ");
+	          "wrapper around glEnableClientState(GL_INDEX_ARRAY);glIndexPointer(..); note, only updates values that change. ",
+	          "");
 	I_Method0(void, disableIndexPointer,
 	          Properties::NON_VIRTUAL,
 	          __void__disableIndexPointer,
@@ -515,8 +528,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method3(void, setFogCoordPointer, IN, GLenum, type, IN, GLsizei, stride, IN, const GLvoid *, ptr,
 	          Properties::NON_VIRTUAL,
 	          __void__setFogCoordPointer__GLenum__GLsizei__C5_GLvoid_P1,
-	          "wrapper around glEnableClientState(GL_FOG_COORDINATE_ARRAY);glFogCoordPointer(. ",
-	          ".); note, only updates values that change. ");
+	          "wrapper around glEnableClientState(GL_FOG_COORDINATE_ARRAY);glFogCoordPointer(..); note, only updates values that change. ",
+	          "");
 	I_Method0(void, disableFogCoordPointer,
 	          Properties::NON_VIRTUAL,
 	          __void__disableFogCoordPointer,
@@ -535,8 +548,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method5(void, setTexCoordPointer, IN, unsigned int, unit, IN, GLint, size, IN, GLenum, type, IN, GLsizei, stride, IN, const GLvoid *, ptr,
 	          Properties::NON_VIRTUAL,
 	          __void__setTexCoordPointer__unsigned_int__GLint__GLenum__GLsizei__C5_GLvoid_P1,
-	          "wrapper around glEnableClientState(GL_TEXTURE_COORD_ARRAY);glTexCoordPointer(. ",
-	          ".); note, only updates values that change. ");
+	          "wrapper around glEnableClientState(GL_TEXTURE_COORD_ARRAY);glTexCoordPointer(..); note, only updates values that change. ",
+	          "");
 	I_Method1(void, disableTexCoordPointer, IN, unsigned int, unit,
 	          Properties::NON_VIRTUAL,
 	          __void__disableTexCoordPointer__unsigned_int,
@@ -585,8 +598,8 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method6(void, setVertexAttribPointer, IN, unsigned int, index, IN, GLint, size, IN, GLenum, type, IN, GLboolean, normalized, IN, GLsizei, stride, IN, const GLvoid *, ptr,
 	          Properties::NON_VIRTUAL,
 	          __void__setVertexAttribPointer__unsigned_int__GLint__GLenum__GLboolean__GLsizei__C5_GLvoid_P1,
-	          "wrapper around glEnableVertexAttribArrayARB(index);glVertexAttribPointerARB(. ",
-	          ".); note, only updates values that change. ");
+	          "wrapper around glEnableVertexAttribArrayARB(index);glVertexAttribPointerARB(..); note, only updates values that change. ",
+	          "");
 	I_Method1(void, disableVertexAttribPointer, IN, unsigned int, index,
 	          Properties::NON_VIRTUAL,
 	          __void__disableVertexAttribPointer__unsigned_int,
@@ -715,7 +728,7 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_Method0(void, initializeExtensionProcs,
 	          Properties::NON_VIRTUAL,
 	          __void__initializeExtensionProcs,
-	          "Initialize extension used by osg:State. ",
+	          "Initialize extension used by osg:::State. ",
 	          "");
 	I_Method1(void, objectDeleted, IN, void *, object,
 	          Properties::VIRTUAL,
@@ -869,19 +882,6 @@ BEGIN_OBJECT_REFLECTOR(osg::State)
 	I_SimpleProperty(osg::Polytope, ViewFrustum, 
 	                 __Polytope__getViewFrustum, 
 	                 0);
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::State::DynamicObjectRenderingCompletedCallback)
-	I_DeclaringFile("osg/State");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____DynamicObjectRenderingCompletedCallback,
-	               "",
-	               "");
-	I_Method1(void, completed, IN, osg::State *, x,
-	          Properties::PURE_VIRTUAL,
-	          __void__completed__osg_State_P1,
-	          "",
-	          "");
 END_REFLECTOR
 
 STD_VECTOR_REFLECTOR(std::vector< const osg::StateSet * >)

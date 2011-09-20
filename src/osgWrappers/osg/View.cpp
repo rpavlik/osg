@@ -28,6 +28,28 @@
 #undef OUT
 #endif
 
+BEGIN_VALUE_REFLECTOR(osg::View::Slave)
+	I_DeclaringFile("osg/View");
+	I_ConstructorWithDefaults1(IN, bool, useMastersSceneData, true,
+	                           Properties::NON_EXPLICIT,
+	                           ____Slave__bool,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults4(IN, osg::Camera *, camera, , IN, const osg::Matrixd &, projectionOffset, , IN, const osg::Matrixd &, viewOffset, , IN, bool, useMastersSceneData, true,
+	                           ____Slave__osg_Camera_P1__C5_osg_Matrixd_R1__C5_osg_Matrixd_R1__bool,
+	                           "",
+	                           "");
+	I_Constructor1(IN, const osg::View::Slave &, rhs,
+	               Properties::NON_EXPLICIT,
+	               ____Slave__C5_Slave_R1,
+	               "",
+	               "");
+	I_PublicMemberProperty(osg::ref_ptr< osg::Camera >, _camera);
+	I_PublicMemberProperty(osg::Matrixd, _projectionOffset);
+	I_PublicMemberProperty(osg::Matrixd, _viewOffset);
+	I_PublicMemberProperty(bool, _useMastersSceneData);
+END_REFLECTOR
+
 BEGIN_ENUM_REFLECTOR(osg::View::LightingMode)
 	I_DeclaringFile("osg/View");
 	I_EnumLabel(osg::View::NO_LIGHT);
@@ -50,7 +72,7 @@ BEGIN_OBJECT_REFLECTOR(osg::View)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -223,27 +245,5 @@ BEGIN_OBJECT_REFLECTOR(osg::View)
 	I_SimpleProperty(osg::Stats *, Stats, 
 	                 __osg_Stats_P1__getStats, 
 	                 __void__setStats__osg_Stats_P1);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osg::View::Slave)
-	I_DeclaringFile("osg/View");
-	I_ConstructorWithDefaults1(IN, bool, useMastersSceneData, true,
-	                           Properties::NON_EXPLICIT,
-	                           ____Slave__bool,
-	                           "",
-	                           "");
-	I_ConstructorWithDefaults4(IN, osg::Camera *, camera, , IN, const osg::Matrixd &, projectionOffset, , IN, const osg::Matrixd &, viewOffset, , IN, bool, useMastersSceneData, true,
-	                           ____Slave__osg_Camera_P1__C5_osg_Matrixd_R1__C5_osg_Matrixd_R1__bool,
-	                           "",
-	                           "");
-	I_Constructor1(IN, const osg::View::Slave &, rhs,
-	               Properties::NON_EXPLICIT,
-	               ____Slave__C5_Slave_R1,
-	               "",
-	               "");
-	I_PublicMemberProperty(osg::ref_ptr< osg::Camera >, _camera);
-	I_PublicMemberProperty(osg::Matrixd, _projectionOffset);
-	I_PublicMemberProperty(osg::Matrixd, _viewOffset);
-	I_PublicMemberProperty(bool, _useMastersSceneData);
 END_REFLECTOR
 

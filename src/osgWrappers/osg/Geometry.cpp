@@ -28,13 +28,33 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::vector< osg::Geometry::ArrayData >, osg::Geometry::ArrayDataList)
-
-TYPE_NAME_ALIAS(std::vector< osg::ref_ptr< osg::PrimitiveSet > >, osg::Geometry::PrimitiveSetList)
-
-TYPE_NAME_ALIAS(std::vector< osg::Array * >, osg::Geometry::ArrayList)
-
-TYPE_NAME_ALIAS(std::vector< osg::DrawElements * >, osg::Geometry::DrawElementsList)
+BEGIN_VALUE_REFLECTOR(osg::Geometry::ArrayData)
+	I_DeclaringFile("osg/Geometry");
+	I_Constructor0(____ArrayData,
+	               "",
+	               "");
+	I_ConstructorWithDefaults2(IN, const osg::Geometry::ArrayData &, data, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
+	                           ____ArrayData__C5_ArrayData_R1__C5_CopyOp_R1,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults3(IN, osg::Array *, a, , IN, osg::Geometry::AttributeBinding, b, , IN, GLboolean, n, GL_FALSE,
+	                           ____ArrayData__Array_P1__AttributeBinding__GLboolean,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults4(IN, osg::Array *, a, , IN, osg::IndexArray *, i, , IN, osg::Geometry::AttributeBinding, b, , IN, GLboolean, n, GL_FALSE,
+	                           ____ArrayData__Array_P1__IndexArray_P1__AttributeBinding__GLboolean,
+	                           "",
+	                           "");
+	I_Method0(bool, empty,
+	          Properties::NON_VIRTUAL,
+	          __bool__empty,
+	          "",
+	          "");
+	I_PublicMemberProperty(osg::ref_ptr< osg::Array >, array);
+	I_PublicMemberProperty(osg::ref_ptr< osg::IndexArray >, indices);
+	I_PublicMemberProperty(osg::Geometry::AttributeBinding, binding);
+	I_PublicMemberProperty(GLboolean, normalize);
+END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osg::Geometry::AttributeBinding)
 	I_DeclaringFile("osg/Geometry");
@@ -44,6 +64,14 @@ BEGIN_ENUM_REFLECTOR(osg::Geometry::AttributeBinding)
 	I_EnumLabel(osg::Geometry::BIND_PER_PRIMITIVE);
 	I_EnumLabel(osg::Geometry::BIND_PER_VERTEX);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::vector< osg::Geometry::ArrayData >, osg::Geometry::ArrayDataList)
+
+TYPE_NAME_ALIAS(std::vector< osg::ref_ptr< osg::PrimitiveSet > >, osg::Geometry::PrimitiveSetList)
+
+TYPE_NAME_ALIAS(std::vector< osg::Array * >, osg::Geometry::ArrayList)
+
+TYPE_NAME_ALIAS(std::vector< osg::DrawElements * >, osg::Geometry::DrawElementsList)
 
 BEGIN_OBJECT_REFLECTOR(osg::Geometry)
 	I_DeclaringFile("osg/Geometry");
@@ -60,7 +88,7 @@ BEGIN_OBJECT_REFLECTOR(osg::Geometry)
 	          __Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __Object_P1__clone__C5_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -897,34 +925,6 @@ BEGIN_OBJECT_REFLECTOR(osg::Geometry)
 	I_SimpleProperty(osg::IndexArray *, VertexIndices, 
 	                 __IndexArray_P1__getVertexIndices, 
 	                 __void__setVertexIndices__IndexArray_P1);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osg::Geometry::ArrayData)
-	I_DeclaringFile("osg/Geometry");
-	I_Constructor0(____ArrayData,
-	               "",
-	               "");
-	I_ConstructorWithDefaults2(IN, const osg::Geometry::ArrayData &, data, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
-	                           ____ArrayData__C5_ArrayData_R1__C5_CopyOp_R1,
-	                           "",
-	                           "");
-	I_ConstructorWithDefaults3(IN, osg::Array *, a, , IN, osg::Geometry::AttributeBinding, b, , IN, GLboolean, n, GL_FALSE,
-	                           ____ArrayData__Array_P1__AttributeBinding__GLboolean,
-	                           "",
-	                           "");
-	I_ConstructorWithDefaults4(IN, osg::Array *, a, , IN, osg::IndexArray *, i, , IN, osg::Geometry::AttributeBinding, b, , IN, GLboolean, n, GL_FALSE,
-	                           ____ArrayData__Array_P1__IndexArray_P1__AttributeBinding__GLboolean,
-	                           "",
-	                           "");
-	I_Method0(bool, empty,
-	          Properties::NON_VIRTUAL,
-	          __bool__empty,
-	          "",
-	          "");
-	I_PublicMemberProperty(osg::ref_ptr< osg::Array >, array);
-	I_PublicMemberProperty(osg::ref_ptr< osg::IndexArray >, indices);
-	I_PublicMemberProperty(osg::Geometry::AttributeBinding, binding);
-	I_PublicMemberProperty(GLboolean, normalize);
 END_REFLECTOR
 
 BEGIN_VALUE_REFLECTOR(osg::Geometry::Vec3ArrayData)

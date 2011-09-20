@@ -24,8 +24,6 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::vector< osg::ref_ptr< osg::AudioStream > >, osg::ImageStream::AudioStreams)
-
 BEGIN_ENUM_REFLECTOR(osg::ImageStream::StreamStatus)
 	I_DeclaringFile("osg/ImageStream");
 	I_EnumLabel(osg::ImageStream::INVALID);
@@ -39,6 +37,8 @@ BEGIN_ENUM_REFLECTOR(osg::ImageStream::LoopingMode)
 	I_EnumLabel(osg::ImageStream::NO_LOOPING);
 	I_EnumLabel(osg::ImageStream::LOOPING);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::vector< osg::ref_ptr< osg::AudioStream > >, osg::ImageStream::AudioStreams)
 
 BEGIN_OBJECT_REFLECTOR(osg::ImageStream)
 	I_DeclaringFile("osg/ImageStream");
@@ -55,7 +55,7 @@ BEGIN_OBJECT_REFLECTOR(osg::ImageStream)
 	          __Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __Object_P1__clone__C5_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",

@@ -26,6 +26,57 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osg::StateSet::Callback)
+	I_DeclaringFile("osg/StateSet");
+	I_VirtualBaseType(osg::Object);
+	I_Constructor0(____Callback,
+	               "",
+	               "");
+	I_Constructor2(IN, const osg::StateSet::Callback &, x, IN, const osg::CopyOp &, x,
+	               ____Callback__C5_Callback_R1__C5_CopyOp_R1,
+	               "",
+	               "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+END_REFLECTOR
+
+BEGIN_ENUM_REFLECTOR(osg::StateSet::RenderingHint)
+	I_DeclaringFile("osg/StateSet");
+	I_EnumLabel(osg::StateSet::DEFAULT_BIN);
+	I_EnumLabel(osg::StateSet::OPAQUE_BIN);
+	I_EnumLabel(osg::StateSet::TRANSPARENT_BIN);
+END_REFLECTOR
+
+BEGIN_ENUM_REFLECTOR(osg::StateSet::RenderBinMode)
+	I_DeclaringFile("osg/StateSet");
+	I_EnumLabel(osg::StateSet::INHERIT_RENDERBIN_DETAILS);
+	I_EnumLabel(osg::StateSet::USE_RENDERBIN_DETAILS);
+	I_EnumLabel(osg::StateSet::OVERRIDE_RENDERBIN_DETAILS);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::vector< osg::Object * >, osg::StateSet::ParentList)
 
 TYPE_NAME_ALIAS(std::map< osg::StateAttribute::GLMode COMMA  osg::StateAttribute::GLModeValue >, osg::StateSet::ModeList)
@@ -42,20 +93,6 @@ TYPE_NAME_ALIAS(std::pair< osg::ref_ptr< osg::Uniform > COMMA  osg::StateAttribu
 
 TYPE_NAME_ALIAS(std::map< std::string COMMA  osg::StateSet::RefUniformPair >, osg::StateSet::UniformList)
 
-BEGIN_ENUM_REFLECTOR(osg::StateSet::RenderingHint)
-	I_DeclaringFile("osg/StateSet");
-	I_EnumLabel(osg::StateSet::DEFAULT_BIN);
-	I_EnumLabel(osg::StateSet::OPAQUE_BIN);
-	I_EnumLabel(osg::StateSet::TRANSPARENT_BIN);
-END_REFLECTOR
-
-BEGIN_ENUM_REFLECTOR(osg::StateSet::RenderBinMode)
-	I_DeclaringFile("osg/StateSet");
-	I_EnumLabel(osg::StateSet::INHERIT_RENDERBIN_DETAILS);
-	I_EnumLabel(osg::StateSet::USE_RENDERBIN_DETAILS);
-	I_EnumLabel(osg::StateSet::OVERRIDE_RENDERBIN_DETAILS);
-END_REFLECTOR
-
 BEGIN_OBJECT_REFLECTOR(osg::StateSet)
 	I_DeclaringFile("osg/StateSet");
 	I_BaseType(osg::Object);
@@ -71,7 +108,7 @@ BEGIN_OBJECT_REFLECTOR(osg::StateSet)
 	          __Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __Object_P1__clone__C5_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -671,43 +708,6 @@ BEGIN_OBJECT_REFLECTOR(osg::StateSet)
 	I_SimpleProperty(osg::StateSet::Callback *, UpdateCallback, 
 	                 __Callback_P1__getUpdateCallback, 
 	                 __void__setUpdateCallback__Callback_P1);
-END_REFLECTOR
-
-BEGIN_OBJECT_REFLECTOR(osg::StateSet::Callback)
-	I_DeclaringFile("osg/StateSet");
-	I_VirtualBaseType(osg::Object);
-	I_Constructor0(____Callback,
-	               "",
-	               "");
-	I_Constructor2(IN, const osg::StateSet::Callback &, x, IN, const osg::CopyOp &, x,
-	               ____Callback__C5_Callback_R1__C5_CopyOp_R1,
-	               "",
-	               "");
-	I_Method0(osg::Object *, cloneType,
-	          Properties::VIRTUAL,
-	          __osg_Object_P1__cloneType,
-	          "Clone the type of an object, with Object* return type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
-	          Properties::VIRTUAL,
-	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "Clone an object, with Object* return type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
-	          Properties::VIRTUAL,
-	          __bool__isSameKindAs__C5_osg_Object_P1,
-	          "",
-	          "");
-	I_Method0(const char *, libraryName,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__libraryName,
-	          "return the name of the object's library. ",
-	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
-	I_Method0(const char *, className,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__className,
-	          "return the name of the object's class type. ",
-	          "Must be defined by derived classes. ");
 END_REFLECTOR
 
 BEGIN_VALUE_REFLECTOR(osg::ref_ptr< osg::StateAttribute >)

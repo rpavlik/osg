@@ -57,7 +57,7 @@ BEGIN_OBJECT_REFLECTOR(osg::Material)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an attribute, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an attribute, with Object* return type. ",
@@ -92,7 +92,7 @@ BEGIN_OBJECT_REFLECTOR(osg::Material)
 	          __bool__getModeUsage__StateAttribute_ModeUsage_R1,
 	          "Return the modes associated with this StateAttribute. ",
 	          "");
-	I_Method1(void, apply, IN, osg::State &, state,
+	I_Method1(void, apply, IN, osg::State &, x,
 	          Properties::VIRTUAL,
 	          __void__apply__State_R1,
 	          "apply the OpenGL state attributes. ",
@@ -140,8 +140,8 @@ BEGIN_OBJECT_REFLECTOR(osg::Material)
 	I_Method2(void, setSpecular, IN, osg::Material::Face, face, IN, const osg::Vec4 &, specular,
 	          Properties::NON_VIRTUAL,
 	          __void__setSpecular__Face__C5_Vec4_R1,
-	          "Set specular value of specified face(s) of the material, valid specular[0. ",
-	          ".3] range is 0.0 to 1.0. ");
+	          "Set specular value of specified face(s) of the material, valid specular[0..3] range is 0.0 to 1.0. ",
+	          "");
 	I_Method1(const osg::Vec4 &, getSpecular, IN, osg::Material::Face, face,
 	          Properties::NON_VIRTUAL,
 	          __C5_Vec4_R1__getSpecular__Face,
@@ -155,8 +155,8 @@ BEGIN_OBJECT_REFLECTOR(osg::Material)
 	I_Method2(void, setEmission, IN, osg::Material::Face, face, IN, const osg::Vec4 &, emission,
 	          Properties::NON_VIRTUAL,
 	          __void__setEmission__Face__C5_Vec4_R1,
-	          "Set emission value of specified face(s) of the material, valid emission[0. ",
-	          ".3] range is 0.0 to 1.0. ");
+	          "Set emission value of specified face(s) of the material, valid emission[0..3] range is 0.0 to 1.0. ",
+	          "");
 	I_Method1(const osg::Vec4 &, getEmission, IN, osg::Material::Face, face,
 	          Properties::NON_VIRTUAL,
 	          __C5_Vec4_R1__getEmission__Face,
