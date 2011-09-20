@@ -15,6 +15,8 @@
 #include <osg/NodeVisitor>
 #include <osg/Object>
 #include <osg/StateAttribute>
+#include <osg/StateAttributeCallback>
+#include <osgAnimation/Animation>
 #include <osgAnimation/Channel>
 #include <osgAnimation/Target>
 #include <osgAnimation/UpdateMaterial>
@@ -27,19 +29,31 @@
 #undef OUT
 #endif
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgAnimation::UpdateMaterial)
-	I_DeclaringFile("osgAnimation/UpdateMaterial");
-	I_BaseType(osgAnimation::AnimationUpdateCallback);
+BEGIN_OBJECT_REFLECTOR(osgAnimation::AnimationUpdateCallback< osg::StateAttributeCallback >)
+	I_DeclaringFile("osgAnimation/AnimationUpdateCallback");
+	I_BaseType(osgAnimation::AnimationUpdateCallbackBase);
+	I_Constructor0(____AnimationUpdateCallback,
+	               "",
+	               "");
+	I_Constructor1(IN, const std::string &, name,
+	               Properties::NON_EXPLICIT,
+	               ____AnimationUpdateCallback__C5_std_string_R1,
+	               "",
+	               "");
+	I_Constructor2(IN, const osgAnimation::AnimationUpdateCallback< osg::StateAttributeCallback > &, apc, IN, const osg::CopyOp &, copyop,
+	               ____AnimationUpdateCallback__C5_AnimationUpdateCallback_R1__C5_osg_CopyOp_R1,
+	               "",
+	               "");
 	I_Method0(osg::Object *, cloneType,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__cloneType,
-	          "",
-	          "");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "",
-	          "");
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
 	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
 	          Properties::VIRTUAL,
 	          __bool__isSameKindAs__C5_osg_Object_P1,
@@ -48,39 +62,30 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgAnimation::UpdateMaterial)
 	I_Method0(const char *, libraryName,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__libraryName,
-	          "",
-	          "");
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
 	I_Method0(const char *, className,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__className,
-	          "",
-	          "");
-	I_ConstructorWithDefaults1(IN, const std::string &, name, "",
-	                           Properties::NON_EXPLICIT,
-	                           ____UpdateMaterial__C5_std_string_R1,
-	                           "",
-	                           "");
-	I_Constructor2(IN, const osgAnimation::UpdateMaterial &, apc, IN, const osg::CopyOp &, copyop,
-	               ____UpdateMaterial__C5_UpdateMaterial_R1__C5_osg_CopyOp_R1,
-	               "",
-	               "");
-	I_Method1(void, update, IN, osg::Material &, material,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_Method0(const std::string &, getName,
 	          Properties::NON_VIRTUAL,
-	          __void__update__osg_Material_R1,
-	          "",
+	          __C5_std_string_R1__getName,
+	          "Get the name of object. ",
 	          "");
 	I_Method1(bool, link, IN, osgAnimation::Channel *, channel,
-	          Properties::NON_VIRTUAL,
+	          Properties::VIRTUAL,
 	          __bool__link__Channel_P1,
 	          "",
 	          "");
-	I_Method0(osgAnimation::Vec4Target *, getDiffuse,
-	          Properties::NON_VIRTUAL,
-	          __Vec4Target_P1__getDiffuse,
+	I_Method1(int, link, IN, osgAnimation::Animation *, animation,
+	          Properties::VIRTUAL,
+	          __int__link__Animation_P1,
 	          "",
 	          "");
-	I_SimpleProperty(osgAnimation::Vec4Target *, Diffuse, 
-	                 __Vec4Target_P1__getDiffuse, 
+	I_SimpleProperty(const std::string &, Name, 
+	                 __C5_std_string_R1__getName, 
 	                 0);
 END_REFLECTOR
 

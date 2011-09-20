@@ -24,19 +24,18 @@
 #undef OUT
 #endif
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgAnimation::UpdateBone)
+BEGIN_OBJECT_REFLECTOR(osgAnimation::UpdateBone)
 	I_DeclaringFile("osgAnimation/UpdateBone");
-	I_BaseType(osgAnimation::UpdateMatrixTransform);
 	I_Method0(osg::Object *, cloneType,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__cloneType,
-	          "",
-	          "");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "",
-	          "");
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
 	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
 	          Properties::VIRTUAL,
 	          __bool__isSameKindAs__C5_osg_Object_P1,
@@ -45,13 +44,13 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgAnimation::UpdateBone)
 	I_Method0(const char *, libraryName,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__libraryName,
-	          "",
-	          "");
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
 	I_Method0(const char *, className,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__className,
-	          "",
-	          "");
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
 	I_ConstructorWithDefaults1(IN, const std::string &, name, "",
 	                           Properties::NON_EXPLICIT,
 	                           ____UpdateBone__C5_std_string_R1,

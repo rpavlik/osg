@@ -77,7 +77,7 @@ BEGIN_OBJECT_REFLECTOR(osgAnimation::StatsHandler)
 	          __C5_osg_Camera_P1__getCamera,
 	          "",
 	          "");
-	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa,
+	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, x, IN, osgGA::GUIActionAdapter &, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1,
 	          "Deprecated, Handle events, return true if handled, false otherwise. ",

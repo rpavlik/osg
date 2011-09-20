@@ -22,28 +22,214 @@
 #undef OUT
 #endif
 
-BEGIN_OBJECT_REFLECTOR(osgAnimation::StackedTransform)
-	I_DeclaringFile("osgAnimation/StackedTransform");
-	I_BaseType(osg::MixinVector);
-	I_Constructor0(____StackedTransform,
+BEGIN_VALUE_REFLECTOR(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >)
+	I_DeclaringFile("osg/MixinVector");
+	I_Constructor0(____MixinVector,
 	               "",
 	               "");
-	I_ConstructorWithDefaults2(IN, const osgAnimation::StackedTransform &, x, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
-	                           ____StackedTransform__C5_StackedTransform_R1__C5_osg_CopyOp_R1,
+	I_ConstructorWithDefaults2(IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, initial_size, , IN, const osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::value_type &, fill_value, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::value_type(),
+	                           ____MixinVector__size_type__C5_value_type_R1,
 	                           "",
 	                           "");
-	I_Method0(void, update,
+
+	I_Constructor1(IN, const osg::MixinVector< osg::ref_ptr< StackedTransformElement > > &, other,
+	               Properties::NON_EXPLICIT,
+	               ____MixinVector__C5_MixinVector_R1,
+	               "",
+	               "");
+
+	I_Method0(void, clear,
 	          Properties::NON_VIRTUAL,
-	          __void__update,
+	          __void__clear,
 	          "",
 	          "");
-	I_Method0(const osg::Matrix &, getMatrix,
+	I_MethodWithDefaults2(void, resize, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, new_size, , IN, const osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::value_type &, fill_value, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::value_type(),
+	                      Properties::NON_VIRTUAL,
+	                      __void__resize__size_type__C5_value_type_R1,
+	                      "",
+	                      "");
+	I_Method1(void, reserve, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, new_capacity,
 	          Properties::NON_VIRTUAL,
-	          __C5_osg_Matrix_R1__getMatrix,
+	          __void__reserve__size_type,
 	          "",
 	          "");
-	I_SimpleProperty(const osg::Matrix &, Matrix, 
-	                 __C5_osg_Matrix_R1__getMatrix, 
+
+	I_Method1(void, swap, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > > &, other,
+	          Properties::NON_VIRTUAL,
+	          __void__swap__MixinVector_R1,
+	          "",
+	          "");
+	I_Method0(bool, empty,
+	          Properties::NON_VIRTUAL,
+	          __bool__empty,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, capacity,
+	          Properties::NON_VIRTUAL,
+	          __size_type__capacity,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, max_size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__max_size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::allocator_type, get_allocator,
+	          Properties::NON_VIRTUAL,
+	          __allocator_type__get_allocator,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::const_iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::const_iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::const_reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::const_reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::const_reference, at, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__at__size_type,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::reference, at, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __reference__at__size_type,
+	          "",
+	          "");
+	I_Method2(void, assign, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, count, IN, const osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__assign__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method1(void, push_back, IN, const osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__push_back__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(void, pop_back,
+	          Properties::NON_VIRTUAL,
+	          __void__pop_back,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, erase, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, where,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, erase, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, first, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, last,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, insert, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, where, IN, const osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __iterator__insert__iterator__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method3(void, insert, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::iterator, where, IN, osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::size_type, count, IN, const osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__insert__iterator__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::const_reference, back,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::reference, back,
+	          Properties::NON_VIRTUAL,
+	          __reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::const_reference, front,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__front,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< osg::ref_ptr< StackedTransformElement > >::reference, front,
+	          Properties::NON_VIRTUAL,
+	          __reference__front,
+	          "",
+	          "");
+
+
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osg::ref_ptr< StackedTransformElement >)
+	I_DeclaringFile("osg/ref_ptr");
+	I_Constructor0(____ref_ptr,
+	               "",
+	               "");
+	I_Constructor1(IN, StackedTransformElement *, ptr,
+	               Properties::NON_EXPLICIT,
+	               ____ref_ptr__T_P1,
+	               "",
+	               "");
+	I_Constructor1(IN, const osg::ref_ptr< StackedTransformElement > &, rp,
+	               Properties::NON_EXPLICIT,
+	               ____ref_ptr__C5_ref_ptr_R1,
+	               "",
+	               "");
+	I_Method0(StackedTransformElement *, get,
+	          Properties::NON_VIRTUAL,
+	          __T_P1__get,
+	          "",
+	          "");
+	I_Method0(bool, valid,
+	          Properties::NON_VIRTUAL,
+	          __bool__valid,
+	          "",
+	          "");
+	I_Method0(StackedTransformElement *, release,
+	          Properties::NON_VIRTUAL,
+	          __T_P1__release,
+	          "",
+	          "");
+	I_Method1(void, swap, IN, osg::ref_ptr< StackedTransformElement > &, rp,
+	          Properties::NON_VIRTUAL,
+	          __void__swap__ref_ptr_R1,
+	          "",
+	          "");
+	I_SimpleProperty(StackedTransformElement *, , 
+	                 __T_P1__get, 
 	                 0);
 END_REFLECTOR
 

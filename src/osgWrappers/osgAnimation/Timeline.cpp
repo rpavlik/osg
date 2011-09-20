@@ -11,6 +11,7 @@
 #include <osgIntrospection/Attributes>
 
 #include <osg/CopyOp>
+#include <osg/Object>
 #include <osg/Stats>
 #include <osgAnimation/Action>
 #include <osgAnimation/ActionVisitor>
@@ -26,17 +27,17 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::vector< osgAnimation::FrameAction >, osgAnimation::Timeline::ActionList)
-
-TYPE_NAME_ALIAS(std::map< int COMMA  osgAnimation::Timeline::ActionList >, osgAnimation::Timeline::ActionLayers)
-
 BEGIN_ENUM_REFLECTOR(osgAnimation::Timeline::TimelineStatus)
 	I_DeclaringFile("osgAnimation/Timeline");
 	I_EnumLabel(osgAnimation::Timeline::Play);
 	I_EnumLabel(osgAnimation::Timeline::Stop);
 END_REFLECTOR
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgAnimation::Timeline)
+TYPE_NAME_ALIAS(std::vector< osgAnimation::FrameAction >, osgAnimation::Timeline::ActionList)
+
+TYPE_NAME_ALIAS(std::map< int COMMA  osgAnimation::Timeline::ActionList >, osgAnimation::Timeline::ActionLayers)
+
+BEGIN_OBJECT_REFLECTOR(osgAnimation::Timeline)
 	I_DeclaringFile("osgAnimation/Timeline");
 	I_BaseType(osgAnimation::Action);
 	I_Constructor0(____Timeline,
@@ -46,9 +47,34 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgAnimation::Timeline)
 	                           ____Timeline__C5_Timeline_R1__C5_osg_CopyOp_R1,
 	                           "",
 	                           "");
-	I_Method2(, META_Action, IN, osgAnimation, x, IN, osgAnimation::Timeline, x,
-	          Properties::NON_VIRTUAL,
-	          ____META_Action__osgAnimation__Timeline,
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method1(void, accept, IN, osgAnimation::ActionVisitor &, nv,
+	          Properties::VIRTUAL,
+	          __void__accept__osgAnimation_ActionVisitor_R1,
 	          "",
 	          "");
 	I_Method0(osgAnimation::Timeline::TimelineStatus, getStatus,

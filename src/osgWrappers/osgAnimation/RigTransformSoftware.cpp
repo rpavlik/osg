@@ -23,30 +23,6 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::vector< osgAnimation::RigTransformSoftware::BoneWeight >, osgAnimation::RigTransformSoftware::BoneWeightList)
-
-TYPE_NAME_ALIAS(std::vector< int >, osgAnimation::RigTransformSoftware::VertexList)
-
-BEGIN_OBJECT_REFLECTOR(osgAnimation::RigTransformSoftware)
-	I_DeclaringFile("osgAnimation/RigTransformSoftware");
-	I_BaseType(osgAnimation::RigTransform);
-	I_Constructor0(____RigTransformSoftware,
-	               "",
-	               "");
-	I_ProtectedMethod1(bool, init, IN, osgAnimation::RigGeometry &, x,
-	                   Properties::NON_VIRTUAL,
-	                   Properties::NON_CONST,
-	                   __bool__init__RigGeometry_R1,
-	                   "",
-	                   "");
-	I_ProtectedMethod2(void, initVertexSetFromBones, IN, const osgAnimation::BoneMap &, map, IN, const osgAnimation::VertexInfluenceSet::UniqVertexSetToBoneSetList &, influence,
-	                   Properties::NON_VIRTUAL,
-	                   Properties::NON_CONST,
-	                   __void__initVertexSetFromBones__C5_BoneMap_R1__C5_VertexInfluenceSet_UniqVertexSetToBoneSetList_R1,
-	                   "",
-	                   "");
-END_REFLECTOR
-
 BEGIN_VALUE_REFLECTOR(osgAnimation::RigTransformSoftware::BoneWeight)
 	I_DeclaringFile("osgAnimation/RigTransformSoftware");
 	I_Constructor2(IN, osgAnimation::Bone *, bone, IN, float, weight,
@@ -74,6 +50,30 @@ BEGIN_VALUE_REFLECTOR(osgAnimation::RigTransformSoftware::BoneWeight)
 	I_SimpleProperty(float, Weight, 
 	                 __float__getWeight, 
 	                 __void__setWeight__float);
+END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::vector< osgAnimation::RigTransformSoftware::BoneWeight >, osgAnimation::RigTransformSoftware::BoneWeightList)
+
+TYPE_NAME_ALIAS(std::vector< int >, osgAnimation::RigTransformSoftware::VertexList)
+
+BEGIN_OBJECT_REFLECTOR(osgAnimation::RigTransformSoftware)
+	I_DeclaringFile("osgAnimation/RigTransformSoftware");
+	I_BaseType(osgAnimation::RigTransform);
+	I_Constructor0(____RigTransformSoftware,
+	               "",
+	               "");
+	I_ProtectedMethod1(bool, init, IN, osgAnimation::RigGeometry &, x,
+	                   Properties::NON_VIRTUAL,
+	                   Properties::NON_CONST,
+	                   __bool__init__RigGeometry_R1,
+	                   "",
+	                   "");
+	I_ProtectedMethod2(void, initVertexSetFromBones, IN, const osgAnimation::BoneMap &, map, IN, const osgAnimation::VertexInfluenceSet::UniqVertexSetToBoneSetList &, influence,
+	                   Properties::NON_VIRTUAL,
+	                   Properties::NON_CONST,
+	                   __void__initVertexSetFromBones__C5_BoneMap_R1__C5_VertexInfluenceSet_UniqVertexSetToBoneSetList_R1,
+	                   "",
+	                   "");
 END_REFLECTOR
 
 BEGIN_VALUE_REFLECTOR(osgAnimation::RigTransformSoftware::UniqBoneSetVertexSet)

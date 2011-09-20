@@ -14,8 +14,10 @@
 #include <osg/Drawable>
 #include <osg/Geometry>
 #include <osg/Node>
+#include <osg/NodeCallback>
 #include <osg/NodeVisitor>
 #include <osg/Object>
+#include <osgAnimation/Animation>
 #include <osgAnimation/Channel>
 #include <osgAnimation/MorphGeometry>
 
@@ -27,13 +29,13 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::vector< osgAnimation::MorphGeometry::MorphTarget >, osgAnimation::MorphGeometry::MorphTargetList)
-
 BEGIN_ENUM_REFLECTOR(osgAnimation::MorphGeometry::Method)
 	I_DeclaringFile("osgAnimation/MorphGeometry");
 	I_EnumLabel(osgAnimation::MorphGeometry::NORMALIZED);
 	I_EnumLabel(osgAnimation::MorphGeometry::RELATIVE);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::vector< osgAnimation::MorphGeometry::MorphTarget >, osgAnimation::MorphGeometry::MorphTargetList)
 
 BEGIN_OBJECT_REFLECTOR(osgAnimation::MorphGeometry)
 	I_DeclaringFile("osgAnimation/MorphGeometry");
@@ -55,7 +57,7 @@ BEGIN_OBJECT_REFLECTOR(osgAnimation::MorphGeometry)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -191,26 +193,38 @@ BEGIN_OBJECT_REFLECTOR(osgAnimation::MorphGeometry::UpdateVertex)
 	I_Constructor0(____UpdateVertex,
 	               "",
 	               "");
-	I_Method2(void, update, IN, osg::NodeVisitor *, x, IN, osg::Drawable *, drw,
+	I_Method2(void, update, IN, osg::NodeVisitor *, x, IN, osg::Drawable *, x,
 	          Properties::VIRTUAL,
 	          __void__update__osg_NodeVisitor_P1__osg_Drawable_P1,
 	          "do customized update code. ",
 	          "");
 END_REFLECTOR
 
-BEGIN_OBJECT_REFLECTOR(osgAnimation::UpdateMorph)
-	I_DeclaringFile("osgAnimation/MorphGeometry");
-	I_BaseType(osgAnimation::AnimationUpdateCallback);
+BEGIN_OBJECT_REFLECTOR(osgAnimation::AnimationUpdateCallback< osg::NodeCallback >)
+	I_DeclaringFile("osgAnimation/AnimationUpdateCallback");
+	I_BaseType(osgAnimation::AnimationUpdateCallbackBase);
+	I_Constructor0(____AnimationUpdateCallback,
+	               "",
+	               "");
+	I_Constructor1(IN, const std::string &, name,
+	               Properties::NON_EXPLICIT,
+	               ____AnimationUpdateCallback__C5_std_string_R1,
+	               "",
+	               "");
+	I_Constructor2(IN, const osgAnimation::AnimationUpdateCallback< osg::NodeCallback > &, apc, IN, const osg::CopyOp &, copyop,
+	               ____AnimationUpdateCallback__C5_AnimationUpdateCallback_R1__C5_osg_CopyOp_R1,
+	               "",
+	               "");
 	I_Method0(osg::Object *, cloneType,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__cloneType,
-	          "",
-	          "");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "",
-	          "");
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
 	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
 	          Properties::VIRTUAL,
 	          __bool__isSameKindAs__C5_osg_Object_P1,
@@ -219,32 +233,31 @@ BEGIN_OBJECT_REFLECTOR(osgAnimation::UpdateMorph)
 	I_Method0(const char *, libraryName,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__libraryName,
-	          "",
-	          "");
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
 	I_Method0(const char *, className,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__className,
-	          "",
-	          "");
-	I_ConstructorWithDefaults1(IN, const std::string &, name, "",
-	                           Properties::NON_EXPLICIT,
-	                           ____UpdateMorph__C5_std_string_R1,
-	                           "",
-	                           "");
-	I_Constructor2(IN, const osgAnimation::UpdateMorph &, apc, IN, const osg::CopyOp &, copyop,
-	               ____UpdateMorph__C5_UpdateMorph_R1__C5_osg_CopyOp_R1,
-	               "",
-	               "");
-	I_Method0(bool, needLink,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_Method0(const std::string &, getName,
 	          Properties::NON_VIRTUAL,
-	          __bool__needLink,
-	          "",
+	          __C5_std_string_R1__getName,
+	          "Get the name of object. ",
 	          "");
 	I_Method1(bool, link, IN, osgAnimation::Channel *, channel,
-	          Properties::NON_VIRTUAL,
-	          __bool__link__osgAnimation_Channel_P1,
+	          Properties::VIRTUAL,
+	          __bool__link__Channel_P1,
 	          "",
 	          "");
+	I_Method1(int, link, IN, osgAnimation::Animation *, animation,
+	          Properties::VIRTUAL,
+	          __int__link__Animation_P1,
+	          "",
+	          "");
+	I_SimpleProperty(const std::string &, Name, 
+	                 __C5_std_string_R1__getName, 
+	                 0);
 END_REFLECTOR
 
 STD_VECTOR_REFLECTOR(std::vector< osgAnimation::MorphGeometry::MorphTarget >)

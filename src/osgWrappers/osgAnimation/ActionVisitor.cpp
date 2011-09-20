@@ -30,9 +30,14 @@
 BEGIN_OBJECT_REFLECTOR(osgAnimation::ActionVisitor)
 	I_DeclaringFile("osgAnimation/ActionVisitor");
 	I_BaseType(osg::Referenced);
-	I_Method2(, META_ActionVisitor, IN, osgAnimation, x, IN, osgAnimation::ActionVisitor, x,
-	          Properties::NON_VIRTUAL,
-	          ____META_ActionVisitor__osgAnimation__ActionVisitor,
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "",
+	          "");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
 	          "",
 	          "");
 	I_Constructor0(____ActionVisitor,
@@ -133,9 +138,14 @@ END_REFLECTOR
 BEGIN_OBJECT_REFLECTOR(osgAnimation::ClearActionVisitor)
 	I_DeclaringFile("osgAnimation/ActionVisitor");
 	I_BaseType(osgAnimation::ActionVisitor);
-	I_Method2(, META_ActionVisitor, IN, osgAnimation, x, IN, osgAnimation::ClearActionVisitor, x,
-	          Properties::NON_VIRTUAL,
-	          ____META_ActionVisitor__osgAnimation__ClearActionVisitor,
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "",
+	          "");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
 	          "",
 	          "");
 	I_ConstructorWithDefaults1(IN, osgAnimation::ClearActionVisitor::ClearType, type, osgAnimation::ClearActionVisitor::BEFORE_FRAME,
@@ -166,9 +176,14 @@ END_REFLECTOR
 BEGIN_OBJECT_REFLECTOR(osgAnimation::UpdateActionVisitor)
 	I_DeclaringFile("osgAnimation/ActionVisitor");
 	I_BaseType(osgAnimation::ActionVisitor);
-	I_Method2(, META_ActionVisitor, IN, osgAnimation, x, IN, osgAnimation::UpdateActionVisitor, x,
-	          Properties::NON_VIRTUAL,
-	          ____META_ActionVisitor__osgAnimation__UpdateActionVisitor,
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "",
+	          "");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
 	          "",
 	          "");
 	I_Constructor0(____UpdateActionVisitor,

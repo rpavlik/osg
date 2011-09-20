@@ -27,6 +27,35 @@
 #undef OUT
 #endif
 
+BEGIN_VALUE_REFLECTOR(osgAnimation::RigTransformHardware::IndexWeightEntry)
+	I_DeclaringFile("osgAnimation/RigTransformHardware");
+	I_Constructor0(____IndexWeightEntry,
+	               "",
+	               "");
+	I_Constructor2(IN, int, index, IN, float, weight,
+	               ____IndexWeightEntry__int__float,
+	               "",
+	               "");
+	I_Method0(int, getIndex,
+	          Properties::NON_VIRTUAL,
+	          __int__getIndex,
+	          "",
+	          "");
+	I_Method0(float, getWeight,
+	          Properties::NON_VIRTUAL,
+	          __float__getWeight,
+	          "",
+	          "");
+	I_SimpleProperty(int, Index, 
+	                 __int__getIndex, 
+	                 0);
+	I_SimpleProperty(float, Weight, 
+	                 __float__getWeight, 
+	                 0);
+	I_PublicMemberProperty(int, _boneIndex);
+	I_PublicMemberProperty(float, _boneWeight);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(osg::Matrix, osgAnimation::RigTransformHardware::MatrixType)
 
 TYPE_NAME_ALIAS(osgAnimation::Bone, osgAnimation::RigTransformHardware::BoneType)
@@ -116,35 +145,6 @@ BEGIN_OBJECT_REFLECTOR(osgAnimation::RigTransformHardware)
 	                0, 
 	                0, 
 	                0);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgAnimation::RigTransformHardware::IndexWeightEntry)
-	I_DeclaringFile("osgAnimation/RigTransformHardware");
-	I_Constructor0(____IndexWeightEntry,
-	               "",
-	               "");
-	I_Constructor2(IN, int, index, IN, float, weight,
-	               ____IndexWeightEntry__int__float,
-	               "",
-	               "");
-	I_Method0(int, getIndex,
-	          Properties::NON_VIRTUAL,
-	          __int__getIndex,
-	          "",
-	          "");
-	I_Method0(float, getWeight,
-	          Properties::NON_VIRTUAL,
-	          __float__getWeight,
-	          "",
-	          "");
-	I_SimpleProperty(int, Index, 
-	                 __int__getIndex, 
-	                 0);
-	I_SimpleProperty(float, Weight, 
-	                 __float__getWeight, 
-	                 0);
-	I_PublicMemberProperty(int, _boneIndex);
-	I_PublicMemberProperty(float, _boneWeight);
 END_REFLECTOR
 
 BEGIN_VALUE_REFLECTOR(osg::ref_ptr< osg::Vec4Array >)

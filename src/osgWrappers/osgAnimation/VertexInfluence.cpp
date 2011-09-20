@@ -22,6 +22,68 @@
 #undef OUT
 #endif
 
+BEGIN_VALUE_REFLECTOR(osgAnimation::VertexInfluenceSet::BoneWeight)
+	I_DeclaringFile("osgAnimation/VertexInfluence");
+	I_Constructor2(IN, const std::string &, name, IN, float, weight,
+	               ____BoneWeight__C5_std_string_R1__float,
+	               "",
+	               "");
+	I_Method0(const std::string &, getBoneName,
+	          Properties::NON_VIRTUAL,
+	          __C5_std_string_R1__getBoneName,
+	          "",
+	          "");
+	I_Method0(float, getWeight,
+	          Properties::NON_VIRTUAL,
+	          __float__getWeight,
+	          "",
+	          "");
+	I_Method1(void, setWeight, IN, float, weight,
+	          Properties::NON_VIRTUAL,
+	          __void__setWeight__float,
+	          "",
+	          "");
+	I_SimpleProperty(const std::string &, BoneName, 
+	                 __C5_std_string_R1__getBoneName, 
+	                 0);
+	I_SimpleProperty(float, Weight, 
+	                 __float__getWeight, 
+	                 __void__setWeight__float);
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osgAnimation::VertexInfluenceSet::UniqVertexSetToBoneSet)
+	I_DeclaringFile("osgAnimation/VertexInfluence");
+	I_Constructor0(____UniqVertexSetToBoneSet,
+	               "",
+	               "");
+	I_Method1(void, setBones, IN, osgAnimation::VertexInfluenceSet::BoneWeightList &, bones,
+	          Properties::NON_VIRTUAL,
+	          __void__setBones__BoneWeightList_R1,
+	          "",
+	          "");
+	I_Method0(const osgAnimation::VertexInfluenceSet::BoneWeightList &, getBones,
+	          Properties::NON_VIRTUAL,
+	          __C5_BoneWeightList_R1__getBones,
+	          "",
+	          "");
+	I_Method0(std::vector< int > &, getVertexes,
+	          Properties::NON_VIRTUAL,
+	          __std_vectorT1_int__R1__getVertexes,
+	          "",
+	          "");
+	I_Method0(const std::vector< int > &, getVertexes,
+	          Properties::NON_VIRTUAL,
+	          __C5_std_vectorT1_int__R1__getVertexes,
+	          "",
+	          "");
+	I_SimpleProperty(osgAnimation::VertexInfluenceSet::BoneWeightList &, Bones, 
+	                 0, 
+	                 __void__setBones__BoneWeightList_R1);
+	I_SimpleProperty(std::vector< int > &, Vertexes, 
+	                 __std_vectorT1_int__R1__getVertexes, 
+	                 0);
+END_REFLECTOR
+
 BEGIN_VALUE_REFLECTOR(osgAnimation::VertexInfluence)
 	I_DeclaringFile("osgAnimation/VertexInfluence");
 	I_Constructor0(____VertexInfluence,
@@ -50,7 +112,7 @@ BEGIN_OBJECT_REFLECTOR(osgAnimation::VertexInfluenceMap)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -127,68 +189,6 @@ BEGIN_VALUE_REFLECTOR(osgAnimation::VertexInfluenceSet)
 	                 0);
 	I_SimpleProperty(const osgAnimation::VertexInfluenceSet::VertexIndexToBoneWeightMap &, VertexToBoneList, 
 	                 __C5_VertexIndexToBoneWeightMap_R1__getVertexToBoneList, 
-	                 0);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgAnimation::VertexInfluenceSet::BoneWeight)
-	I_DeclaringFile("osgAnimation/VertexInfluence");
-	I_Constructor2(IN, const std::string &, name, IN, float, weight,
-	               ____BoneWeight__C5_std_string_R1__float,
-	               "",
-	               "");
-	I_Method0(const std::string &, getBoneName,
-	          Properties::NON_VIRTUAL,
-	          __C5_std_string_R1__getBoneName,
-	          "",
-	          "");
-	I_Method0(float, getWeight,
-	          Properties::NON_VIRTUAL,
-	          __float__getWeight,
-	          "",
-	          "");
-	I_Method1(void, setWeight, IN, float, weight,
-	          Properties::NON_VIRTUAL,
-	          __void__setWeight__float,
-	          "",
-	          "");
-	I_SimpleProperty(const std::string &, BoneName, 
-	                 __C5_std_string_R1__getBoneName, 
-	                 0);
-	I_SimpleProperty(float, Weight, 
-	                 __float__getWeight, 
-	                 __void__setWeight__float);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgAnimation::VertexInfluenceSet::UniqVertexSetToBoneSet)
-	I_DeclaringFile("osgAnimation/VertexInfluence");
-	I_Constructor0(____UniqVertexSetToBoneSet,
-	               "",
-	               "");
-	I_Method1(void, setBones, IN, osgAnimation::VertexInfluenceSet::BoneWeightList &, bones,
-	          Properties::NON_VIRTUAL,
-	          __void__setBones__BoneWeightList_R1,
-	          "",
-	          "");
-	I_Method0(const osgAnimation::VertexInfluenceSet::BoneWeightList &, getBones,
-	          Properties::NON_VIRTUAL,
-	          __C5_BoneWeightList_R1__getBones,
-	          "",
-	          "");
-	I_Method0(std::vector< int > &, getVertexes,
-	          Properties::NON_VIRTUAL,
-	          __std_vectorT1_int__R1__getVertexes,
-	          "",
-	          "");
-	I_Method0(const std::vector< int > &, getVertexes,
-	          Properties::NON_VIRTUAL,
-	          __C5_std_vectorT1_int__R1__getVertexes,
-	          "",
-	          "");
-	I_SimpleProperty(osgAnimation::VertexInfluenceSet::BoneWeightList &, Bones, 
-	                 0, 
-	                 __void__setBones__BoneWeightList_R1);
-	I_SimpleProperty(std::vector< int > &, Vertexes, 
-	                 __std_vectorT1_int__R1__getVertexes, 
 	                 0);
 END_REFLECTOR
 

@@ -30,9 +30,14 @@
 BEGIN_OBJECT_REFLECTOR(osgAnimation::StatsActionVisitor)
 	I_DeclaringFile("osgAnimation/StatsVisitor");
 	I_BaseType(osgAnimation::UpdateActionVisitor);
-	I_Method2(, META_ActionVisitor, IN, osgAnimation, x, IN, osgAnimation::StatsActionVisitor, x,
-	          Properties::NON_VIRTUAL,
-	          ____META_ActionVisitor__osgAnimation__StatsActionVisitor,
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "",
+	          "");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
 	          "",
 	          "");
 	I_Constructor0(____StatsActionVisitor,
