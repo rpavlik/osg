@@ -343,6 +343,9 @@ BEGIN_ENUM_REFLECTOR(osg::Texture::GenerateMipmapMode)
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(std::list< osg::ref_ptr< osg::Texture::TextureObject > >, osg::Texture::TextureObjectList)
+
+TYPE_NAME_ALIAS(osg::buffered_object< osg::Texture::TextureObjectList >, osg::Texture::TextureObjectListMap)
+
 BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::Texture)
 	I_DeclaringFile("osg/Texture");
 	I_BaseType(osg::StateAttribute);
