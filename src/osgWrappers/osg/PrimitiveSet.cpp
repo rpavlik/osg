@@ -32,6 +32,106 @@
 
 TYPE_NAME_ALIAS(osg::VectorGLsizei, osg::DrawArrayLengths::vector_type)
 
+BEGIN_OBJECT_REFLECTOR(osg::DrawArrayLengths)
+	I_DeclaringFile("osg/PrimitiveSet");
+	I_BaseType(osg::PrimitiveSet);
+	I_BaseType(osg::MixinVector< GLsizei >);
+	I_ConstructorWithDefaults1(IN, GLenum, mode, 0,
+	                           Properties::NON_EXPLICIT,
+	                           ____DrawArrayLengths__GLenum,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults2(IN, const osg::DrawArrayLengths &, dal, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
+	                           ____DrawArrayLengths__C5_DrawArrayLengths_R1__C5_CopyOp_R1,
+	                           "",
+	                           "");
+	I_Constructor4(IN, GLenum, mode, IN, GLint, first, IN, unsigned int, no, IN, GLsizei *, ptr,
+	               ____DrawArrayLengths__GLenum__GLint__unsigned_int__GLsizei_P1,
+	               "",
+	               "");
+	I_Constructor3(IN, GLenum, mode, IN, GLint, first, IN, unsigned int, no,
+	               ____DrawArrayLengths__GLenum__GLint__unsigned_int,
+	               "",
+	               "");
+	I_Constructor2(IN, GLenum, mode, IN, GLint, first,
+	               ____DrawArrayLengths__GLenum__GLint,
+	               "",
+	               "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __Object_P1__clone__C5_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(void, setFirst, IN, GLint, first,
+	          Properties::NON_VIRTUAL,
+	          __void__setFirst__GLint,
+	          "",
+	          "");
+	I_Method0(GLint, getFirst,
+	          Properties::NON_VIRTUAL,
+	          __GLint__getFirst,
+	          "",
+	          "");
+	I_Method2(void, draw, IN, osg::State &, state, IN, bool, useVertexBufferObjects,
+	          Properties::VIRTUAL,
+	          __void__draw__State_R1__bool,
+	          "",
+	          "");
+	I_Method1(void, accept, IN, osg::PrimitiveFunctor &, functor,
+	          Properties::VIRTUAL,
+	          __void__accept__PrimitiveFunctor_R1,
+	          "",
+	          "");
+	I_Method1(void, accept, IN, osg::PrimitiveIndexFunctor &, functor,
+	          Properties::VIRTUAL,
+	          __void__accept__PrimitiveIndexFunctor_R1,
+	          "",
+	          "");
+	I_Method0(unsigned int, getNumIndices,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getNumIndices,
+	          "",
+	          "");
+	I_Method1(unsigned int, index, IN, unsigned int, pos,
+	          Properties::VIRTUAL,
+	          __unsigned_int__index__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, offsetIndices, IN, int, offset,
+	          Properties::VIRTUAL,
+	          __void__offsetIndices__int,
+	          "",
+	          "");
+	I_Method0(unsigned int, getNumPrimitives,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getNumPrimitives,
+	          "",
+	          "");
+	I_SimpleProperty(GLint, First, 
+	                 __GLint__getFirst, 
+	                 __void__setFirst__GLint);
+END_REFLECTOR
+
 BEGIN_OBJECT_REFLECTOR(osg::DrawArrays)
 	I_DeclaringFile("osg/PrimitiveSet");
 	I_BaseType(osg::PrimitiveSet);
@@ -53,7 +153,7 @@ BEGIN_OBJECT_REFLECTOR(osg::DrawArrays)
 	          __Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __Object_P1__clone__C5_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -230,9 +330,393 @@ END_REFLECTOR
 
 TYPE_NAME_ALIAS(osg::VectorGLubyte, osg::DrawElementsUByte::vector_type)
 
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::DrawElementsUByte)
+	I_DeclaringFile("osg/PrimitiveSet");
+	I_BaseType(osg::DrawElements);
+	I_BaseType(osg::MixinVector< GLubyte >);
+	I_ConstructorWithDefaults1(IN, GLenum, mode, 0,
+	                           Properties::NON_EXPLICIT,
+	                           ____DrawElementsUByte__GLenum,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults2(IN, const osg::DrawElementsUByte &, array, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
+	                           ____DrawElementsUByte__C5_DrawElementsUByte_R1__C5_CopyOp_R1,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults4(IN, GLenum, mode, , IN, unsigned int, no, , IN, const GLubyte *, ptr, , IN, int, numInstances, 0,
+	                           ____DrawElementsUByte__GLenum__unsigned_int__C5_GLubyte_P1__int,
+	                           "",
+	                           "");
+	I_Constructor2(IN, GLenum, mode, IN, unsigned int, no,
+	               ____DrawElementsUByte__GLenum__unsigned_int,
+	               "",
+	               "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __Object_P1__clone__C5_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_Method0(const GLvoid *, getDataPointer,
+	          Properties::VIRTUAL,
+	          __C5_GLvoid_P1__getDataPointer,
+	          "",
+	          "");
+	I_Method0(unsigned int, getTotalDataSize,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getTotalDataSize,
+	          "",
+	          "");
+	I_Method0(bool, supportsBufferObject,
+	          Properties::VIRTUAL,
+	          __bool__supportsBufferObject,
+	          "",
+	          "");
+	I_Method2(void, draw, IN, osg::State &, state, IN, bool, useVertexBufferObjects,
+	          Properties::VIRTUAL,
+	          __void__draw__State_R1__bool,
+	          "",
+	          "");
+	I_Method1(void, accept, IN, osg::PrimitiveFunctor &, functor,
+	          Properties::VIRTUAL,
+	          __void__accept__PrimitiveFunctor_R1,
+	          "",
+	          "");
+	I_Method1(void, accept, IN, osg::PrimitiveIndexFunctor &, functor,
+	          Properties::VIRTUAL,
+	          __void__accept__PrimitiveIndexFunctor_R1,
+	          "",
+	          "");
+	I_Method0(unsigned int, getNumIndices,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getNumIndices,
+	          "",
+	          "");
+	I_Method1(unsigned int, index, IN, unsigned int, pos,
+	          Properties::VIRTUAL,
+	          __unsigned_int__index__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, offsetIndices, IN, int, offset,
+	          Properties::VIRTUAL,
+	          __void__offsetIndices__int,
+	          "",
+	          "");
+	I_Method0(void, computeRange,
+	          Properties::VIRTUAL,
+	          __void__computeRange,
+	          "",
+	          "");
+	I_Method1(void, reserveElements, IN, unsigned int, numIndices,
+	          Properties::VIRTUAL,
+	          __void__reserveElements__unsigned_int,
+	          "",
+	          "");
+	I_Method2(void, setElement, IN, unsigned int, i, IN, unsigned int, v,
+	          Properties::VIRTUAL,
+	          __void__setElement__unsigned_int__unsigned_int,
+	          "",
+	          "");
+	I_Method1(unsigned int, getElement, IN, unsigned int, i,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getElement__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, addElement, IN, unsigned int, v,
+	          Properties::VIRTUAL,
+	          __void__addElement__unsigned_int,
+	          "",
+	          "");
+	I_SimpleProperty(const GLvoid *, DataPointer, 
+	                 __C5_GLvoid_P1__getDataPointer, 
+	                 0);
+	I_IndexedProperty(unsigned int, Element, 
+	                  __unsigned_int__getElement__unsigned_int, 
+	                  __void__setElement__unsigned_int__unsigned_int, 
+	                  0);
+	I_SimpleProperty(unsigned int, TotalDataSize, 
+	                 __unsigned_int__getTotalDataSize, 
+	                 0);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(osg::VectorGLuint, osg::DrawElementsUInt::vector_type)
 
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::DrawElementsUInt)
+	I_DeclaringFile("osg/PrimitiveSet");
+	I_BaseType(osg::DrawElements);
+	I_BaseType(osg::MixinVector< GLuint >);
+	I_ConstructorWithDefaults1(IN, GLenum, mode, 0,
+	                           Properties::NON_EXPLICIT,
+	                           ____DrawElementsUInt__GLenum,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults2(IN, const osg::DrawElementsUInt &, array, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
+	                           ____DrawElementsUInt__C5_DrawElementsUInt_R1__C5_CopyOp_R1,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults4(IN, GLenum, mode, , IN, unsigned int, no, , IN, const GLuint *, ptr, , IN, int, numInstances, 0,
+	                           ____DrawElementsUInt__GLenum__unsigned_int__C5_GLuint_P1__int,
+	                           "",
+	                           "");
+	I_Constructor2(IN, GLenum, mode, IN, unsigned int, no,
+	               ____DrawElementsUInt__GLenum__unsigned_int,
+	               "",
+	               "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __Object_P1__clone__C5_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_Method0(const GLvoid *, getDataPointer,
+	          Properties::VIRTUAL,
+	          __C5_GLvoid_P1__getDataPointer,
+	          "",
+	          "");
+	I_Method0(unsigned int, getTotalDataSize,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getTotalDataSize,
+	          "",
+	          "");
+	I_Method0(bool, supportsBufferObject,
+	          Properties::VIRTUAL,
+	          __bool__supportsBufferObject,
+	          "",
+	          "");
+	I_Method2(void, draw, IN, osg::State &, state, IN, bool, useVertexBufferObjects,
+	          Properties::VIRTUAL,
+	          __void__draw__State_R1__bool,
+	          "",
+	          "");
+	I_Method1(void, accept, IN, osg::PrimitiveFunctor &, functor,
+	          Properties::VIRTUAL,
+	          __void__accept__PrimitiveFunctor_R1,
+	          "",
+	          "");
+	I_Method1(void, accept, IN, osg::PrimitiveIndexFunctor &, functor,
+	          Properties::VIRTUAL,
+	          __void__accept__PrimitiveIndexFunctor_R1,
+	          "",
+	          "");
+	I_Method0(unsigned int, getNumIndices,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getNumIndices,
+	          "",
+	          "");
+	I_Method1(unsigned int, index, IN, unsigned int, pos,
+	          Properties::VIRTUAL,
+	          __unsigned_int__index__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, offsetIndices, IN, int, offset,
+	          Properties::VIRTUAL,
+	          __void__offsetIndices__int,
+	          "",
+	          "");
+	I_Method0(void, computeRange,
+	          Properties::VIRTUAL,
+	          __void__computeRange,
+	          "",
+	          "");
+	I_Method1(void, reserveElements, IN, unsigned int, numIndices,
+	          Properties::VIRTUAL,
+	          __void__reserveElements__unsigned_int,
+	          "",
+	          "");
+	I_Method2(void, setElement, IN, unsigned int, i, IN, unsigned int, v,
+	          Properties::VIRTUAL,
+	          __void__setElement__unsigned_int__unsigned_int,
+	          "",
+	          "");
+	I_Method1(unsigned int, getElement, IN, unsigned int, i,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getElement__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, addElement, IN, unsigned int, v,
+	          Properties::VIRTUAL,
+	          __void__addElement__unsigned_int,
+	          "",
+	          "");
+	I_SimpleProperty(const GLvoid *, DataPointer, 
+	                 __C5_GLvoid_P1__getDataPointer, 
+	                 0);
+	I_IndexedProperty(unsigned int, Element, 
+	                  __unsigned_int__getElement__unsigned_int, 
+	                  __void__setElement__unsigned_int__unsigned_int, 
+	                  0);
+	I_SimpleProperty(unsigned int, TotalDataSize, 
+	                 __unsigned_int__getTotalDataSize, 
+	                 0);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(osg::VectorGLushort, osg::DrawElementsUShort::vector_type)
+
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::DrawElementsUShort)
+	I_DeclaringFile("osg/PrimitiveSet");
+	I_BaseType(osg::DrawElements);
+	I_BaseType(osg::MixinVector< GLushort >);
+	I_ConstructorWithDefaults1(IN, GLenum, mode, 0,
+	                           Properties::NON_EXPLICIT,
+	                           ____DrawElementsUShort__GLenum,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults2(IN, const osg::DrawElementsUShort &, array, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
+	                           ____DrawElementsUShort__C5_DrawElementsUShort_R1__C5_CopyOp_R1,
+	                           "",
+	                           "");
+	I_ConstructorWithDefaults4(IN, GLenum, mode, , IN, unsigned int, no, , IN, const GLushort *, ptr, , IN, int, numInstances, 0,
+	                           ____DrawElementsUShort__GLenum__unsigned_int__C5_GLushort_P1__int,
+	                           "",
+	                           "");
+	I_Constructor2(IN, GLenum, mode, IN, unsigned int, no,
+	               ____DrawElementsUShort__GLenum__unsigned_int,
+	               "",
+	               "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __Object_P1__clone__C5_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_Method0(const GLvoid *, getDataPointer,
+	          Properties::VIRTUAL,
+	          __C5_GLvoid_P1__getDataPointer,
+	          "",
+	          "");
+	I_Method0(unsigned int, getTotalDataSize,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getTotalDataSize,
+	          "",
+	          "");
+	I_Method0(bool, supportsBufferObject,
+	          Properties::VIRTUAL,
+	          __bool__supportsBufferObject,
+	          "",
+	          "");
+	I_Method2(void, draw, IN, osg::State &, state, IN, bool, useVertexBufferObjects,
+	          Properties::VIRTUAL,
+	          __void__draw__State_R1__bool,
+	          "",
+	          "");
+	I_Method1(void, accept, IN, osg::PrimitiveFunctor &, functor,
+	          Properties::VIRTUAL,
+	          __void__accept__PrimitiveFunctor_R1,
+	          "",
+	          "");
+	I_Method1(void, accept, IN, osg::PrimitiveIndexFunctor &, functor,
+	          Properties::VIRTUAL,
+	          __void__accept__PrimitiveIndexFunctor_R1,
+	          "",
+	          "");
+	I_Method0(unsigned int, getNumIndices,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getNumIndices,
+	          "",
+	          "");
+	I_Method1(unsigned int, index, IN, unsigned int, pos,
+	          Properties::VIRTUAL,
+	          __unsigned_int__index__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, offsetIndices, IN, int, offset,
+	          Properties::VIRTUAL,
+	          __void__offsetIndices__int,
+	          "",
+	          "");
+	I_Method0(void, computeRange,
+	          Properties::VIRTUAL,
+	          __void__computeRange,
+	          "",
+	          "");
+	I_Method1(void, reserveElements, IN, unsigned int, numIndices,
+	          Properties::VIRTUAL,
+	          __void__reserveElements__unsigned_int,
+	          "",
+	          "");
+	I_Method2(void, setElement, IN, unsigned int, i, IN, unsigned int, v,
+	          Properties::VIRTUAL,
+	          __void__setElement__unsigned_int__unsigned_int,
+	          "",
+	          "");
+	I_Method1(unsigned int, getElement, IN, unsigned int, i,
+	          Properties::VIRTUAL,
+	          __unsigned_int__getElement__unsigned_int,
+	          "",
+	          "");
+	I_Method1(void, addElement, IN, unsigned int, v,
+	          Properties::VIRTUAL,
+	          __void__addElement__unsigned_int,
+	          "",
+	          "");
+	I_SimpleProperty(const GLvoid *, DataPointer, 
+	                 __C5_GLvoid_P1__getDataPointer, 
+	                 0);
+	I_IndexedProperty(unsigned int, Element, 
+	                  __unsigned_int__getElement__unsigned_int, 
+	                  __void__setElement__unsigned_int__unsigned_int, 
+	                  0);
+	I_SimpleProperty(unsigned int, TotalDataSize, 
+	                 __unsigned_int__getTotalDataSize, 
+	                 0);
+END_REFLECTOR
 
 BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::PrimitiveFunctor)
 	I_DeclaringFile("osg/PrimitiveSet");
@@ -589,5 +1073,697 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::PrimitiveSet)
 	I_SimpleProperty(osg::PrimitiveSet::Type, Type, 
 	                 __Type__getType, 
 	                 0);
+END_REFLECTOR
+
+TYPE_NAME_ALIAS(osg::MixinVector< GLsizei >, osg::VectorGLsizei)
+
+TYPE_NAME_ALIAS(osg::MixinVector< GLubyte >, osg::VectorGLubyte)
+
+TYPE_NAME_ALIAS(osg::MixinVector< GLushort >, osg::VectorGLushort)
+
+TYPE_NAME_ALIAS(osg::MixinVector< GLuint >, osg::VectorGLuint)
+
+BEGIN_VALUE_REFLECTOR(osg::MixinVector< GLsizei >)
+	I_DeclaringFile("osg/MixinVector");
+	I_Constructor0(____MixinVector,
+	               "",
+	               "");
+	I_ConstructorWithDefaults2(IN, osg::MixinVector< GLsizei >::size_type, initial_size, , IN, const osg::MixinVector< GLsizei >::value_type &, fill_value, osg::MixinVector< GLsizei >::value_type(),
+	                           ____MixinVector__size_type__C5_value_type_R1,
+	                           "",
+	                           "");
+
+	I_Constructor1(IN, const osg::MixinVector< GLsizei > &, other,
+	               Properties::NON_EXPLICIT,
+	               ____MixinVector__C5_MixinVector_R1,
+	               "",
+	               "");
+
+	I_Method0(void, clear,
+	          Properties::NON_VIRTUAL,
+	          __void__clear,
+	          "",
+	          "");
+	I_MethodWithDefaults2(void, resize, IN, osg::MixinVector< GLsizei >::size_type, new_size, , IN, const osg::MixinVector< GLsizei >::value_type &, fill_value, osg::MixinVector< GLsizei >::value_type(),
+	                      Properties::NON_VIRTUAL,
+	                      __void__resize__size_type__C5_value_type_R1,
+	                      "",
+	                      "");
+	I_Method1(void, reserve, IN, osg::MixinVector< GLsizei >::size_type, new_capacity,
+	          Properties::NON_VIRTUAL,
+	          __void__reserve__size_type,
+	          "",
+	          "");
+
+	I_Method1(void, swap, IN, osg::MixinVector< GLsizei > &, other,
+	          Properties::NON_VIRTUAL,
+	          __void__swap__MixinVector_R1,
+	          "",
+	          "");
+	I_Method0(bool, empty,
+	          Properties::NON_VIRTUAL,
+	          __bool__empty,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::size_type, size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::size_type, capacity,
+	          Properties::NON_VIRTUAL,
+	          __size_type__capacity,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::size_type, max_size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__max_size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::allocator_type, get_allocator,
+	          Properties::NON_VIRTUAL,
+	          __allocator_type__get_allocator,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::const_iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::const_iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::const_reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::const_reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLsizei >::const_reference, at, IN, osg::MixinVector< GLsizei >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__at__size_type,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLsizei >::reference, at, IN, osg::MixinVector< GLsizei >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __reference__at__size_type,
+	          "",
+	          "");
+	I_Method2(void, assign, IN, osg::MixinVector< GLsizei >::size_type, count, IN, const osg::MixinVector< GLsizei >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__assign__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method1(void, push_back, IN, const osg::MixinVector< GLsizei >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__push_back__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(void, pop_back,
+	          Properties::NON_VIRTUAL,
+	          __void__pop_back,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLsizei >::iterator, erase, IN, osg::MixinVector< GLsizei >::iterator, where,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< GLsizei >::iterator, erase, IN, osg::MixinVector< GLsizei >::iterator, first, IN, osg::MixinVector< GLsizei >::iterator, last,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< GLsizei >::iterator, insert, IN, osg::MixinVector< GLsizei >::iterator, where, IN, const osg::MixinVector< GLsizei >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __iterator__insert__iterator__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method3(void, insert, IN, osg::MixinVector< GLsizei >::iterator, where, IN, osg::MixinVector< GLsizei >::size_type, count, IN, const osg::MixinVector< GLsizei >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__insert__iterator__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::const_reference, back,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::reference, back,
+	          Properties::NON_VIRTUAL,
+	          __reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::const_reference, front,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__front,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLsizei >::reference, front,
+	          Properties::NON_VIRTUAL,
+	          __reference__front,
+	          "",
+	          "");
+
+
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osg::MixinVector< GLubyte >)
+	I_DeclaringFile("osg/MixinVector");
+	I_Constructor0(____MixinVector,
+	               "",
+	               "");
+	I_ConstructorWithDefaults2(IN, osg::MixinVector< GLubyte >::size_type, initial_size, , IN, const osg::MixinVector< GLubyte >::value_type &, fill_value, osg::MixinVector< GLubyte >::value_type(),
+	                           ____MixinVector__size_type__C5_value_type_R1,
+	                           "",
+	                           "");
+
+	I_Constructor1(IN, const osg::MixinVector< GLubyte > &, other,
+	               Properties::NON_EXPLICIT,
+	               ____MixinVector__C5_MixinVector_R1,
+	               "",
+	               "");
+
+	I_Method0(void, clear,
+	          Properties::NON_VIRTUAL,
+	          __void__clear,
+	          "",
+	          "");
+	I_MethodWithDefaults2(void, resize, IN, osg::MixinVector< GLubyte >::size_type, new_size, , IN, const osg::MixinVector< GLubyte >::value_type &, fill_value, osg::MixinVector< GLubyte >::value_type(),
+	                      Properties::NON_VIRTUAL,
+	                      __void__resize__size_type__C5_value_type_R1,
+	                      "",
+	                      "");
+	I_Method1(void, reserve, IN, osg::MixinVector< GLubyte >::size_type, new_capacity,
+	          Properties::NON_VIRTUAL,
+	          __void__reserve__size_type,
+	          "",
+	          "");
+
+	I_Method1(void, swap, IN, osg::MixinVector< GLubyte > &, other,
+	          Properties::NON_VIRTUAL,
+	          __void__swap__MixinVector_R1,
+	          "",
+	          "");
+	I_Method0(bool, empty,
+	          Properties::NON_VIRTUAL,
+	          __bool__empty,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::size_type, size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::size_type, capacity,
+	          Properties::NON_VIRTUAL,
+	          __size_type__capacity,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::size_type, max_size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__max_size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::allocator_type, get_allocator,
+	          Properties::NON_VIRTUAL,
+	          __allocator_type__get_allocator,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::const_iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::const_iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::const_reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::const_reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLubyte >::const_reference, at, IN, osg::MixinVector< GLubyte >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__at__size_type,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLubyte >::reference, at, IN, osg::MixinVector< GLubyte >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __reference__at__size_type,
+	          "",
+	          "");
+	I_Method2(void, assign, IN, osg::MixinVector< GLubyte >::size_type, count, IN, const osg::MixinVector< GLubyte >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__assign__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method1(void, push_back, IN, const osg::MixinVector< GLubyte >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__push_back__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(void, pop_back,
+	          Properties::NON_VIRTUAL,
+	          __void__pop_back,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLubyte >::iterator, erase, IN, osg::MixinVector< GLubyte >::iterator, where,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< GLubyte >::iterator, erase, IN, osg::MixinVector< GLubyte >::iterator, first, IN, osg::MixinVector< GLubyte >::iterator, last,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< GLubyte >::iterator, insert, IN, osg::MixinVector< GLubyte >::iterator, where, IN, const osg::MixinVector< GLubyte >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __iterator__insert__iterator__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method3(void, insert, IN, osg::MixinVector< GLubyte >::iterator, where, IN, osg::MixinVector< GLubyte >::size_type, count, IN, const osg::MixinVector< GLubyte >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__insert__iterator__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::const_reference, back,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::reference, back,
+	          Properties::NON_VIRTUAL,
+	          __reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::const_reference, front,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__front,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLubyte >::reference, front,
+	          Properties::NON_VIRTUAL,
+	          __reference__front,
+	          "",
+	          "");
+
+
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osg::MixinVector< GLuint >)
+	I_DeclaringFile("osg/MixinVector");
+	I_Constructor0(____MixinVector,
+	               "",
+	               "");
+	I_ConstructorWithDefaults2(IN, osg::MixinVector< GLuint >::size_type, initial_size, , IN, const osg::MixinVector< GLuint >::value_type &, fill_value, osg::MixinVector< GLuint >::value_type(),
+	                           ____MixinVector__size_type__C5_value_type_R1,
+	                           "",
+	                           "");
+
+	I_Constructor1(IN, const osg::MixinVector< GLuint > &, other,
+	               Properties::NON_EXPLICIT,
+	               ____MixinVector__C5_MixinVector_R1,
+	               "",
+	               "");
+
+	I_Method0(void, clear,
+	          Properties::NON_VIRTUAL,
+	          __void__clear,
+	          "",
+	          "");
+	I_MethodWithDefaults2(void, resize, IN, osg::MixinVector< GLuint >::size_type, new_size, , IN, const osg::MixinVector< GLuint >::value_type &, fill_value, osg::MixinVector< GLuint >::value_type(),
+	                      Properties::NON_VIRTUAL,
+	                      __void__resize__size_type__C5_value_type_R1,
+	                      "",
+	                      "");
+	I_Method1(void, reserve, IN, osg::MixinVector< GLuint >::size_type, new_capacity,
+	          Properties::NON_VIRTUAL,
+	          __void__reserve__size_type,
+	          "",
+	          "");
+
+	I_Method1(void, swap, IN, osg::MixinVector< GLuint > &, other,
+	          Properties::NON_VIRTUAL,
+	          __void__swap__MixinVector_R1,
+	          "",
+	          "");
+	I_Method0(bool, empty,
+	          Properties::NON_VIRTUAL,
+	          __bool__empty,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::size_type, size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::size_type, capacity,
+	          Properties::NON_VIRTUAL,
+	          __size_type__capacity,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::size_type, max_size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__max_size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::allocator_type, get_allocator,
+	          Properties::NON_VIRTUAL,
+	          __allocator_type__get_allocator,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::const_iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::const_iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::const_reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::const_reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLuint >::const_reference, at, IN, osg::MixinVector< GLuint >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__at__size_type,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLuint >::reference, at, IN, osg::MixinVector< GLuint >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __reference__at__size_type,
+	          "",
+	          "");
+	I_Method2(void, assign, IN, osg::MixinVector< GLuint >::size_type, count, IN, const osg::MixinVector< GLuint >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__assign__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method1(void, push_back, IN, const osg::MixinVector< GLuint >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__push_back__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(void, pop_back,
+	          Properties::NON_VIRTUAL,
+	          __void__pop_back,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLuint >::iterator, erase, IN, osg::MixinVector< GLuint >::iterator, where,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< GLuint >::iterator, erase, IN, osg::MixinVector< GLuint >::iterator, first, IN, osg::MixinVector< GLuint >::iterator, last,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< GLuint >::iterator, insert, IN, osg::MixinVector< GLuint >::iterator, where, IN, const osg::MixinVector< GLuint >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __iterator__insert__iterator__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method3(void, insert, IN, osg::MixinVector< GLuint >::iterator, where, IN, osg::MixinVector< GLuint >::size_type, count, IN, const osg::MixinVector< GLuint >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__insert__iterator__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::const_reference, back,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::reference, back,
+	          Properties::NON_VIRTUAL,
+	          __reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::const_reference, front,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__front,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLuint >::reference, front,
+	          Properties::NON_VIRTUAL,
+	          __reference__front,
+	          "",
+	          "");
+
+
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osg::MixinVector< GLushort >)
+	I_DeclaringFile("osg/MixinVector");
+	I_Constructor0(____MixinVector,
+	               "",
+	               "");
+	I_ConstructorWithDefaults2(IN, osg::MixinVector< GLushort >::size_type, initial_size, , IN, const osg::MixinVector< GLushort >::value_type &, fill_value, osg::MixinVector< GLushort >::value_type(),
+	                           ____MixinVector__size_type__C5_value_type_R1,
+	                           "",
+	                           "");
+
+	I_Constructor1(IN, const osg::MixinVector< GLushort > &, other,
+	               Properties::NON_EXPLICIT,
+	               ____MixinVector__C5_MixinVector_R1,
+	               "",
+	               "");
+
+	I_Method0(void, clear,
+	          Properties::NON_VIRTUAL,
+	          __void__clear,
+	          "",
+	          "");
+	I_MethodWithDefaults2(void, resize, IN, osg::MixinVector< GLushort >::size_type, new_size, , IN, const osg::MixinVector< GLushort >::value_type &, fill_value, osg::MixinVector< GLushort >::value_type(),
+	                      Properties::NON_VIRTUAL,
+	                      __void__resize__size_type__C5_value_type_R1,
+	                      "",
+	                      "");
+	I_Method1(void, reserve, IN, osg::MixinVector< GLushort >::size_type, new_capacity,
+	          Properties::NON_VIRTUAL,
+	          __void__reserve__size_type,
+	          "",
+	          "");
+
+	I_Method1(void, swap, IN, osg::MixinVector< GLushort > &, other,
+	          Properties::NON_VIRTUAL,
+	          __void__swap__MixinVector_R1,
+	          "",
+	          "");
+	I_Method0(bool, empty,
+	          Properties::NON_VIRTUAL,
+	          __bool__empty,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::size_type, size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::size_type, capacity,
+	          Properties::NON_VIRTUAL,
+	          __size_type__capacity,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::size_type, max_size,
+	          Properties::NON_VIRTUAL,
+	          __size_type__max_size,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::allocator_type, get_allocator,
+	          Properties::NON_VIRTUAL,
+	          __allocator_type__get_allocator,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::const_iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __iterator__begin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::const_iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __C5_iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __iterator__end,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::const_reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::reverse_iterator, rbegin,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rbegin,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::const_reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __C5_reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::reverse_iterator, rend,
+	          Properties::NON_VIRTUAL,
+	          __reverse_iterator__rend,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLushort >::const_reference, at, IN, osg::MixinVector< GLushort >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__at__size_type,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLushort >::reference, at, IN, osg::MixinVector< GLushort >::size_type, index,
+	          Properties::NON_VIRTUAL,
+	          __reference__at__size_type,
+	          "",
+	          "");
+	I_Method2(void, assign, IN, osg::MixinVector< GLushort >::size_type, count, IN, const osg::MixinVector< GLushort >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__assign__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method1(void, push_back, IN, const osg::MixinVector< GLushort >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__push_back__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(void, pop_back,
+	          Properties::NON_VIRTUAL,
+	          __void__pop_back,
+	          "",
+	          "");
+	I_Method1(osg::MixinVector< GLushort >::iterator, erase, IN, osg::MixinVector< GLushort >::iterator, where,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< GLushort >::iterator, erase, IN, osg::MixinVector< GLushort >::iterator, first, IN, osg::MixinVector< GLushort >::iterator, last,
+	          Properties::NON_VIRTUAL,
+	          __iterator__erase__iterator__iterator,
+	          "",
+	          "");
+	I_Method2(osg::MixinVector< GLushort >::iterator, insert, IN, osg::MixinVector< GLushort >::iterator, where, IN, const osg::MixinVector< GLushort >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __iterator__insert__iterator__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method3(void, insert, IN, osg::MixinVector< GLushort >::iterator, where, IN, osg::MixinVector< GLushort >::size_type, count, IN, const osg::MixinVector< GLushort >::value_type &, value,
+	          Properties::NON_VIRTUAL,
+	          __void__insert__iterator__size_type__C5_value_type_R1,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::const_reference, back,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::reference, back,
+	          Properties::NON_VIRTUAL,
+	          __reference__back,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::const_reference, front,
+	          Properties::NON_VIRTUAL,
+	          __C5_reference__front,
+	          "",
+	          "");
+	I_Method0(osg::MixinVector< GLushort >::reference, front,
+	          Properties::NON_VIRTUAL,
+	          __reference__front,
+	          "",
+	          "");
+
+
 END_REFLECTOR
 
