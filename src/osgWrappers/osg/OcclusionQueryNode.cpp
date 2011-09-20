@@ -153,7 +153,7 @@ BEGIN_OBJECT_REFLECTOR(osg::OcclusionQueryNode)
 	          "",
 	          "");
 	I_Method2(bool, getPassed, IN, const osg::Camera *, camera, IN, osg::NodeVisitor &, nv,
-	          Properties::NON_VIRTUAL,
+	          Properties::VIRTUAL,
 	          __bool__getPassed__C5_osg_Camera_P1__osg_NodeVisitor_R1,
 	          "",
 	          "");
@@ -176,7 +176,7 @@ BEGIN_OBJECT_REFLECTOR(osg::OcclusionQueryNode)
 	                "",
 	                "");
 	I_ProtectedMethod0(void, createSupportNodes,
-	                   Properties::NON_VIRTUAL,
+	                   Properties::VIRTUAL,
 	                   Properties::NON_CONST,
 	                   __void__createSupportNodes,
 	                   "",
