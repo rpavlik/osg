@@ -16,6 +16,7 @@
 #include <osg/NodeVisitor>
 #include <osg/Object>
 #include <osg/OcclusionQueryNode>
+#include <osg/RenderInfo>
 #include <osg/State>
 #include <osg/StateSet>
 
@@ -202,5 +203,60 @@ BEGIN_OBJECT_REFLECTOR(osg::OcclusionQueryNode)
 	I_SimpleProperty(unsigned int, VisibilityThreshold, 
 	                 __unsigned_int__getVisibilityThreshold, 
 	                 __void__setVisibilityThreshold__unsigned_int);
+END_REFLECTOR
+
+BEGIN_OBJECT_REFLECTOR(osg::QueryGeometry)
+	I_DeclaringFile("osg/OcclusionQueryNode");
+	I_BaseType(osg::Geometry);
+	I_ConstructorWithDefaults1(IN, const std::string &, oqnName, std::string(""),
+	                           Properties::NON_EXPLICIT,
+	                           ____QueryGeometry__C5_std_string_R1,
+	                           "",
+	                           "");
+	I_Method0(void, reset,
+	          Properties::NON_VIRTUAL,
+	          __void__reset,
+	          "",
+	          "");
+	I_Method1(void, drawImplementation, IN, osg::RenderInfo &, renderInfo,
+	          Properties::VIRTUAL,
+	          __void__drawImplementation__osg_RenderInfo_R1,
+	          "Draw Geometry directly ignoring an OpenGL display list which could be attached. ",
+	          "This is the internal draw method which does the drawing itself, and is the method to override when deriving from Geometry for user-drawn objects. ");
+	I_Method0(unsigned int, getNumPixels,
+	          Properties::NON_VIRTUAL,
+	          __unsigned_int__getNumPixels,
+	          "",
+	          "");
+	I_MethodWithDefaults1(void, releaseGLObjects, IN, osg::State *, state, 0,
+	                      Properties::NON_VIRTUAL,
+	                      __void__releaseGLObjects__osg_State_P1,
+	                      "",
+	                      "");
+	I_StaticMethod2(void, deleteQueryObject, IN, unsigned int, contextID, IN, GLuint, handle,
+	                __void__deleteQueryObject__unsigned_int__GLuint_S,
+	                "",
+	                "");
+	I_StaticMethod3(void, flushDeletedQueryObjects, IN, unsigned int, contextID, IN, double, currentTime, IN, double &, availableTime,
+	                __void__flushDeletedQueryObjects__unsigned_int__double__double_R1_S,
+	                "",
+	                "");
+	I_StaticMethod1(void, discardDeletedQueryObjects, IN, unsigned int, contextID,
+	                __void__discardDeletedQueryObjects__unsigned_int_S,
+	                "",
+	                "");
+END_REFLECTOR
+
+BEGIN_OBJECT_REFLECTOR(osg::TestResult)
+	I_DeclaringFile("osg/OcclusionQueryNode");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____TestResult,
+	               "",
+	               "");
+	I_PublicMemberProperty(bool, _init);
+	I_PublicMemberProperty(GLuint, _id);
+	I_PublicMemberProperty(unsigned int, _contextID);
+	I_PublicMemberProperty(bool, _active);
+	I_PublicMemberProperty(GLint, _numPixels);
 END_REFLECTOR
 
