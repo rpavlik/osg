@@ -19,8 +19,8 @@
 #include <osg/Object>
 #include <osg/Stats>
 #include <osg/Timer>
+#include <osg/View>
 #include <osgViewer/GraphicsWindow>
-#include <osgViewer/View>
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerBase>
 
@@ -53,7 +53,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::Viewer)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -73,9 +73,9 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::Viewer)
 	          __C5_char_P1__className,
 	          "return the name of the object's class type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(void, take, IN, osgViewer::View &, rhs,
+	I_Method1(void, take, IN, osg::View &, rhs,
 	          Properties::VIRTUAL,
-	          __void__take__View_R1,
+	          __void__take__osg_View_R1,
 	          "Take all the settings, Camera and Slaves from the passed in view(er), leaving it empty. ",
 	          "");
 	I_Method1(void, setViewerStats, IN, osg::Stats *, stats,

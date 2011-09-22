@@ -737,6 +737,40 @@ TYPE_NAME_ALIAS(osg::TemplateArray< osg::Vec3d COMMA  osg::Array::Vec3dArrayType
 
 TYPE_NAME_ALIAS(osg::TemplateArray< osg::Vec4d COMMA  osg::Array::Vec4dArrayType COMMA  4 COMMA  GL_DOUBLE >, osg::Vec4dArray)
 
+STD_VECTOR_REFLECTOR(osg::MixinVector< GLbyte >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< GLdouble >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< GLfloat >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< GLshort >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec2 >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec2b >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec2d >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec2s >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec3 >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec3b >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec3d >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec3s >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec4 >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec4b >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec4d >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec4s >)
+
+STD_VECTOR_REFLECTOR(osg::MixinVector< osg::Vec4ub >)
+
 BEGIN_OBJECT_REFLECTOR(osg::TemplateArray< GLdouble COMMA  osg::Array::DoubleArrayType COMMA  1 COMMA  GL_DOUBLE >)
 	I_DeclaringFile("osg/Array");
 	I_BaseType(osg::Array);

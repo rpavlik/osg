@@ -38,6 +38,7 @@ TYPE_NAME_ALIAS(osgShadow::ProjectionShadowMap< osgShadow::MinimalCullBoundsShad
 
 BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapCB)
 	I_DeclaringFile("osgShadow/LightSpacePerspectiveShadowMap");
+	I_BaseType(osgShadow::ProjectionShadowMap< MinimalCullBoundsShadowMap COMMA  LightSpacePerspectiveShadowMapAlgorithm >);
 	I_Constructor0(____LightSpacePerspectiveShadowMapCB,
 	               "Classic OSG constructor. ",
 	               "");
@@ -50,11 +51,11 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapCB)
 	          __osg_Object_P1__cloneType,
 	          "Declaration of standard OSG object methods. ",
 	          "");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "",
-	          "");
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
 	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
 	          Properties::VIRTUAL,
 	          __bool__isSameKindAs__C5_osg_Object_P1,
@@ -63,19 +64,20 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapCB)
 	I_Method0(const char *, libraryName,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__libraryName,
-	          "",
-	          "");
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
 	I_Method0(const char *, className,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__className,
-	          "",
-	          "");
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(osgShadow::ProjectionShadowMap< osgShadow::MinimalDrawBoundsShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm >, osgShadow::LightSpacePerspectiveShadowMapDB::BaseClass)
 
 BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapDB)
 	I_DeclaringFile("osgShadow/LightSpacePerspectiveShadowMap");
+	I_BaseType(osgShadow::ProjectionShadowMap< MinimalDrawBoundsShadowMap COMMA  LightSpacePerspectiveShadowMapAlgorithm >);
 	I_Constructor0(____LightSpacePerspectiveShadowMapDB,
 	               "Classic OSG constructor. ",
 	               "");
@@ -88,11 +90,11 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapDB)
 	          __osg_Object_P1__cloneType,
 	          "Declaration of standard OSG object methods. ",
 	          "");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "",
-	          "");
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
 	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
 	          Properties::VIRTUAL,
 	          __bool__isSameKindAs__C5_osg_Object_P1,
@@ -101,19 +103,20 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapDB)
 	I_Method0(const char *, libraryName,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__libraryName,
-	          "",
-	          "");
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
 	I_Method0(const char *, className,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__className,
-	          "",
-	          "");
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(osgShadow::ProjectionShadowMap< osgShadow::MinimalShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm >, osgShadow::LightSpacePerspectiveShadowMapVB::BaseClass)
 
 BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapVB)
 	I_DeclaringFile("osgShadow/LightSpacePerspectiveShadowMap");
+	I_BaseType(osgShadow::ProjectionShadowMap< MinimalShadowMap COMMA  LightSpacePerspectiveShadowMapAlgorithm >);
 	I_Constructor0(____LightSpacePerspectiveShadowMapVB,
 	               "Classic OSG constructor. ",
 	               "");
@@ -126,11 +129,11 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapVB)
 	          __osg_Object_P1__cloneType,
 	          "Declaration of standard OSG object methods. ",
 	          "");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "",
-	          "");
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
 	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
 	          Properties::VIRTUAL,
 	          __bool__isSameKindAs__C5_osg_Object_P1,
@@ -139,13 +142,13 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::LightSpacePerspectiveShadowMapVB)
 	I_Method0(const char *, libraryName,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__libraryName,
-	          "",
-	          "");
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
 	I_Method0(const char *, className,
 	          Properties::VIRTUAL,
 	          __C5_char_P1__className,
-	          "",
-	          "");
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(osgShadow::LightSpacePerspectiveShadowMapDB, osgShadow::LightSpacePerspectiveShadowMap)
@@ -184,6 +187,7 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::ProjectionShadowMap< osgShadow::MinimalCullBou
 	          __C5_char_P1__className,
 	          "",
 	          "");
+
 END_REFLECTOR
 
 BEGIN_OBJECT_REFLECTOR(osgShadow::ProjectionShadowMap< osgShadow::MinimalDrawBoundsShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm >)
@@ -220,6 +224,7 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::ProjectionShadowMap< osgShadow::MinimalDrawBou
 	          __C5_char_P1__className,
 	          "",
 	          "");
+
 END_REFLECTOR
 
 BEGIN_OBJECT_REFLECTOR(osgShadow::ProjectionShadowMap< osgShadow::MinimalShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm >)
@@ -256,5 +261,117 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::ProjectionShadowMap< osgShadow::MinimalShadowM
 	          __C5_char_P1__className,
 	          "",
 	          "");
+
+END_REFLECTOR
+
+BEGIN_OBJECT_REFLECTOR(osgShadow::ProjectionShadowMap< osgShadow::MinimalCullBoundsShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm >)
+	I_DeclaringFile("osgShadow/ProjectionShadowMap");
+	I_Constructor0(____ProjectionShadowMap,
+	               "Classic OSG constructor. ",
+	               "");
+	I_ConstructorWithDefaults2(IN, const osgShadow::ProjectionShadowMap< osgShadow::MinimalCullBoundsShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm > &, copy, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
+	                           ____ProjectionShadowMap__C5_ProjectionShadowMap_R1__C5_osg_CopyOp_R1,
+	                           "Classic OSG cloning constructor. ",
+	                           "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__cloneType,
+	          "Declaration of standard OSG object methods. ",
+	          "");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
+	          "",
+	          "");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "",
+	          "");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "",
+	          "");
+
+END_REFLECTOR
+
+BEGIN_OBJECT_REFLECTOR(osgShadow::ProjectionShadowMap< osgShadow::MinimalDrawBoundsShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm >)
+	I_DeclaringFile("osgShadow/ProjectionShadowMap");
+	I_Constructor0(____ProjectionShadowMap,
+	               "Classic OSG constructor. ",
+	               "");
+	I_ConstructorWithDefaults2(IN, const osgShadow::ProjectionShadowMap< osgShadow::MinimalDrawBoundsShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm > &, copy, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
+	                           ____ProjectionShadowMap__C5_ProjectionShadowMap_R1__C5_osg_CopyOp_R1,
+	                           "Classic OSG cloning constructor. ",
+	                           "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__cloneType,
+	          "Declaration of standard OSG object methods. ",
+	          "");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
+	          "",
+	          "");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "",
+	          "");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "",
+	          "");
+
+END_REFLECTOR
+
+BEGIN_OBJECT_REFLECTOR(osgShadow::ProjectionShadowMap< osgShadow::MinimalShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm >)
+	I_DeclaringFile("osgShadow/ProjectionShadowMap");
+	I_Constructor0(____ProjectionShadowMap,
+	               "Classic OSG constructor. ",
+	               "");
+	I_ConstructorWithDefaults2(IN, const osgShadow::ProjectionShadowMap< osgShadow::MinimalShadowMap COMMA  osgShadow::LightSpacePerspectiveShadowMapAlgorithm > &, copy, , IN, const osg::CopyOp &, copyop, osg::CopyOp::SHALLOW_COPY,
+	                           ____ProjectionShadowMap__C5_ProjectionShadowMap_R1__C5_osg_CopyOp_R1,
+	                           "Classic OSG cloning constructor. ",
+	                           "");
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__cloneType,
+	          "Declaration of standard OSG object methods. ",
+	          "");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
+	          "",
+	          "");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "",
+	          "");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "",
+	          "");
+
 END_REFLECTOR
 

@@ -68,123 +68,6 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::BaseOptimizerVisitor)
 	          "");
 END_REFLECTOR
 
-BEGIN_ENUM_REFLECTOR(osgUtil::Optimizer::OptimizationOptions)
-	I_DeclaringFile("osgUtil/Optimizer");
-	I_EnumLabel(osgUtil::Optimizer::FLATTEN_STATIC_TRANSFORMS);
-	I_EnumLabel(osgUtil::Optimizer::REMOVE_REDUNDANT_NODES);
-	I_EnumLabel(osgUtil::Optimizer::REMOVE_LOADED_PROXY_NODES);
-	I_EnumLabel(osgUtil::Optimizer::COMBINE_ADJACENT_LODS);
-	I_EnumLabel(osgUtil::Optimizer::SHARE_DUPLICATE_STATE);
-	I_EnumLabel(osgUtil::Optimizer::MERGE_GEOMETRY);
-	I_EnumLabel(osgUtil::Optimizer::CHECK_GEOMETRY);
-	I_EnumLabel(osgUtil::Optimizer::SPATIALIZE_GROUPS);
-	I_EnumLabel(osgUtil::Optimizer::COPY_SHARED_NODES);
-	I_EnumLabel(osgUtil::Optimizer::TRISTRIP_GEOMETRY);
-	I_EnumLabel(osgUtil::Optimizer::TESSELLATE_GEOMETRY);
-	I_EnumLabel(osgUtil::Optimizer::OPTIMIZE_TEXTURE_SETTINGS);
-	I_EnumLabel(osgUtil::Optimizer::MERGE_GEODES);
-	I_EnumLabel(osgUtil::Optimizer::FLATTEN_BILLBOARDS);
-	I_EnumLabel(osgUtil::Optimizer::TEXTURE_ATLAS_BUILDER);
-	I_EnumLabel(osgUtil::Optimizer::STATIC_OBJECT_DETECTION);
-	I_EnumLabel(osgUtil::Optimizer::FLATTEN_STATIC_TRANSFORMS_DUPLICATING_SHARED_SUBGRAPHS);
-	I_EnumLabel(osgUtil::Optimizer::DEFAULT_OPTIMIZATIONS);
-	I_EnumLabel(osgUtil::Optimizer::ALL_OPTIMIZATIONS);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgUtil::Optimizer)
-	I_DeclaringFile("osgUtil/Optimizer");
-	I_Constructor0(____Optimizer,
-	               "",
-	               "");
-	I_Method0(void, reset,
-	          Properties::NON_VIRTUAL,
-	          __void__reset,
-	          "Reset internal data to initial state - the getPermissibleOptionsMap is cleared. ",
-	          "");
-	I_Method1(void, optimize, IN, osg::Node *, node,
-	          Properties::NON_VIRTUAL,
-	          __void__optimize__osg_Node_P1,
-	          "Traverse the node and its subgraph with a series of optimization visitors, specified by the OptimizationOptions. ",
-	          "");
-	I_Method2(void, optimize, IN, osg::Node *, node, IN, unsigned int, options,
-	          Properties::VIRTUAL,
-	          __void__optimize__osg_Node_P1__unsigned_int,
-	          "Traverse the node and its subgraph with a series of optimization visitors, specified by the OptimizationOptions. ",
-	          "");
-	I_Method1(void, setIsOperationPermissibleForObjectCallback, IN, osgUtil::Optimizer::IsOperationPermissibleForObjectCallback *, callback,
-	          Properties::NON_VIRTUAL,
-	          __void__setIsOperationPermissibleForObjectCallback__IsOperationPermissibleForObjectCallback_P1,
-	          "Set the callback for customizing what operations are permitted on objects in the scene graph. ",
-	          "");
-	I_Method0(osgUtil::Optimizer::IsOperationPermissibleForObjectCallback *, getIsOperationPermissibleForObjectCallback,
-	          Properties::NON_VIRTUAL,
-	          __IsOperationPermissibleForObjectCallback_P1__getIsOperationPermissibleForObjectCallback,
-	          "Get the callback for customizing what operations are permitted on objects in the scene graph. ",
-	          "");
-	I_Method0(const osgUtil::Optimizer::IsOperationPermissibleForObjectCallback *, getIsOperationPermissibleForObjectCallback,
-	          Properties::NON_VIRTUAL,
-	          __C5_IsOperationPermissibleForObjectCallback_P1__getIsOperationPermissibleForObjectCallback,
-	          "Get the callback for customizing what operations are permitted on objects in the scene graph. ",
-	          "");
-	I_Method2(void, setPermissibleOptimizationsForObject, IN, const osg::Object *, object, IN, unsigned int, options,
-	          Properties::NON_VIRTUAL,
-	          __void__setPermissibleOptimizationsForObject__C5_osg_Object_P1__unsigned_int,
-	          "",
-	          "");
-	I_Method1(unsigned int, getPermissibleOptimizationsForObject, IN, const osg::Object *, object,
-	          Properties::NON_VIRTUAL,
-	          __unsigned_int__getPermissibleOptimizationsForObject__C5_osg_Object_P1,
-	          "",
-	          "");
-	I_Method2(bool, isOperationPermissibleForObject, IN, const osg::StateSet *, object, IN, unsigned int, option,
-	          Properties::NON_VIRTUAL,
-	          __bool__isOperationPermissibleForObject__C5_osg_StateSet_P1__unsigned_int,
-	          "",
-	          "");
-	I_Method2(bool, isOperationPermissibleForObject, IN, const osg::StateAttribute *, object, IN, unsigned int, option,
-	          Properties::NON_VIRTUAL,
-	          __bool__isOperationPermissibleForObject__C5_osg_StateAttribute_P1__unsigned_int,
-	          "",
-	          "");
-	I_Method2(bool, isOperationPermissibleForObject, IN, const osg::Drawable *, object, IN, unsigned int, option,
-	          Properties::NON_VIRTUAL,
-	          __bool__isOperationPermissibleForObject__C5_osg_Drawable_P1__unsigned_int,
-	          "",
-	          "");
-	I_Method2(bool, isOperationPermissibleForObject, IN, const osg::Node *, object, IN, unsigned int, option,
-	          Properties::NON_VIRTUAL,
-	          __bool__isOperationPermissibleForObject__C5_osg_Node_P1__unsigned_int,
-	          "",
-	          "");
-	I_Method2(bool, isOperationPermissibleForObjectImplementation, IN, const osg::StateSet *, stateset, IN, unsigned int, option,
-	          Properties::NON_VIRTUAL,
-	          __bool__isOperationPermissibleForObjectImplementation__C5_osg_StateSet_P1__unsigned_int,
-	          "",
-	          "");
-	I_Method2(bool, isOperationPermissibleForObjectImplementation, IN, const osg::StateAttribute *, attribute, IN, unsigned int, option,
-	          Properties::NON_VIRTUAL,
-	          __bool__isOperationPermissibleForObjectImplementation__C5_osg_StateAttribute_P1__unsigned_int,
-	          "",
-	          "");
-	I_Method2(bool, isOperationPermissibleForObjectImplementation, IN, const osg::Drawable *, drawable, IN, unsigned int, option,
-	          Properties::NON_VIRTUAL,
-	          __bool__isOperationPermissibleForObjectImplementation__C5_osg_Drawable_P1__unsigned_int,
-	          "",
-	          "");
-	I_Method2(bool, isOperationPermissibleForObjectImplementation, IN, const osg::Node *, node, IN, unsigned int, option,
-	          Properties::NON_VIRTUAL,
-	          __bool__isOperationPermissibleForObjectImplementation__C5_osg_Node_P1__unsigned_int,
-	          "",
-	          "");
-	I_SimpleProperty(osgUtil::Optimizer::IsOperationPermissibleForObjectCallback *, IsOperationPermissibleForObjectCallback, 
-	                 __IsOperationPermissibleForObjectCallback_P1__getIsOperationPermissibleForObjectCallback, 
-	                 __void__setIsOperationPermissibleForObjectCallback__IsOperationPermissibleForObjectCallback_P1);
-	I_IndexedProperty(unsigned int, PermissibleOptimizationsForObject, 
-	                  __unsigned_int__getPermissibleOptimizationsForObject__C5_osg_Object_P1, 
-	                  __void__setPermissibleOptimizationsForObject__C5_osg_Object_P1__unsigned_int, 
-	                  0);
-END_REFLECTOR
-
 BEGIN_OBJECT_REFLECTOR(osgUtil::Optimizer::CheckGeometryVisitor)
 	I_DeclaringFile("osgUtil/Optimizer");
 	I_BaseType(osgUtil::BaseOptimizerVisitor);
@@ -522,6 +405,123 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::Optimizer::MergeGeometryVisitor)
 	I_SimpleProperty(unsigned int, TargetMaximumNumberOfVertices, 
 	                 __unsigned_int__getTargetMaximumNumberOfVertices, 
 	                 __void__setTargetMaximumNumberOfVertices__unsigned_int);
+END_REFLECTOR
+
+BEGIN_ENUM_REFLECTOR(osgUtil::Optimizer::OptimizationOptions)
+	I_DeclaringFile("osgUtil/Optimizer");
+	I_EnumLabel(osgUtil::Optimizer::FLATTEN_STATIC_TRANSFORMS);
+	I_EnumLabel(osgUtil::Optimizer::REMOVE_REDUNDANT_NODES);
+	I_EnumLabel(osgUtil::Optimizer::REMOVE_LOADED_PROXY_NODES);
+	I_EnumLabel(osgUtil::Optimizer::COMBINE_ADJACENT_LODS);
+	I_EnumLabel(osgUtil::Optimizer::SHARE_DUPLICATE_STATE);
+	I_EnumLabel(osgUtil::Optimizer::MERGE_GEOMETRY);
+	I_EnumLabel(osgUtil::Optimizer::CHECK_GEOMETRY);
+	I_EnumLabel(osgUtil::Optimizer::SPATIALIZE_GROUPS);
+	I_EnumLabel(osgUtil::Optimizer::COPY_SHARED_NODES);
+	I_EnumLabel(osgUtil::Optimizer::TRISTRIP_GEOMETRY);
+	I_EnumLabel(osgUtil::Optimizer::TESSELLATE_GEOMETRY);
+	I_EnumLabel(osgUtil::Optimizer::OPTIMIZE_TEXTURE_SETTINGS);
+	I_EnumLabel(osgUtil::Optimizer::MERGE_GEODES);
+	I_EnumLabel(osgUtil::Optimizer::FLATTEN_BILLBOARDS);
+	I_EnumLabel(osgUtil::Optimizer::TEXTURE_ATLAS_BUILDER);
+	I_EnumLabel(osgUtil::Optimizer::STATIC_OBJECT_DETECTION);
+	I_EnumLabel(osgUtil::Optimizer::FLATTEN_STATIC_TRANSFORMS_DUPLICATING_SHARED_SUBGRAPHS);
+	I_EnumLabel(osgUtil::Optimizer::DEFAULT_OPTIMIZATIONS);
+	I_EnumLabel(osgUtil::Optimizer::ALL_OPTIMIZATIONS);
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osgUtil::Optimizer)
+	I_DeclaringFile("osgUtil/Optimizer");
+	I_Constructor0(____Optimizer,
+	               "",
+	               "");
+	I_Method0(void, reset,
+	          Properties::NON_VIRTUAL,
+	          __void__reset,
+	          "Reset internal data to initial state - the getPermissibleOptionsMap is cleared. ",
+	          "");
+	I_Method1(void, optimize, IN, osg::Node *, node,
+	          Properties::NON_VIRTUAL,
+	          __void__optimize__osg_Node_P1,
+	          "Traverse the node and its subgraph with a series of optimization visitors, specified by the OptimizationOptions. ",
+	          "");
+	I_Method2(void, optimize, IN, osg::Node *, node, IN, unsigned int, options,
+	          Properties::VIRTUAL,
+	          __void__optimize__osg_Node_P1__unsigned_int,
+	          "Traverse the node and its subgraph with a series of optimization visitors, specified by the OptimizationOptions. ",
+	          "");
+	I_Method1(void, setIsOperationPermissibleForObjectCallback, IN, osgUtil::Optimizer::IsOperationPermissibleForObjectCallback *, callback,
+	          Properties::NON_VIRTUAL,
+	          __void__setIsOperationPermissibleForObjectCallback__IsOperationPermissibleForObjectCallback_P1,
+	          "Set the callback for customizing what operations are permitted on objects in the scene graph. ",
+	          "");
+	I_Method0(osgUtil::Optimizer::IsOperationPermissibleForObjectCallback *, getIsOperationPermissibleForObjectCallback,
+	          Properties::NON_VIRTUAL,
+	          __IsOperationPermissibleForObjectCallback_P1__getIsOperationPermissibleForObjectCallback,
+	          "Get the callback for customizing what operations are permitted on objects in the scene graph. ",
+	          "");
+	I_Method0(const osgUtil::Optimizer::IsOperationPermissibleForObjectCallback *, getIsOperationPermissibleForObjectCallback,
+	          Properties::NON_VIRTUAL,
+	          __C5_IsOperationPermissibleForObjectCallback_P1__getIsOperationPermissibleForObjectCallback,
+	          "Get the callback for customizing what operations are permitted on objects in the scene graph. ",
+	          "");
+	I_Method2(void, setPermissibleOptimizationsForObject, IN, const osg::Object *, object, IN, unsigned int, options,
+	          Properties::NON_VIRTUAL,
+	          __void__setPermissibleOptimizationsForObject__C5_osg_Object_P1__unsigned_int,
+	          "",
+	          "");
+	I_Method1(unsigned int, getPermissibleOptimizationsForObject, IN, const osg::Object *, object,
+	          Properties::NON_VIRTUAL,
+	          __unsigned_int__getPermissibleOptimizationsForObject__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method2(bool, isOperationPermissibleForObject, IN, const osg::StateSet *, object, IN, unsigned int, option,
+	          Properties::NON_VIRTUAL,
+	          __bool__isOperationPermissibleForObject__C5_osg_StateSet_P1__unsigned_int,
+	          "",
+	          "");
+	I_Method2(bool, isOperationPermissibleForObject, IN, const osg::StateAttribute *, object, IN, unsigned int, option,
+	          Properties::NON_VIRTUAL,
+	          __bool__isOperationPermissibleForObject__C5_osg_StateAttribute_P1__unsigned_int,
+	          "",
+	          "");
+	I_Method2(bool, isOperationPermissibleForObject, IN, const osg::Drawable *, object, IN, unsigned int, option,
+	          Properties::NON_VIRTUAL,
+	          __bool__isOperationPermissibleForObject__C5_osg_Drawable_P1__unsigned_int,
+	          "",
+	          "");
+	I_Method2(bool, isOperationPermissibleForObject, IN, const osg::Node *, object, IN, unsigned int, option,
+	          Properties::NON_VIRTUAL,
+	          __bool__isOperationPermissibleForObject__C5_osg_Node_P1__unsigned_int,
+	          "",
+	          "");
+	I_Method2(bool, isOperationPermissibleForObjectImplementation, IN, const osg::StateSet *, stateset, IN, unsigned int, option,
+	          Properties::NON_VIRTUAL,
+	          __bool__isOperationPermissibleForObjectImplementation__C5_osg_StateSet_P1__unsigned_int,
+	          "",
+	          "");
+	I_Method2(bool, isOperationPermissibleForObjectImplementation, IN, const osg::StateAttribute *, attribute, IN, unsigned int, option,
+	          Properties::NON_VIRTUAL,
+	          __bool__isOperationPermissibleForObjectImplementation__C5_osg_StateAttribute_P1__unsigned_int,
+	          "",
+	          "");
+	I_Method2(bool, isOperationPermissibleForObjectImplementation, IN, const osg::Drawable *, drawable, IN, unsigned int, option,
+	          Properties::NON_VIRTUAL,
+	          __bool__isOperationPermissibleForObjectImplementation__C5_osg_Drawable_P1__unsigned_int,
+	          "",
+	          "");
+	I_Method2(bool, isOperationPermissibleForObjectImplementation, IN, const osg::Node *, node, IN, unsigned int, option,
+	          Properties::NON_VIRTUAL,
+	          __bool__isOperationPermissibleForObjectImplementation__C5_osg_Node_P1__unsigned_int,
+	          "",
+	          "");
+	I_SimpleProperty(osgUtil::Optimizer::IsOperationPermissibleForObjectCallback *, IsOperationPermissibleForObjectCallback, 
+	                 __IsOperationPermissibleForObjectCallback_P1__getIsOperationPermissibleForObjectCallback, 
+	                 __void__setIsOperationPermissibleForObjectCallback__IsOperationPermissibleForObjectCallback_P1);
+	I_IndexedProperty(unsigned int, PermissibleOptimizationsForObject, 
+	                  __unsigned_int__getPermissibleOptimizationsForObject__C5_osg_Object_P1, 
+	                  __void__setPermissibleOptimizationsForObject__C5_osg_Object_P1__unsigned_int, 
+	                  0);
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(std::set< osg::Node * >, osgUtil::Optimizer::RemoveEmptyNodesVisitor::NodeList)

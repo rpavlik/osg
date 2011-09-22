@@ -35,7 +35,7 @@ BEGIN_OBJECT_REFLECTOR(osgGA::GUIEventHandler)
 	I_Constructor0(____GUIEventHandler,
 	               "",
 	               "");
-	I_Constructor2(IN, const osgGA::GUIEventHandler &, eh, IN, const osg::CopyOp &, x,
+	I_Constructor2(IN, const osgGA::GUIEventHandler &, eh, IN, const osg::CopyOp &, copyop,
 	               ____GUIEventHandler__C5_GUIEventHandler_R1__C5_osg_CopyOp_R1,
 	               "",
 	               "");
@@ -44,7 +44,7 @@ BEGIN_OBJECT_REFLECTOR(osgGA::GUIEventHandler)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -107,17 +107,5 @@ BEGIN_OBJECT_REFLECTOR(osgGA::GUIEventHandler)
 	I_SimpleProperty(unsigned int, IgnoreHandledEventsMask, 
 	                 __unsigned_int__getIgnoreHandledEventsMask, 
 	                 __void__setIgnoreHandledEventsMask__unsigned_int);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgGA::GUIEventHandlerVisitor)
-	I_DeclaringFile("osgGA/GUIEventHandler");
-	I_Constructor0(____GUIEventHandlerVisitor,
-	               "",
-	               "");
-	I_Method1(void, visit, IN, osgGA::GUIEventHandler &, x,
-	          Properties::NON_VIRTUAL,
-	          __void__visit__GUIEventHandler_R1,
-	          "",
-	          "");
 END_REFLECTOR
 

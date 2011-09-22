@@ -37,6 +37,16 @@
 #undef OUT
 #endif
 
+BEGIN_VALUE_REFLECTOR(osgUtil::RenderStage::Attachment)
+	I_DeclaringFile("osgUtil/RenderStage");
+	I_Constructor0(____Attachment,
+	               "",
+	               "");
+	I_PublicMemberProperty(osg::ref_ptr< osg::Image >, _image);
+	I_PublicMemberProperty(GLenum, _imageReadPixelFormat);
+	I_PublicMemberProperty(GLenum, _imageReadPixelDataType);
+END_REFLECTOR
+
 BEGIN_OBJECT_REFLECTOR(osgUtil::RenderStage)
 	I_DeclaringFile("osgUtil/RenderStage");
 	I_BaseType(osgUtil::RenderBin);
@@ -57,7 +67,7 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::RenderStage)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -115,8 +125,8 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::RenderStage)
 	I_Method1(void, setClearMask, IN, GLbitfield, mask,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearMask__GLbitfield,
-	          "Set the clear mask used in glClear(. ",
-	          ".). Defaults to GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT. ");
+	          "Set the clear mask used in glClear(..). ",
+	          "Defaults to GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT. ");
 	I_Method0(GLbitfield, getClearMask,
 	          Properties::NON_VIRTUAL,
 	          __GLbitfield__getClearMask,
@@ -140,8 +150,8 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::RenderStage)
 	I_Method1(void, setClearColor, IN, const osg::Vec4 &, color,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearColor__C5_osg_Vec4_R1,
-	          "Set the clear color used in glClearColor(. ",
-	          ".). glClearColor is only called if mask & GL_COLOR_BUFFER_BIT is true ");
+	          "Set the clear color used in glClearColor(..). ",
+	          "glClearColor is only called if mask & GL_COLOR_BUFFER_BIT is true ");
 	I_Method0(const osg::Vec4 &, getClearColor,
 	          Properties::NON_VIRTUAL,
 	          __C5_osg_Vec4_R1__getClearColor,
@@ -150,8 +160,8 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::RenderStage)
 	I_Method1(void, setClearAccum, IN, const osg::Vec4 &, color,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearAccum__C5_osg_Vec4_R1,
-	          "Set the clear accum used in glClearAccum(. ",
-	          ".). glClearAcumm is only called if mask & GL_ACCUM_BUFFER_BIT is true. ");
+	          "Set the clear accum used in glClearAccum(..). ",
+	          "glClearAcumm is only called if mask & GL_ACCUM_BUFFER_BIT is true. ");
 	I_Method0(const osg::Vec4 &, getClearAccum,
 	          Properties::NON_VIRTUAL,
 	          __C5_osg_Vec4_R1__getClearAccum,
@@ -160,8 +170,8 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::RenderStage)
 	I_Method1(void, setClearDepth, IN, double, depth,
 	          Properties::NON_VIRTUAL,
 	          __void__setClearDepth__double,
-	          "Set the clear depth used in glClearDepth(. ",
-	          ".). Defaults to 1.0 glClearDepth is only called if mask & GL_DEPTH_BUFFER_BIT is true. ");
+	          "Set the clear depth used in glClearDepth(..). ",
+	          "Defaults to 1.0 glClearDepth is only called if mask & GL_DEPTH_BUFFER_BIT is true. ");
 	I_Method0(double, getClearDepth,
 	          Properties::NON_VIRTUAL,
 	          __double__getClearDepth,
@@ -473,15 +483,5 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::RenderStage)
 	I_SimpleProperty(osg::Viewport *, Viewport, 
 	                 __osg_Viewport_P1__getViewport, 
 	                 __void__setViewport__osg_Viewport_P1);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgUtil::RenderStage::Attachment)
-	I_DeclaringFile("osgUtil/RenderStage");
-	I_Constructor0(____Attachment,
-	               "",
-	               "");
-	I_PublicMemberProperty(osg::ref_ptr< osg::Image >, _image);
-	I_PublicMemberProperty(GLenum, _imageReadPixelFormat);
-	I_PublicMemberProperty(GLenum, _imageReadPixelDataType);
 END_REFLECTOR
 

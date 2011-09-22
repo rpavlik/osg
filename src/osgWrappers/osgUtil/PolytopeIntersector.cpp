@@ -25,6 +25,21 @@
 #undef OUT
 #endif
 
+BEGIN_VALUE_REFLECTOR(osgUtil::PolytopeIntersector::Intersection)
+	I_DeclaringFile("osgUtil/PolytopeIntersector");
+	I_Constructor0(____Intersection,
+	               "",
+	               "");
+	I_PublicMemberProperty(double, distance);
+	I_PublicMemberProperty(double, maxDistance);
+	I_PublicMemberProperty(osg::NodePath, nodePath);
+	I_PublicMemberProperty(osg::ref_ptr< osg::Drawable >, drawable);
+	I_PublicMemberProperty(osg::ref_ptr< osg::RefMatrix >, matrix);
+	I_PublicMemberProperty(osg::Vec3, localIntersectionPoint);
+	I_PublicMemberProperty(unsigned int, numIntersectionPoints);
+	I_PublicMemberProperty(unsigned int, primitiveIndex);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::set< osgUtil::PolytopeIntersector::Intersection >, osgUtil::PolytopeIntersector::Intersections)
 
 BEGIN_OBJECT_REFLECTOR(osgUtil::PolytopeIntersector)
@@ -120,21 +135,6 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::PolytopeIntersector)
 	I_SimpleProperty(const osg::Plane &, ReferencePlane, 
 	                 __C5_osg_Plane_R1__getReferencePlane, 
 	                 __void__setReferencePlane__C5_osg_Plane_R1);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgUtil::PolytopeIntersector::Intersection)
-	I_DeclaringFile("osgUtil/PolytopeIntersector");
-	I_Constructor0(____Intersection,
-	               "",
-	               "");
-	I_PublicMemberProperty(double, distance);
-	I_PublicMemberProperty(double, maxDistance);
-	I_PublicMemberProperty(osg::NodePath, nodePath);
-	I_PublicMemberProperty(osg::ref_ptr< osg::Drawable >, drawable);
-	I_PublicMemberProperty(osg::ref_ptr< osg::RefMatrix >, matrix);
-	I_PublicMemberProperty(osg::Vec3, localIntersectionPoint);
-	I_PublicMemberProperty(unsigned int, numIntersectionPoints);
-	I_PublicMemberProperty(unsigned int, primitiveIndex);
 END_REFLECTOR
 
 STD_SET_REFLECTOR(std::set< osgUtil::PolytopeIntersector::Intersection >)

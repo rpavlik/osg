@@ -22,9 +22,19 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::vector< osg::Vec3 * >, osgUtil::Tessellator::VertexPointList)
+TYPE_NAME_ALIAS(std::vector< osg::Vec3 * >, osgUtil::Tessellator::Prim::VecList)
 
-TYPE_NAME_ALIAS(std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > >, osgUtil::Tessellator::PrimList)
+BEGIN_OBJECT_REFLECTOR(osgUtil::Tessellator::Prim)
+	I_DeclaringFile("osgUtil/Tessellator");
+	I_BaseType(osg::Referenced);
+	I_Constructor1(IN, GLenum, mode,
+	               Properties::NON_EXPLICIT,
+	               ____Prim__GLenum,
+	               "",
+	               "");
+	I_PublicMemberProperty(GLenum, _mode);
+	I_PublicMemberProperty(osgUtil::Tessellator::Prim::VecList, _vertices);
+END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osgUtil::Tessellator::WindingType)
 	I_DeclaringFile("osgUtil/Tessellator");
@@ -41,6 +51,10 @@ BEGIN_ENUM_REFLECTOR(osgUtil::Tessellator::TessellationType)
 	I_EnumLabel(osgUtil::Tessellator::TESS_TYPE_DRAWABLE);
 	I_EnumLabel(osgUtil::Tessellator::TESS_TYPE_POLYGONS);
 END_REFLECTOR
+
+TYPE_NAME_ALIAS(std::vector< osg::Vec3 * >, osgUtil::Tessellator::VertexPointList)
+
+TYPE_NAME_ALIAS(std::vector< osg::ref_ptr< osgUtil::Tessellator::Prim > >, osgUtil::Tessellator::PrimList)
 
 BEGIN_OBJECT_REFLECTOR(osgUtil::Tessellator)
 	I_DeclaringFile("osgUtil/Tessellator");
@@ -87,7 +101,7 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::Tessellator)
 	          Properties::NON_VIRTUAL,
 	          __void__setTessellationNormal__C5_osg_Vec3,
 	          "Define the normal to the tessellated polygon - this provides a hint how to tessellate the contours; see gluTessNormal in red book or man pages. ",
-	          "GWM July 2005. Can improve teselation \"For example, if you know that all polygons lie in the x-y plane, call gluTessNormal(tess, 0.0, 0.0, 1.0) before rendering any polygons.\" ");
+	          "GWM July 2005. Can improve teselation \"For example, if you know that all polygons lie in the x-y plane,     call gluTessNormal(tess, 0.0, 0.0, 1.0) before rendering any polygons.\" ");
 	I_Method0(osg::Geometry::PrimitiveSetList, getContours,
 	          Properties::NON_VIRTUAL,
 	          __osg_Geometry_PrimitiveSetList__getContours,
@@ -201,20 +215,6 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::Tessellator)
 	I_SimpleProperty(osgUtil::Tessellator::WindingType, WindingType, 
 	                 __WindingType__getWindingType, 
 	                 0);
-END_REFLECTOR
-
-TYPE_NAME_ALIAS(std::vector< osg::Vec3 * >, osgUtil::Tessellator::Prim::VecList)
-
-BEGIN_OBJECT_REFLECTOR(osgUtil::Tessellator::Prim)
-	I_DeclaringFile("osgUtil/Tessellator");
-	I_BaseType(osg::Referenced);
-	I_Constructor1(IN, GLenum, mode,
-	               Properties::NON_EXPLICIT,
-	               ____Prim__GLenum,
-	               "",
-	               "");
-	I_PublicMemberProperty(GLenum, _mode);
-	I_PublicMemberProperty(osgUtil::Tessellator::Prim::VecList, _vertices);
 END_REFLECTOR
 
 BEGIN_VALUE_REFLECTOR(osg::ref_ptr< osgUtil::Tessellator::Prim >)

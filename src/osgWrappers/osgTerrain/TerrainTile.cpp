@@ -69,7 +69,7 @@ BEGIN_OBJECT_REFLECTOR(osgTerrain::TerrainTile)
 	          __void__accept__osg_NodeVisitor_R1,
 	          "Visitor Pattern : calls the apply method of a NodeVisitor with this node's type. ",
 	          "");
-	I_Method1(void, traverse, IN, osg::NodeVisitor &, nv,
+	I_Method1(void, traverse, IN, osg::NodeVisitor &, x,
 	          Properties::VIRTUAL,
 	          __void__traverse__osg_NodeVisitor_R1,
 	          "Traverse downwards : calls children's accept method with NodeVisitor. ",
@@ -245,24 +245,6 @@ BEGIN_OBJECT_REFLECTOR(osgTerrain::TerrainTile)
 	                 __void__setTreatBoundariesToValidDataAsDefaultValue__bool);
 END_REFLECTOR
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgTerrain::TerrainTile::TileLoadedCallback)
-	I_DeclaringFile("osgTerrain/TerrainTile");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____TileLoadedCallback,
-	               "",
-	               "");
-	I_Method0(bool, deferExternalLayerLoading,
-	          Properties::PURE_VIRTUAL,
-	          __bool__deferExternalLayerLoading,
-	          "",
-	          "");
-	I_Method2(void, loaded, IN, osgTerrain::TerrainTile *, tile, IN, const osgDB::ReaderWriter::Options *, options,
-	          Properties::PURE_VIRTUAL,
-	          __void__loaded__osgTerrain_TerrainTile_P1__C5_osgDB_ReaderWriter_Options_P1,
-	          "",
-	          "");
-END_REFLECTOR
-
 BEGIN_VALUE_REFLECTOR(osgTerrain::TileID)
 	I_DeclaringFile("osgTerrain/TerrainTile");
 	I_Constructor0(____TileID,
@@ -280,6 +262,24 @@ BEGIN_VALUE_REFLECTOR(osgTerrain::TileID)
 	I_PublicMemberProperty(int, level);
 	I_PublicMemberProperty(int, x);
 	I_PublicMemberProperty(int, y);
+END_REFLECTOR
+
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgTerrain::TerrainTile::TileLoadedCallback)
+	I_DeclaringFile("osgTerrain/TerrainTile");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____TileLoadedCallback,
+	               "",
+	               "");
+	I_Method0(bool, deferExternalLayerLoading,
+	          Properties::PURE_VIRTUAL,
+	          __bool__deferExternalLayerLoading,
+	          "",
+	          "");
+	I_Method2(void, loaded, IN, osgTerrain::TerrainTile *, tile, IN, const osgDB::ReaderWriter::Options *, options,
+	          Properties::PURE_VIRTUAL,
+	          __void__loaded__osgTerrain_TerrainTile_P1__C5_osgDB_ReaderWriter_Options_P1,
+	          "",
+	          "");
 END_REFLECTOR
 
 BEGIN_OBJECT_REFLECTOR(osgTerrain::WhiteListTileLoadedCallback)

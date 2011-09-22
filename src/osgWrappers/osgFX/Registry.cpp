@@ -21,11 +21,24 @@
 #undef OUT
 #endif
 
+BEGIN_VALUE_REFLECTOR(osgFX::Registry::Proxy)
+	I_DeclaringFile("osgFX/Registry");
+	I_Constructor1(IN, const osgFX::Effect *, effect,
+	               Properties::NON_EXPLICIT,
+	               ____Proxy__C5_Effect_P1,
+	               "",
+	               "");
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::map< std::string COMMA  osg::ref_ptr< const osgFX::Effect > >, osgFX::Registry::EffectMap)
 
 BEGIN_OBJECT_REFLECTOR(osgFX::Registry)
 	I_DeclaringFile("osgFX/Registry");
 	I_BaseType(osg::Referenced);
+	I_StaticMethod0(osgFX::Registry *, instance,
+	                __Registry_P1__instance_S,
+	                "",
+	                "");
 	I_Method1(void, registerEffect, IN, const osgFX::Effect *, effect,
 	          Properties::NON_VIRTUAL,
 	          __void__registerEffect__C5_Effect_P1,
@@ -36,25 +49,12 @@ BEGIN_OBJECT_REFLECTOR(osgFX::Registry)
 	          __C5_EffectMap_R1__getEffectMap,
 	          "",
 	          "");
-	I_StaticMethod0(osgFX::Registry *, instance,
-	                __Registry_P1__instance_S,
-	                "",
-	                "");
 	I_ProtectedConstructor0(____Registry,
 	                        "",
 	                        "");
 	I_SimpleProperty(const osgFX::Registry::EffectMap &, EffectMap, 
 	                 __C5_EffectMap_R1__getEffectMap, 
 	                 0);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgFX::Registry::Proxy)
-	I_DeclaringFile("osgFX/Registry");
-	I_Constructor1(IN, const osgFX::Effect *, effect,
-	               Properties::NON_EXPLICIT,
-	               ____Proxy__C5_Effect_P1,
-	               "",
-	               "");
 END_REFLECTOR
 
 STD_MAP_REFLECTOR(std::map< std::string COMMA  osg::ref_ptr< const osgFX::Effect > >)

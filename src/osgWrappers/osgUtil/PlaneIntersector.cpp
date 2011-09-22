@@ -26,6 +26,22 @@
 #undef OUT
 #endif
 
+TYPE_NAME_ALIAS(std::vector< osg::Vec3d >, osgUtil::PlaneIntersector::Intersection::Polyline)
+
+TYPE_NAME_ALIAS(std::vector< double >, osgUtil::PlaneIntersector::Intersection::Attributes)
+
+BEGIN_VALUE_REFLECTOR(osgUtil::PlaneIntersector::Intersection)
+	I_DeclaringFile("osgUtil/PlaneIntersector");
+	I_Constructor0(____Intersection,
+	               "",
+	               "");
+	I_PublicMemberProperty(osg::NodePath, nodePath);
+	I_PublicMemberProperty(osg::ref_ptr< osg::RefMatrix >, matrix);
+	I_PublicMemberProperty(osg::ref_ptr< osg::Drawable >, drawable);
+	I_PublicMemberProperty(osgUtil::PlaneIntersector::Intersection::Polyline, polyline);
+	I_PublicMemberProperty(osgUtil::PlaneIntersector::Intersection::Attributes, attributes);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::vector< osgUtil::PlaneIntersector::Intersection >, osgUtil::PlaneIntersector::Intersections)
 
 BEGIN_OBJECT_REFLECTOR(osgUtil::PlaneIntersector)
@@ -108,22 +124,6 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::PlaneIntersector)
 	I_SimpleProperty(bool, RecordHeightsAsAttributes, 
 	                 __bool__getRecordHeightsAsAttributes, 
 	                 __void__setRecordHeightsAsAttributes__bool);
-END_REFLECTOR
-
-TYPE_NAME_ALIAS(std::vector< osg::Vec3d >, osgUtil::PlaneIntersector::Intersection::Polyline)
-
-TYPE_NAME_ALIAS(std::vector< double >, osgUtil::PlaneIntersector::Intersection::Attributes)
-
-BEGIN_VALUE_REFLECTOR(osgUtil::PlaneIntersector::Intersection)
-	I_DeclaringFile("osgUtil/PlaneIntersector");
-	I_Constructor0(____Intersection,
-	               "",
-	               "");
-	I_PublicMemberProperty(osg::NodePath, nodePath);
-	I_PublicMemberProperty(osg::ref_ptr< osg::RefMatrix >, matrix);
-	I_PublicMemberProperty(osg::ref_ptr< osg::Drawable >, drawable);
-	I_PublicMemberProperty(osgUtil::PlaneIntersector::Intersection::Polyline, polyline);
-	I_PublicMemberProperty(osgUtil::PlaneIntersector::Intersection::Attributes, attributes);
 END_REFLECTOR
 
 STD_VECTOR_REFLECTOR(std::vector< osgUtil::PlaneIntersector::Intersection >)

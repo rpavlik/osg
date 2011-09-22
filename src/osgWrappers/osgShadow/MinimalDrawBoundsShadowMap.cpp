@@ -41,7 +41,7 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::MinimalDrawBoundsShadowMap)
 	          __osg_Object_P1__cloneType,
 	          "Declaration of standard OSG object methods. ",
 	          "");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -61,5 +61,6 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::MinimalDrawBoundsShadowMap)
 	          __C5_char_P1__className,
 	          "return the name of the object's class type. ",
 	          "Must be defined by derived classes. ");
+
 END_REFLECTOR
 

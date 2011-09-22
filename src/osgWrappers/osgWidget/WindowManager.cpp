@@ -58,6 +58,7 @@ END_REFLECTOR
 BEGIN_OBJECT_REFLECTOR(osgWidget::WindowManager)
 	I_DeclaringFile("osgWidget/WindowManager");
 	I_BaseType(osg::Switch);
+	I_BaseType(osgWidget::UIObjectParent< Window >);
 	I_Method0(osg::Object *, cloneType,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__cloneType,
@@ -410,4 +411,86 @@ BEGIN_OBJECT_REFLECTOR(osgWidget::WindowManager)
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(osgUtil::LineSegmentIntersector::Intersections, osgWidget::Intersections)
+
+BEGIN_VALUE_REFLECTOR(osgWidget::UIObjectParent< osgWidget::Window >)
+	I_DeclaringFile("osgWidget/UIObjectParent");
+	I_Constructor0(____Window >,
+	               "",
+	               "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Window >::Iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __Iterator__begin,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Window >::ConstIterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __ConstIterator__begin,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Window >::Iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __Iterator__end,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Window >::ConstIterator, end,
+	          Properties::NON_VIRTUAL,
+	          __ConstIterator__end,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Window >::Vector::size_type, size,
+	          Properties::NON_VIRTUAL,
+	          __Vector_size_type__size,
+	          "",
+	          "");
+	I_Method1(osgWidget::UIObjectParent< osgWidget::Window >::object_type *, getByName, IN, const std::string &, name,
+	          Properties::NON_VIRTUAL,
+	          __object_type_P1__getByName__C5_std_string_R1,
+	          "",
+	          "");
+	I_Method1(const osgWidget::UIObjectParent< osgWidget::Window >::object_type *, getByName, IN, const std::string &, name,
+	          Properties::NON_VIRTUAL,
+	          __C5_object_type_P1__getByName__C5_std_string_R1,
+	          "",
+	          "");
+	I_Method1(osgWidget::UIObjectParent< osgWidget::Window >::object_type *, getByIndex, IN, unsigned int, index,
+	          Properties::NON_VIRTUAL,
+	          __object_type_P1__getByIndex__unsigned_int,
+	          "",
+	          "");
+	I_Method1(const osgWidget::UIObjectParent< osgWidget::Window >::object_type *, getByIndex, IN, unsigned int, index,
+	          Properties::NON_VIRTUAL,
+	          __C5_object_type_P1__getByIndex__unsigned_int,
+	          "",
+	          "");
+	I_Method0(unsigned int, getNumObjects,
+	          Properties::NON_VIRTUAL,
+	          __unsigned_int__getNumObjects,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Window >::Vector &, getObjects,
+	          Properties::NON_VIRTUAL,
+	          __Vector_R1__getObjects,
+	          "",
+	          "");
+	I_Method0(const osgWidget::UIObjectParent< osgWidget::Window >::Vector &, getObjects,
+	          Properties::NON_VIRTUAL,
+	          __C5_Vector_R1__getObjects,
+	          "",
+	          "");
+	I_ProtectedMethod1(bool, _remove, IN, osgWidget::UIObjectParent< osgWidget::Window >::object_type *, obj,
+	                   Properties::NON_VIRTUAL,
+	                   Properties::NON_CONST,
+	                   __bool___remove__object_type_P1,
+	                   "",
+	                   "");
+	I_ProtectedMethod1(bool, _removeByName, IN, const std::string &, name,
+	                   Properties::NON_VIRTUAL,
+	                   Properties::NON_CONST,
+	                   __bool___removeByName__C5_std_string_R1,
+	                   "",
+	                   "");
+	I_SimpleProperty(osgWidget::UIObjectParent< osgWidget::Window >::Vector &, Objects, 
+	                 __Vector_R1__getObjects, 
+	                 0);
+END_REFLECTOR
 

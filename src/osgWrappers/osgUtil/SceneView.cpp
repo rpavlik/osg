@@ -43,7 +43,33 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(osgUtil::SceneView::Options, osgUtil::SceneView::LightingMode)
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgUtil::SceneView::ComputeStereoMatricesCallback)
+	I_DeclaringFile("osgUtil/SceneView");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____ComputeStereoMatricesCallback,
+	               "",
+	               "");
+	I_Method1(osg::Matrixd, computeLeftEyeProjection, IN, const osg::Matrixd &, projection,
+	          Properties::PURE_VIRTUAL,
+	          __osg_Matrixd__computeLeftEyeProjection__C5_osg_Matrixd_R1,
+	          "",
+	          "");
+	I_Method1(osg::Matrixd, computeLeftEyeView, IN, const osg::Matrixd &, view,
+	          Properties::PURE_VIRTUAL,
+	          __osg_Matrixd__computeLeftEyeView__C5_osg_Matrixd_R1,
+	          "",
+	          "");
+	I_Method1(osg::Matrixd, computeRightEyeProjection, IN, const osg::Matrixd &, projection,
+	          Properties::PURE_VIRTUAL,
+	          __osg_Matrixd__computeRightEyeProjection__C5_osg_Matrixd_R1,
+	          "",
+	          "");
+	I_Method1(osg::Matrixd, computeRightEyeView, IN, const osg::Matrixd &, view,
+	          Properties::PURE_VIRTUAL,
+	          __osg_Matrixd__computeRightEyeView__C5_osg_Matrixd_R1,
+	          "",
+	          "");
+END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osgUtil::SceneView::Options)
 	I_DeclaringFile("osgUtil/SceneView");
@@ -73,6 +99,8 @@ BEGIN_ENUM_REFLECTOR(osgUtil::SceneView::FusionDistanceMode)
 	I_EnumLabel(osgUtil::SceneView::PROPORTIONAL_TO_SCREEN_DISTANCE);
 END_REFLECTOR
 
+TYPE_NAME_ALIAS(osgUtil::SceneView::Options, osgUtil::SceneView::LightingMode)
+
 BEGIN_OBJECT_REFLECTOR(osgUtil::SceneView)
 	I_DeclaringFile("osgUtil/SceneView");
 	I_BaseType(osg::Object);
@@ -91,7 +119,7 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::SceneView)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -903,33 +931,5 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::SceneView)
 	I_SimpleProperty(osg::Viewport *, Viewport, 
 	                 __osg_Viewport_P1__getViewport, 
 	                 __void__setViewport__osg_Viewport_P1);
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgUtil::SceneView::ComputeStereoMatricesCallback)
-	I_DeclaringFile("osgUtil/SceneView");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____ComputeStereoMatricesCallback,
-	               "",
-	               "");
-	I_Method1(osg::Matrixd, computeLeftEyeProjection, IN, const osg::Matrixd &, projection,
-	          Properties::PURE_VIRTUAL,
-	          __osg_Matrixd__computeLeftEyeProjection__C5_osg_Matrixd_R1,
-	          "",
-	          "");
-	I_Method1(osg::Matrixd, computeLeftEyeView, IN, const osg::Matrixd &, view,
-	          Properties::PURE_VIRTUAL,
-	          __osg_Matrixd__computeLeftEyeView__C5_osg_Matrixd_R1,
-	          "",
-	          "");
-	I_Method1(osg::Matrixd, computeRightEyeProjection, IN, const osg::Matrixd &, projection,
-	          Properties::PURE_VIRTUAL,
-	          __osg_Matrixd__computeRightEyeProjection__C5_osg_Matrixd_R1,
-	          "",
-	          "");
-	I_Method1(osg::Matrixd, computeRightEyeView, IN, const osg::Matrixd &, view,
-	          Properties::PURE_VIRTUAL,
-	          __osg_Matrixd__computeRightEyeView__C5_osg_Matrixd_R1,
-	          "",
-	          "");
 END_REFLECTOR
 

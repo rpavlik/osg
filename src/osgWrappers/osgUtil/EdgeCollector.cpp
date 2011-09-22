@@ -37,6 +37,54 @@ BEGIN_VALUE_REFLECTOR(osgUtil::dereference_less)
 	               "");
 END_REFLECTOR
 
+BEGIN_OBJECT_REFLECTOR(osgUtil::EdgeCollector::Edge)
+	I_DeclaringFile("osgUtil/EdgeCollector");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____Edge,
+	               "",
+	               "");
+	I_Method0(void, clear,
+	          Properties::NON_VIRTUAL,
+	          __void__clear,
+	          "",
+	          "");
+	I_Method2(void, setOrderedPoints, IN, osgUtil::EdgeCollector::Point *, p1, IN, osgUtil::EdgeCollector::Point *, p2,
+	          Properties::NON_VIRTUAL,
+	          __void__setOrderedPoints__Point_P1__Point_P1,
+	          "",
+	          "");
+	I_Method1(void, addTriangle, IN, osgUtil::EdgeCollector::Triangle *, triangle,
+	          Properties::NON_VIRTUAL,
+	          __void__addTriangle__Triangle_P1,
+	          "",
+	          "");
+	I_Method0(bool, isBoundaryEdge,
+	          Properties::NON_VIRTUAL,
+	          __bool__isBoundaryEdge,
+	          "",
+	          "");
+	I_Method0(bool, isAdjacentToBoundary,
+	          Properties::NON_VIRTUAL,
+	          __bool__isAdjacentToBoundary,
+	          "",
+	          "");
+	I_Method1(bool, endConnected, IN, const osgUtil::EdgeCollector::Edge &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __bool__endConnected__C5_Edge_R1,
+	          "",
+	          "");
+	I_Method1(bool, beginConnected, IN, const osgUtil::EdgeCollector::Edge &, rhs,
+	          Properties::NON_VIRTUAL,
+	          __bool__beginConnected__C5_Edge_R1,
+	          "",
+	          "");
+	I_PublicMemberProperty(osg::ref_ptr< osgUtil::EdgeCollector::Point >, _p1);
+	I_PublicMemberProperty(osg::ref_ptr< osgUtil::EdgeCollector::Point >, _p2);
+	I_PublicMemberProperty(osg::ref_ptr< osgUtil::EdgeCollector::Point >, _op1);
+	I_PublicMemberProperty(osg::ref_ptr< osgUtil::EdgeCollector::Point >, _op2);
+	I_PublicMemberProperty(osgUtil::EdgeCollector::TriangleSet, _triangles);
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::list< osg::ref_ptr< osg::UIntArray > >, osgUtil::EdgeCollector::IndexArrayList)
 
 TYPE_NAME_ALIAS(std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge > COMMA  osgUtil::dereference_less >, osgUtil::EdgeCollector::EdgeSet)
@@ -128,54 +176,6 @@ BEGIN_VALUE_REFLECTOR(osgUtil::EdgeCollector)
 	I_PublicMemberProperty(osgUtil::EdgeCollector::TriangleSet, _triangleSet);
 	I_PublicMemberProperty(osgUtil::EdgeCollector::PointSet, _pointSet);
 	I_PublicMemberProperty(osgUtil::EdgeCollector::PointList, _originalPointList);
-END_REFLECTOR
-
-BEGIN_OBJECT_REFLECTOR(osgUtil::EdgeCollector::Edge)
-	I_DeclaringFile("osgUtil/EdgeCollector");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____Edge,
-	               "",
-	               "");
-	I_Method0(void, clear,
-	          Properties::NON_VIRTUAL,
-	          __void__clear,
-	          "",
-	          "");
-	I_Method2(void, setOrderedPoints, IN, osgUtil::EdgeCollector::Point *, p1, IN, osgUtil::EdgeCollector::Point *, p2,
-	          Properties::NON_VIRTUAL,
-	          __void__setOrderedPoints__Point_P1__Point_P1,
-	          "",
-	          "");
-	I_Method1(void, addTriangle, IN, osgUtil::EdgeCollector::Triangle *, triangle,
-	          Properties::NON_VIRTUAL,
-	          __void__addTriangle__Triangle_P1,
-	          "",
-	          "");
-	I_Method0(bool, isBoundaryEdge,
-	          Properties::NON_VIRTUAL,
-	          __bool__isBoundaryEdge,
-	          "",
-	          "");
-	I_Method0(bool, isAdjacentToBoundary,
-	          Properties::NON_VIRTUAL,
-	          __bool__isAdjacentToBoundary,
-	          "",
-	          "");
-	I_Method1(bool, endConnected, IN, const osgUtil::EdgeCollector::Edge &, rhs,
-	          Properties::NON_VIRTUAL,
-	          __bool__endConnected__C5_Edge_R1,
-	          "",
-	          "");
-	I_Method1(bool, beginConnected, IN, const osgUtil::EdgeCollector::Edge &, rhs,
-	          Properties::NON_VIRTUAL,
-	          __bool__beginConnected__C5_Edge_R1,
-	          "",
-	          "");
-	I_PublicMemberProperty(osg::ref_ptr< osgUtil::EdgeCollector::Point >, _p1);
-	I_PublicMemberProperty(osg::ref_ptr< osgUtil::EdgeCollector::Point >, _p2);
-	I_PublicMemberProperty(osg::ref_ptr< osgUtil::EdgeCollector::Point >, _op1);
-	I_PublicMemberProperty(osg::ref_ptr< osgUtil::EdgeCollector::Point >, _op2);
-	I_PublicMemberProperty(osgUtil::EdgeCollector::TriangleSet, _triangles);
 END_REFLECTOR
 
 TYPE_NAME_ALIAS(std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > >, osgUtil::EdgeCollector::Edgeloop::EdgeList)

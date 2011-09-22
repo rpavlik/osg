@@ -270,7 +270,7 @@ BEGIN_OBJECT_REFLECTOR(osg::Uniform)
 	          "Get the type of glUniform as enum. ",
 	          "");
 	I_Method1(void, setName, IN, const std::string &, name,
-	          Properties::NON_VIRTUAL,
+	          Properties::VIRTUAL,
 	          __void__setName__C5_std_string_R1,
 	          "Set the name of the glUniform, ensuring it is only set once. ",
 	          "");

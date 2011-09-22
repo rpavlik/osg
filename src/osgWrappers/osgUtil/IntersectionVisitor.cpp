@@ -349,19 +349,6 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::IntersectionVisitor)
 	                 0);
 END_REFLECTOR
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgUtil::IntersectionVisitor::ReadCallback)
-	I_DeclaringFile("osgUtil/IntersectionVisitor");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____ReadCallback,
-	               "",
-	               "");
-	I_Method1(osg::Node *, readNodeFile, IN, const std::string &, filename,
-	          Properties::PURE_VIRTUAL,
-	          __osg_Node_P1__readNodeFile__C5_std_string_R1,
-	          "",
-	          "");
-END_REFLECTOR
-
 BEGIN_ENUM_REFLECTOR(osgUtil::Intersector::CoordinateFrame)
 	I_DeclaringFile("osgUtil/IntersectionVisitor");
 	I_EnumLabel(osgUtil::Intersector::WINDOW);
@@ -494,6 +481,19 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::IntersectorGroup)
 	I_SimpleProperty(osgUtil::IntersectorGroup::Intersectors &, Intersectors, 
 	                 __Intersectors_R1__getIntersectors, 
 	                 0);
+END_REFLECTOR
+
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgUtil::IntersectionVisitor::ReadCallback)
+	I_DeclaringFile("osgUtil/IntersectionVisitor");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____ReadCallback,
+	               "",
+	               "");
+	I_Method1(osg::Node *, readNodeFile, IN, const std::string &, filename,
+	          Properties::PURE_VIRTUAL,
+	          __osg_Node_P1__readNodeFile__C5_std_string_R1,
+	          "",
+	          "");
 END_REFLECTOR
 
 BEGIN_VALUE_REFLECTOR(osg::ref_ptr< osgUtil::Intersector >)

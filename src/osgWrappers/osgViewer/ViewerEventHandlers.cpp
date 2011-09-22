@@ -31,6 +31,14 @@
 #undef OUT
 #endif
 
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgViewer::ScreenCaptureHandler::CaptureOperation)
+	I_DeclaringFile("osgViewer/ViewerEventHandlers");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____CaptureOperation,
+	               "",
+	               "");
+END_REFLECTOR
+
 BEGIN_OBJECT_REFLECTOR(osgViewer::HelpHandler)
 	I_DeclaringFile("osgViewer/ViewerEventHandlers");
 	I_BaseType(osgGA::GUIEventHandler);
@@ -79,7 +87,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::HelpHandler)
 	          __C5_osg_Camera_P1__getCamera,
 	          "",
 	          "");
-	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa,
+	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, x, IN, osgGA::GUIActionAdapter &, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1,
 	          "Deprecated, Handle events, return true if handled, false otherwise. ",
@@ -126,7 +134,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::InteractiveImageHandler)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -146,7 +154,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::InteractiveImageHandler)
 	          __C5_char_P1__className,
 	          "return the name of the object's class type. ",
 	          "Must be defined by derived classes. ");
-	I_Method4(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa, IN, osg::Object *, x, IN, osg::NodeVisitor *, nv,
+	I_Method4(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa, IN, osg::Object *, x, IN, osg::NodeVisitor *, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1__osg_Object_P1__osg_NodeVisitor_P1,
 	          "Handle events, return true if handled, false otherwise. ",
@@ -197,7 +205,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::LODScaleHandler)
 	          __int__getKeyEventDecreaseLODScale,
 	          "",
 	          "");
-	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa,
+	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, x, IN, osgGA::GUIActionAdapter &, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1,
 	          "Deprecated, Handle events, return true if handled, false otherwise. ",
@@ -247,12 +255,12 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::RecordCameraPathHandler)
 	                      __void__setAutoIncrementFilename__bool,
 	                      "",
 	                      "");
-	I_Method1(void, getUsage, IN, osg::ApplicationUsage &, usage,
+	I_Method1(void, getUsage, IN, osg::ApplicationUsage &, x,
 	          Properties::VIRTUAL,
 	          __void__getUsage__osg_ApplicationUsage_R1,
 	          "Get the keyboard and mouse usage of this manipulator. ",
 	          "");
-	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa,
+	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, x, IN, osgGA::GUIActionAdapter &, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1,
 	          "Deprecated, Handle events, return true if handled, false otherwise. ",
@@ -296,7 +304,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::ScreenCaptureHandler)
 	          __CaptureOperation_P1__getCaptureOperation,
 	          "",
 	          "");
-	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa,
+	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, x, IN, osgGA::GUIActionAdapter &, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1,
 	          "Deprecated, Handle events, return true if handled, false otherwise. ",
@@ -323,42 +331,6 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::ScreenCaptureHandler)
 	I_SimpleProperty(int, KeyEventTakeScreenShot, 
 	                 __int__getKeyEventTakeScreenShot, 
 	                 __void__setKeyEventTakeScreenShot__int);
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgViewer::ScreenCaptureHandler::CaptureOperation)
-	I_DeclaringFile("osgViewer/ViewerEventHandlers");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____CaptureOperation,
-	               "",
-	               "");
-END_REFLECTOR
-
-BEGIN_ENUM_REFLECTOR(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)
-	I_DeclaringFile("osgViewer/ViewerEventHandlers");
-	I_EnumLabel(osgViewer::ScreenCaptureHandler::WriteToFile::OVERWRITE);
-	I_EnumLabel(osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER);
-END_REFLECTOR
-
-BEGIN_OBJECT_REFLECTOR(osgViewer::ScreenCaptureHandler::WriteToFile)
-	I_DeclaringFile("osgViewer/ViewerEventHandlers");
-	I_BaseType(osgViewer::ScreenCaptureHandler::CaptureOperation);
-	I_ConstructorWithDefaults3(IN, const std::string &, filename, , IN, const std::string &, extension, , IN, osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy, savePolicy, osgViewer::ScreenCaptureHandler::WriteToFile::OVERWRITE,
-	                           ____WriteToFile__C5_std_string_R1__C5_std_string_R1__SavePolicy,
-	                           "",
-	                           "");
-	I_Method1(void, setSavePolicy, IN, osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy, savePolicy,
-	          Properties::NON_VIRTUAL,
-	          __void__setSavePolicy__SavePolicy,
-	          "",
-	          "");
-	I_Method0(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy, getSavePolicy,
-	          Properties::NON_VIRTUAL,
-	          __SavePolicy__getSavePolicy,
-	          "",
-	          "");
-	I_SimpleProperty(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy, SavePolicy, 
-	                 __SavePolicy__getSavePolicy, 
-	                 __void__setSavePolicy__SavePolicy);
 END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osgViewer::StatsHandler::StatsType)
@@ -417,7 +389,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::StatsHandler)
 	          __C5_osg_Camera_P1__getCamera,
 	          "",
 	          "");
-	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa,
+	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, x, IN, osgGA::GUIActionAdapter &, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1,
 	          "Deprecated, Handle events, return true if handled, false otherwise. ",
@@ -540,7 +512,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::ThreadingHandler)
 	          __bool__getChangeEndBarrierPosition,
 	          "",
 	          "");
-	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa,
+	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, x, IN, osgGA::GUIActionAdapter &, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1,
 	          "Deprecated, Handle events, return true if handled, false otherwise. ",
@@ -620,7 +592,7 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::WindowSizeHandler)
 	          __bool__getChangeWindowedResolution,
 	          "",
 	          "");
-	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, ea, IN, osgGA::GUIActionAdapter &, aa,
+	I_Method2(bool, handle, IN, const osgGA::GUIEventAdapter &, x, IN, osgGA::GUIActionAdapter &, x,
 	          Properties::VIRTUAL,
 	          __bool__handle__C5_osgGA_GUIEventAdapter_R1__osgGA_GUIActionAdapter_R1,
 	          "Deprecated, Handle events, return true if handled, false otherwise. ",
@@ -658,5 +630,33 @@ BEGIN_OBJECT_REFLECTOR(osgViewer::WindowSizeHandler)
 	I_SimpleProperty(bool, ToggleFullscreen, 
 	                 __bool__getToggleFullscreen, 
 	                 __void__setToggleFullscreen__bool);
+END_REFLECTOR
+
+BEGIN_ENUM_REFLECTOR(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)
+	I_DeclaringFile("osgViewer/ViewerEventHandlers");
+	I_EnumLabel(osgViewer::ScreenCaptureHandler::WriteToFile::OVERWRITE);
+	I_EnumLabel(osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER);
+END_REFLECTOR
+
+BEGIN_OBJECT_REFLECTOR(osgViewer::ScreenCaptureHandler::WriteToFile)
+	I_DeclaringFile("osgViewer/ViewerEventHandlers");
+	I_BaseType(osgViewer::ScreenCaptureHandler::CaptureOperation);
+	I_ConstructorWithDefaults3(IN, const std::string &, filename, , IN, const std::string &, extension, , IN, osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy, savePolicy, osgViewer::ScreenCaptureHandler::WriteToFile::OVERWRITE,
+	                           ____WriteToFile__C5_std_string_R1__C5_std_string_R1__SavePolicy,
+	                           "",
+	                           "");
+	I_Method1(void, setSavePolicy, IN, osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy, savePolicy,
+	          Properties::NON_VIRTUAL,
+	          __void__setSavePolicy__SavePolicy,
+	          "",
+	          "");
+	I_Method0(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy, getSavePolicy,
+	          Properties::NON_VIRTUAL,
+	          __SavePolicy__getSavePolicy,
+	          "",
+	          "");
+	I_SimpleProperty(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy, SavePolicy, 
+	                 __SavePolicy__getSavePolicy, 
+	                 __void__setSavePolicy__SavePolicy);
 END_REFLECTOR
 

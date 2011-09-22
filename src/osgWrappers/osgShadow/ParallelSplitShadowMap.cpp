@@ -28,6 +28,19 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osgShadow::ParallelSplitShadowMap::FragmentShaderGenerator)
+	I_DeclaringFile("osgShadow/ParallelSplitShadowMap");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____FragmentShaderGenerator,
+	               "",
+	               "");
+	I_Method6(std::string, generateGLSL_FragmentShader_BaseTex, IN, bool, debug, IN, unsigned int, splitCount, IN, double, textureRes, IN, bool, filtered, IN, unsigned int, nbrSplits, IN, unsigned int, textureOffset,
+	          Properties::VIRTUAL,
+	          __std_string__generateGLSL_FragmentShader_BaseTex__bool__unsigned_int__double__bool__unsigned_int__unsigned_int,
+	          "generate the GLSL fragement shader ",
+	          "");
+END_REFLECTOR
+
 BEGIN_ENUM_REFLECTOR(osgShadow::ParallelSplitShadowMap::SplitCalcMode)
 	I_DeclaringFile("osgShadow/ParallelSplitShadowMap");
 	I_EnumLabel(osgShadow::ParallelSplitShadowMap::SPLIT_LINEAR);
@@ -50,7 +63,7 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::ParallelSplitShadowMap)
 	          __osg_Object_P1__cloneType,
 	          "Clone the type of an object, with Object* return type. ",
 	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -98,12 +111,12 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::ParallelSplitShadowMap)
 	I_Method1(void, setPolygonOffset, IN, const osg::Vec2f &, p,
 	          Properties::NON_VIRTUAL,
 	          __void__setPolygonOffset__C5_osg_Vec2f_R1,
-	          "Set the polygon offset osg::Vec2f(factor,unit). ",
+	          "Set the polygon offset osg::Vec2f(factor,unit) ",
 	          "");
 	I_Method0(const osg::Vec2f &, getPolygonOffset,
 	          Properties::NON_VIRTUAL,
 	          __C5_osg_Vec2f_R1__getPolygonOffset,
-	          "Get the polygon offset osg::Vec2f(factor,unit). ",
+	          "Get the polygon offset osg::Vec2f(factor,unit) ",
 	          "");
 	I_Method1(void, setTextureResolution, IN, unsigned int, resolution,
 	          Properties::NON_VIRTUAL,
@@ -128,8 +141,8 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::ParallelSplitShadowMap)
 	I_Method1(void, setUserLight, IN, osg::Light *, light,
 	          Properties::NON_VIRTUAL,
 	          __void__setUserLight__osg_Light_P1,
-	          "set a user defined light for shadow simulation (sun light, . ",
-	          ".. ) when this light get passed to pssm, the scene's light are no longer collected and simulated. just this user passed light, it needs to be a directional light. ");
+	          "set a user defined light for shadow simulation (sun light, ... ",
+	          ") when this light get passed to pssm, the scene's light are no longer collected and simulated. just this user passed light, it needs to be a directional light. ");
 	I_Method1(void, setAmbientBias, IN, const osg::Vec2 &, ambientBias,
 	          Properties::NON_VIRTUAL,
 	          __void__setAmbientBias__C5_osg_Vec2_R1,
@@ -177,18 +190,5 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::ParallelSplitShadowMap)
 	I_SimpleProperty(osg::Light *, UserLight, 
 	                 0, 
 	                 __void__setUserLight__osg_Light_P1);
-END_REFLECTOR
-
-BEGIN_OBJECT_REFLECTOR(osgShadow::ParallelSplitShadowMap::FragmentShaderGenerator)
-	I_DeclaringFile("osgShadow/ParallelSplitShadowMap");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____FragmentShaderGenerator,
-	               "",
-	               "");
-	I_Method6(std::string, generateGLSL_FragmentShader_BaseTex, IN, bool, debug, IN, unsigned int, splitCount, IN, double, textureRes, IN, bool, filtered, IN, unsigned int, nbrSplits, IN, unsigned int, textureOffset,
-	          Properties::VIRTUAL,
-	          __std_string__generateGLSL_FragmentShader_BaseTex__bool__unsigned_int__double__bool__unsigned_int__unsigned_int,
-	          "generate the GLSL fragement shader ",
-	          "");
 END_REFLECTOR
 

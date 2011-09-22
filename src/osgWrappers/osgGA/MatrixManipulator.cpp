@@ -27,6 +27,19 @@
 #undef OUT
 #endif
 
+BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgGA::MatrixManipulator::CoordinateFrameCallback)
+	I_DeclaringFile("osgGA/MatrixManipulator");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____CoordinateFrameCallback,
+	               "",
+	               "");
+	I_Method1(osg::CoordinateFrame, getCoordinateFrame, IN, const osg::Vec3d &, position,
+	          Properties::PURE_VIRTUAL,
+	          __osg_CoordinateFrame__getCoordinateFrame__C5_osg_Vec3d_R1,
+	          "",
+	          "");
+END_REFLECTOR
+
 BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgGA::MatrixManipulator)
 	I_DeclaringFile("osgGA/MatrixManipulator");
 	I_BaseType(osgGA::GUIEventHandler);
@@ -216,18 +229,5 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgGA::MatrixManipulator)
 	I_SimpleProperty(osg::Node *, Node, 
 	                 __osg_Node_P1__getNode, 
 	                 __void__setNode__osg_Node_P1);
-END_REFLECTOR
-
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgGA::MatrixManipulator::CoordinateFrameCallback)
-	I_DeclaringFile("osgGA/MatrixManipulator");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____CoordinateFrameCallback,
-	               "",
-	               "");
-	I_Method1(osg::CoordinateFrame, getCoordinateFrame, IN, const osg::Vec3d &, position,
-	          Properties::PURE_VIRTUAL,
-	          __osg_CoordinateFrame__getCoordinateFrame__C5_osg_Vec3d_R1,
-	          "",
-	          "");
 END_REFLECTOR
 

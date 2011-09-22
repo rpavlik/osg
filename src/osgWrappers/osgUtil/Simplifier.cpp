@@ -22,6 +22,19 @@
 #undef OUT
 #endif
 
+BEGIN_OBJECT_REFLECTOR(osgUtil::Simplifier::ContinueSimplificationCallback)
+	I_DeclaringFile("osgUtil/Simplifier");
+	I_BaseType(osg::Referenced);
+	I_Constructor0(____ContinueSimplificationCallback,
+	               "",
+	               "");
+	I_Method4(bool, continueSimplification, IN, const osgUtil::Simplifier &, simplifier, IN, float, nextError, IN, unsigned int, numOriginalPrimitives, IN, unsigned int, numRemainingPrimitives,
+	          Properties::VIRTUAL,
+	          __bool__continueSimplification__C5_Simplifier_R1__float__unsigned_int__unsigned_int,
+	          "return true if mesh should be continued to be simplified, return false to stop simplification. ",
+	          "");
+END_REFLECTOR
+
 TYPE_NAME_ALIAS(std::vector< unsigned int >, osgUtil::Simplifier::IndexList)
 
 BEGIN_OBJECT_REFLECTOR(osgUtil::Simplifier)
@@ -129,8 +142,8 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::Simplifier)
 	I_Method2(void, simplify, IN, osg::Geometry &, geometry, IN, const osgUtil::Simplifier::IndexList &, protectedPoints,
 	          Properties::NON_VIRTUAL,
 	          __void__simplify__osg_Geometry_R1__C5_IndexList_R1,
-	          "simply the geometry, whilst protecting key points from being modified. ",
-	          "");
+	          "a list of point indices ",
+	          "simply the geometry, whilst protecting key points from being modified. ");
 	I_SimpleProperty(osgUtil::Simplifier::ContinueSimplificationCallback *, ContinueSimplificationCallback, 
 	                 __ContinueSimplificationCallback_P1__getContinueSimplificationCallback, 
 	                 __void__setContinueSimplificationCallback__ContinueSimplificationCallback_P1);
@@ -149,18 +162,5 @@ BEGIN_OBJECT_REFLECTOR(osgUtil::Simplifier)
 	I_SimpleProperty(bool, Smoothing, 
 	                 __bool__getSmoothing, 
 	                 __void__setSmoothing__bool);
-END_REFLECTOR
-
-BEGIN_OBJECT_REFLECTOR(osgUtil::Simplifier::ContinueSimplificationCallback)
-	I_DeclaringFile("osgUtil/Simplifier");
-	I_BaseType(osg::Referenced);
-	I_Constructor0(____ContinueSimplificationCallback,
-	               "",
-	               "");
-	I_Method4(bool, continueSimplification, IN, const osgUtil::Simplifier &, simplifier, IN, float, nextError, IN, unsigned int, numOriginalPrimitives, IN, unsigned int, numRemainingPrimitives,
-	          Properties::VIRTUAL,
-	          __bool__continueSimplification__C5_Simplifier_R1__float__unsigned_int__unsigned_int,
-	          "return true if mesh should be continued to be simplified, return false to stop simplification. ",
-	          "");
 END_REFLECTOR
 

@@ -44,7 +44,7 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::StandardShadowMap)
 	          __osg_Object_P1__cloneType,
 	          "Declaration of standard OSG object methods. ",
 	          "");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
 	          "Clone an object, with Object* return type. ",
@@ -176,6 +176,7 @@ BEGIN_OBJECT_REFLECTOR(osgShadow::StandardShadowMap)
 	                   __void__searchAndReplaceShaderSource__osg_Shader_P1__std_string__std_string,
 	                   "",
 	                   "");
+
 	I_SimpleProperty(unsigned int, BaseTextureCoordIndex, 
 	                 __unsigned_int__getBaseTextureCoordIndex, 
 	                 __void__setBaseTextureCoordIndex__unsigned_int);

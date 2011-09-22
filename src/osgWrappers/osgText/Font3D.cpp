@@ -120,7 +120,7 @@ BEGIN_OBJECT_REFLECTOR(osgText::Font3D)
 	I_Method1(void, setThreadSafeRefUnref, IN, bool, threadSafe,
 	          Properties::VIRTUAL,
 	          __void__setThreadSafeRefUnref__bool,
-	          "Set whether to use a mutex to ensure ref() and unref(). ",
+	          "Set whether to use a mutex to ensure ref() and unref() ",
 	          "");
 	I_ProtectedMethod2(void, addGlyph, IN, unsigned int, charcode, IN, osgText::Font3D::Glyph3D *, glyph,
 	                   Properties::NON_VIRTUAL,

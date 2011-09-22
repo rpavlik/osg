@@ -28,6 +28,8 @@ TYPE_NAME_ALIAS(std::vector< bool >, osgSim::MultiSwitch::ValueList)
 
 TYPE_NAME_ALIAS(std::vector< osgSim::MultiSwitch::ValueList >, osgSim::MultiSwitch::SwitchSetList)
 
+TYPE_NAME_ALIAS(std::vector< std::string >, osgSim::MultiSwitch::SwitchSetNameList)
+
 BEGIN_OBJECT_REFLECTOR(osgSim::MultiSwitch)
 	I_DeclaringFile("osgSim/MultiSwitch");
 	I_BaseType(osg::Group);
@@ -68,7 +70,7 @@ BEGIN_OBJECT_REFLECTOR(osgSim::MultiSwitch)
 	          __void__accept__osg_NodeVisitor_R1,
 	          "Visitor Pattern : calls the apply method of a NodeVisitor with this node's type. ",
 	          "");
-	I_Method1(void, traverse, IN, osg::NodeVisitor &, nv,
+	I_Method1(void, traverse, IN, osg::NodeVisitor &, x,
 	          Properties::VIRTUAL,
 	          __void__traverse__osg_NodeVisitor_R1,
 	          "Traverse downwards : calls children's accept method with NodeVisitor. ",
@@ -163,6 +165,16 @@ BEGIN_OBJECT_REFLECTOR(osgSim::MultiSwitch)
 	          __C5_ValueList_R1__getValueList__unsigned_int,
 	          "Get the a single set of different values for a particular switch set. ",
 	          "");
+	I_Method2(void, setValueName, IN, unsigned int, switchSet, IN, const std::string &, name,
+	          Properties::NON_VIRTUAL,
+	          __void__setValueName__unsigned_int__C5_std_string_R1,
+	          "",
+	          "");
+	I_Method1(const std::string &, getValueName, IN, unsigned int, switchSet,
+	          Properties::NON_VIRTUAL,
+	          __C5_std_string_R1__getValueName__unsigned_int,
+	          "",
+	          "");
 	I_ProtectedMethod1(void, expandToEncompassSwitchSet, IN, unsigned int, switchSet,
 	                   Properties::NON_VIRTUAL,
 	                   Properties::NON_CONST,
@@ -195,6 +207,10 @@ BEGIN_OBJECT_REFLECTOR(osgSim::MultiSwitch)
 	I_IndexedProperty(const osgSim::MultiSwitch::ValueList &, ValueList, 
 	                  __C5_ValueList_R1__getValueList__unsigned_int, 
 	                  __void__setValueList__unsigned_int__C5_ValueList_R1, 
+	                  0);
+	I_IndexedProperty(const std::string &, ValueName, 
+	                  __C5_std_string_R1__getValueName__unsigned_int, 
+	                  __void__setValueName__unsigned_int__C5_std_string_R1, 
 	                  0);
 END_REFLECTOR
 

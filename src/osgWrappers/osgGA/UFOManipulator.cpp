@@ -65,7 +65,7 @@ BEGIN_OBJECT_REFLECTOR(osgGA::UFOManipulator)
 	I_Method0(const osg::Node *, getNode,
 	          Properties::VIRTUAL,
 	          __C5_osg_Node_P1__getNode,
-	          "Get the root node of the subgraph this manipulator is driving the eye through (const). ",
+	          "Get the root node of the subgraph this manipulator is driving the eye through (const) ",
 	          "");
 	I_Method0(osg::Node *, getNode,
 	          Properties::VIRTUAL,

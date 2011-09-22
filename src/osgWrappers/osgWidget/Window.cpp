@@ -28,8 +28,101 @@
 #undef OUT
 #endif
 
-TYPE_NAME_ALIAS(std::list< osg::observer_ptr< osgWidget::Window > >, osgWidget::Window::WindowList)
+BEGIN_OBJECT_REFLECTOR(osgWidget::Window::EmbeddedWindow)
+	I_DeclaringFile("osgWidget/Window");
+	I_BaseType(osgWidget::Widget);
+	I_Method0(osg::Object *, cloneType,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__cloneType,
+	          "Clone the type of an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, x,
+	          Properties::VIRTUAL,
+	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
+	          "Clone an object, with Object* return type. ",
+	          "Must be defined by derived classes. ");
+	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
+	          Properties::VIRTUAL,
+	          __bool__isSameKindAs__C5_osg_Object_P1,
+	          "",
+	          "");
+	I_Method0(const char *, libraryName,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__libraryName,
+	          "return the name of the object's library. ",
+	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
+	I_Method0(const char *, className,
+	          Properties::VIRTUAL,
+	          __C5_char_P1__className,
+	          "return the name of the object's class type. ",
+	          "Must be defined by derived classes. ");
+	I_ConstructorWithDefaults3(IN, const std::string &, x, "", IN, osgWidget::point_type, x, 0.0f, IN, osgWidget::point_type, x, 0.0f,
+	                           ____EmbeddedWindow__C5_std_string_R1__point_type__point_type,
+	                           "",
+	                           "");
+	I_Constructor2(IN, const osgWidget::Window::EmbeddedWindow &, x, IN, const osg::CopyOp &, x,
+	               ____EmbeddedWindow__C5_EmbeddedWindow_R1__C5_osg_CopyOp_R1,
+	               "",
+	               "");
+	I_Method1(void, parented, IN, osgWidget::Window *, x,
+	          Properties::VIRTUAL,
+	          __void__parented__Window_P1,
+	          "",
+	          "");
+	I_Method1(void, unparented, IN, osgWidget::Window *, x,
+	          Properties::VIRTUAL,
+	          __void__unparented__Window_P1,
+	          "",
+	          "");
+	I_Method1(void, managed, IN, osgWidget::WindowManager *, x,
+	          Properties::VIRTUAL,
+	          __void__managed__WindowManager_P1,
+	          "",
+	          "");
+	I_Method1(void, unmanaged, IN, osgWidget::WindowManager *, x,
+	          Properties::VIRTUAL,
+	          __void__unmanaged__WindowManager_P1,
+	          "",
+	          "");
+	I_Method0(void, positioned,
+	          Properties::VIRTUAL,
+	          __void__positioned,
+	          "",
+	          "");
+	I_Method1(bool, setWindow, IN, osgWidget::Window *, x,
+	          Properties::NON_VIRTUAL,
+	          __bool__setWindow__Window_P1,
+	          "",
+	          "");
+	I_Method0(void, updateSizeFromWindow,
+	          Properties::NON_VIRTUAL,
+	          __void__updateSizeFromWindow,
+	          "",
+	          "");
+	I_Method0(osgWidget::Window *, getWindow,
+	          Properties::NON_VIRTUAL,
+	          __Window_P1__getWindow,
+	          "",
+	          "");
+	I_Method0(const osgWidget::Window *, getWindow,
+	          Properties::NON_VIRTUAL,
+	          __C5_Window_P1__getWindow,
+	          "",
+	          "");
+	I_SimpleProperty(osgWidget::Window *, Window, 
+	                 __Window_P1__getWindow, 
+	                 __bool__setWindow__Window_P1);
+END_REFLECTOR
 
+BEGIN_VALUE_REFLECTOR(osgWidget::Window::Sizes)
+	I_DeclaringFile("osgWidget/Window");
+	I_ConstructorWithDefaults2(IN, osgWidget::point_type, c, -1.0f, IN, osgWidget::point_type, m, -1.0f,
+	                           ____Sizes__point_type__point_type,
+	                           "",
+	                           "");
+	I_PublicMemberProperty(osgWidget::point_type, current);
+	I_PublicMemberProperty(osgWidget::point_type, minimum);
+END_REFLECTOR
 
 BEGIN_ENUM_REFLECTOR(osgWidget::Window::Strata)
 	I_DeclaringFile("osgWidget/Window");
@@ -61,9 +154,13 @@ BEGIN_ENUM_REFLECTOR(osgWidget::Window::HorizontalAnchor)
 	I_EnumLabel(osgWidget::Window::HA_RIGHT);
 END_REFLECTOR
 
+TYPE_NAME_ALIAS(std::list< osg::observer_ptr< osgWidget::Window > >, osgWidget::Window::WindowList)
+
+
 BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgWidget::Window)
 	I_DeclaringFile("osgWidget/Window");
 	I_BaseType(osg::MatrixTransform);
+	I_BaseType(osgWidget::UIObjectParent< Widget >);
 	I_BaseType(osgWidget::EventInterface);
 	I_BaseType(osgWidget::StyleInterface);
 	I_ConstructorWithDefaults1(IN, const std::string &, x, "",
@@ -853,102 +950,6 @@ BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgWidget::Window)
 	                 __void__setZRange__matrix_type);
 END_REFLECTOR
 
-BEGIN_OBJECT_REFLECTOR(osgWidget::Window::EmbeddedWindow)
-	I_DeclaringFile("osgWidget/Window");
-	I_BaseType(osgWidget::Widget);
-	I_Method0(osg::Object *, cloneType,
-	          Properties::VIRTUAL,
-	          __osg_Object_P1__cloneType,
-	          "Clone the type of an object, with Object* return type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(osg::Object *, clone, IN, const osg::CopyOp &, copyop,
-	          Properties::VIRTUAL,
-	          __osg_Object_P1__clone__C5_osg_CopyOp_R1,
-	          "Clone an object, with Object* return type. ",
-	          "Must be defined by derived classes. ");
-	I_Method1(bool, isSameKindAs, IN, const osg::Object *, obj,
-	          Properties::VIRTUAL,
-	          __bool__isSameKindAs__C5_osg_Object_P1,
-	          "",
-	          "");
-	I_Method0(const char *, libraryName,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__libraryName,
-	          "return the name of the object's library. ",
-	          "Must be defined by derived classes. The OpenSceneGraph convention is that the namespace of a library is the same as the library name. ");
-	I_Method0(const char *, className,
-	          Properties::VIRTUAL,
-	          __C5_char_P1__className,
-	          "return the name of the object's class type. ",
-	          "Must be defined by derived classes. ");
-	I_ConstructorWithDefaults3(IN, const std::string &, x, "", IN, osgWidget::point_type, x, 0.0f, IN, osgWidget::point_type, x, 0.0f,
-	                           ____EmbeddedWindow__C5_std_string_R1__point_type__point_type,
-	                           "",
-	                           "");
-	I_Constructor2(IN, const osgWidget::Window::EmbeddedWindow &, x, IN, const osg::CopyOp &, x,
-	               ____EmbeddedWindow__C5_EmbeddedWindow_R1__C5_osg_CopyOp_R1,
-	               "",
-	               "");
-	I_Method1(void, parented, IN, osgWidget::Window *, x,
-	          Properties::VIRTUAL,
-	          __void__parented__Window_P1,
-	          "",
-	          "");
-	I_Method1(void, unparented, IN, osgWidget::Window *, x,
-	          Properties::VIRTUAL,
-	          __void__unparented__Window_P1,
-	          "",
-	          "");
-	I_Method1(void, managed, IN, osgWidget::WindowManager *, x,
-	          Properties::VIRTUAL,
-	          __void__managed__WindowManager_P1,
-	          "",
-	          "");
-	I_Method1(void, unmanaged, IN, osgWidget::WindowManager *, x,
-	          Properties::VIRTUAL,
-	          __void__unmanaged__WindowManager_P1,
-	          "",
-	          "");
-	I_Method0(void, positioned,
-	          Properties::VIRTUAL,
-	          __void__positioned,
-	          "",
-	          "");
-	I_Method1(bool, setWindow, IN, osgWidget::Window *, x,
-	          Properties::NON_VIRTUAL,
-	          __bool__setWindow__Window_P1,
-	          "",
-	          "");
-	I_Method0(void, updateSizeFromWindow,
-	          Properties::NON_VIRTUAL,
-	          __void__updateSizeFromWindow,
-	          "",
-	          "");
-	I_Method0(osgWidget::Window *, getWindow,
-	          Properties::NON_VIRTUAL,
-	          __Window_P1__getWindow,
-	          "",
-	          "");
-	I_Method0(const osgWidget::Window *, getWindow,
-	          Properties::NON_VIRTUAL,
-	          __C5_Window_P1__getWindow,
-	          "",
-	          "");
-	I_SimpleProperty(osgWidget::Window *, Window, 
-	                 __Window_P1__getWindow, 
-	                 __bool__setWindow__Window_P1);
-END_REFLECTOR
-
-BEGIN_VALUE_REFLECTOR(osgWidget::Window::Sizes)
-	I_DeclaringFile("osgWidget/Window");
-	I_ConstructorWithDefaults2(IN, osgWidget::point_type, c, -1.0f, IN, osgWidget::point_type, m, -1.0f,
-	                           ____Sizes__point_type__point_type,
-	                           "",
-	                           "");
-	I_PublicMemberProperty(osgWidget::point_type, current);
-	I_PublicMemberProperty(osgWidget::point_type, minimum);
-END_REFLECTOR
-
 TYPE_NAME_ALIAS(osgWidget::Window::WindowList, osgWidget::WindowList)
 
 BEGIN_OBJECT_REFLECTOR(osg::observer_ptr< osgWidget::Window >)
@@ -984,6 +985,88 @@ BEGIN_OBJECT_REFLECTOR(osg::observer_ptr< osgWidget::Window >)
 	          "");
 	I_SimpleProperty(osgWidget::Window *, , 
 	                 __T_P1__get, 
+	                 0);
+END_REFLECTOR
+
+BEGIN_VALUE_REFLECTOR(osgWidget::UIObjectParent< osgWidget::Widget >)
+	I_DeclaringFile("osgWidget/UIObjectParent");
+	I_Constructor0(____Widget >,
+	               "",
+	               "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Widget >::Iterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __Iterator__begin,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Widget >::ConstIterator, begin,
+	          Properties::NON_VIRTUAL,
+	          __ConstIterator__begin,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Widget >::Iterator, end,
+	          Properties::NON_VIRTUAL,
+	          __Iterator__end,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Widget >::ConstIterator, end,
+	          Properties::NON_VIRTUAL,
+	          __ConstIterator__end,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Widget >::Vector::size_type, size,
+	          Properties::NON_VIRTUAL,
+	          __Vector_size_type__size,
+	          "",
+	          "");
+	I_Method1(osgWidget::UIObjectParent< osgWidget::Widget >::object_type *, getByName, IN, const std::string &, name,
+	          Properties::NON_VIRTUAL,
+	          __object_type_P1__getByName__C5_std_string_R1,
+	          "",
+	          "");
+	I_Method1(const osgWidget::UIObjectParent< osgWidget::Widget >::object_type *, getByName, IN, const std::string &, name,
+	          Properties::NON_VIRTUAL,
+	          __C5_object_type_P1__getByName__C5_std_string_R1,
+	          "",
+	          "");
+	I_Method1(osgWidget::UIObjectParent< osgWidget::Widget >::object_type *, getByIndex, IN, unsigned int, index,
+	          Properties::NON_VIRTUAL,
+	          __object_type_P1__getByIndex__unsigned_int,
+	          "",
+	          "");
+	I_Method1(const osgWidget::UIObjectParent< osgWidget::Widget >::object_type *, getByIndex, IN, unsigned int, index,
+	          Properties::NON_VIRTUAL,
+	          __C5_object_type_P1__getByIndex__unsigned_int,
+	          "",
+	          "");
+	I_Method0(unsigned int, getNumObjects,
+	          Properties::NON_VIRTUAL,
+	          __unsigned_int__getNumObjects,
+	          "",
+	          "");
+	I_Method0(osgWidget::UIObjectParent< osgWidget::Widget >::Vector &, getObjects,
+	          Properties::NON_VIRTUAL,
+	          __Vector_R1__getObjects,
+	          "",
+	          "");
+	I_Method0(const osgWidget::UIObjectParent< osgWidget::Widget >::Vector &, getObjects,
+	          Properties::NON_VIRTUAL,
+	          __C5_Vector_R1__getObjects,
+	          "",
+	          "");
+	I_ProtectedMethod1(bool, _remove, IN, osgWidget::UIObjectParent< osgWidget::Widget >::object_type *, obj,
+	                   Properties::NON_VIRTUAL,
+	                   Properties::NON_CONST,
+	                   __bool___remove__object_type_P1,
+	                   "",
+	                   "");
+	I_ProtectedMethod1(bool, _removeByName, IN, const std::string &, name,
+	                   Properties::NON_VIRTUAL,
+	                   Properties::NON_CONST,
+	                   __bool___removeByName__C5_std_string_R1,
+	                   "",
+	                   "");
+	I_SimpleProperty(osgWidget::UIObjectParent< osgWidget::Widget >::Vector &, Objects, 
+	                 __Vector_R1__getObjects, 
 	                 0);
 END_REFLECTOR
 

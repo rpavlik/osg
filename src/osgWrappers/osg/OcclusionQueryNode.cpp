@@ -229,10 +229,10 @@ BEGIN_OBJECT_REFLECTOR(osg::QueryGeometry)
 	          "",
 	          "");
 	I_MethodWithDefaults1(void, releaseGLObjects, IN, osg::State *, state, 0,
-	                      Properties::NON_VIRTUAL,
+	                      Properties::VIRTUAL,
 	                      __void__releaseGLObjects__osg_State_P1,
-	                      "",
-	                      "");
+	                      "If State is non-zero, this function releases OpenGL objects for the specified graphics context. ",
+	                      "Otherwise, releases OpenGL objects for all graphics contexts. ");
 	I_StaticMethod2(void, deleteQueryObject, IN, unsigned int, contextID, IN, GLuint, handle,
 	                __void__deleteQueryObject__unsigned_int__GLuint_S,
 	                "",
