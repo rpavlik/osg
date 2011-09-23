@@ -33,7 +33,7 @@ END_REFLECTOR
 BEGIN_OBJECT_REFLECTOR(osgSim::ShapeAttributeList)
 	I_DeclaringFile("osgSim/ShapeAttribute");
 	I_BaseType(osg::Object);
-	I_BaseType(osg::MixinVector< ShapeAttribute >);
+	I_BaseType(osg::MixinVector< osgSim::ShapeAttribute >);
 	I_Method0(osg::Object *, cloneType,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__cloneType,
@@ -73,5 +73,5 @@ BEGIN_OBJECT_REFLECTOR(osgSim::ShapeAttributeList)
 	          "");
 END_REFLECTOR
 
-STD_VECTOR_REFLECTOR(osg::MixinVector< ShapeAttribute >)
+STD_VECTOR_REFLECTOR(osg::MixinVector< osgSim::ShapeAttribute >)
 
