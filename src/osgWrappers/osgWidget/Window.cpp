@@ -160,7 +160,7 @@ TYPE_NAME_ALIAS(std::list< osg::observer_ptr< osgWidget::Window > >, osgWidget::
 BEGIN_ABSTRACT_OBJECT_REFLECTOR(osgWidget::Window)
 	I_DeclaringFile("osgWidget/Window");
 	I_BaseType(osg::MatrixTransform);
-	I_BaseType(osgWidget::UIObjectParent< Widget >);
+	I_BaseType(osgWidget::UIObjectParent< osgWidget::Widget >);
 	I_BaseType(osgWidget::EventInterface);
 	I_BaseType(osgWidget::StyleInterface);
 	I_ConstructorWithDefaults1(IN, const std::string &, x, "",
@@ -990,9 +990,6 @@ END_REFLECTOR
 
 BEGIN_VALUE_REFLECTOR(osgWidget::UIObjectParent< osgWidget::Widget >)
 	I_DeclaringFile("osgWidget/UIObjectParent");
-	I_Constructor0(____Widget >,
-	               "",
-	               "");
 	I_Method0(osgWidget::UIObjectParent< osgWidget::Widget >::Iterator, begin,
 	          Properties::NON_VIRTUAL,
 	          __Iterator__begin,

@@ -58,7 +58,7 @@ END_REFLECTOR
 BEGIN_OBJECT_REFLECTOR(osgWidget::WindowManager)
 	I_DeclaringFile("osgWidget/WindowManager");
 	I_BaseType(osg::Switch);
-	I_BaseType(osgWidget::UIObjectParent< Window >);
+	I_BaseType(osgWidget::UIObjectParent< osgWidget::Window >);
 	I_Method0(osg::Object *, cloneType,
 	          Properties::VIRTUAL,
 	          __osg_Object_P1__cloneType,
@@ -414,9 +414,6 @@ TYPE_NAME_ALIAS(osgUtil::LineSegmentIntersector::Intersections, osgWidget::Inter
 
 BEGIN_VALUE_REFLECTOR(osgWidget::UIObjectParent< osgWidget::Window >)
 	I_DeclaringFile("osgWidget/UIObjectParent");
-	I_Constructor0(____Window >,
-	               "",
-	               "");
 	I_Method0(osgWidget::UIObjectParent< osgWidget::Window >::Iterator, begin,
 	          Properties::NON_VIRTUAL,
 	          __Iterator__begin,
