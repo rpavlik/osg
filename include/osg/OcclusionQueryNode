@@ -60,7 +60,7 @@ public:
 
 // QueryGeometry -- A Drawable that performs an occlusion query,
 //   using its geometric data as the query geometry.
-class QueryGeometry : public osg::Geometry
+class OSG_EXPORT QueryGeometry : public osg::Geometry
 {
 public:
     QueryGeometry( const std::string& oqnName=std::string("") );
