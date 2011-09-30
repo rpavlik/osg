@@ -14,12 +14,6 @@ IF(MSVC80)
   ENDIF(NOT OSG_MSVC_GENERATE_PLUGINS_AND_WRAPPERS_MANIFESTS)
 ENDIF(MSVC80)
 
-IF(MSVC)
-	# Template and dll export interaction requires this to dodge multiply implemented symbols
-	# related to MixinVector
-	SET(CMAKE_MODULE_LINKER_FLAGS_DEBUG "${CMAKE_MODULE_LINKER_FLAGS_DEBUG} /FORCE:MULTIPLE")
-ENDIF(MSVC)
-
 MACRO(ADD_WRAPPER_LIB SUBDIR EXPORTDEF)
     SET(TARGET_NAME "osgwrapper_${SUBDIR}")
 #    MESSAGE(STATUS "--inizio-->${TARGET_NAME}<->${LINK}<-")
@@ -155,3 +149,16 @@ ENDIF(MSVC)
 FOREACH(LIB ${OSGWRAPPER_LIB_LIST} )
     ADD_WRAPPER_LIB(${LIB}  OSGWRAPPERS_LIBRARY LINK OpenThreads osg osgGA ${LIB} osgIntrospection)    
 ENDFOREACH(LIB ${OSGWRAPPER_LIB_LIST} )
+
+IF(MSVC)
+	# Template and dll export interaction requires this to dodge multiply implemented symbols
+	# related to MixinVector - "Solves" the problem described here:
+	# http://www.codesynthesis.com/~boris/blog/2010/01/18/dll-export-cxx-templates/
+	GET_TARGET_PROPERTY(WRAPPERFLAGS LINK_FLAGS osgwrapper_osg)
+	IF(WRAPPERFLAGS)
+		SET(WRAPPERFLAGS "${WRAPPERFLAGS} /FORCE:MULTIPLE")
+	ELSE(WRAPPERFLAGS)
+		SET(WRAPPERFLAGS "/FORCE:MULTIPLE")
+	ENDIF(WRAPPERFLAGS)
+	SET_TARGET_PROPERTIES(osgwrapper_osg PROPERTIES LINK_FLAGS "${WRAPPERFLAGS}")
+ENDIF(MSVC)
