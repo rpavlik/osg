@@ -14,6 +14,12 @@ IF(MSVC80)
   ENDIF(NOT OSG_MSVC_GENERATE_PLUGINS_AND_WRAPPERS_MANIFESTS)
 ENDIF(MSVC80)
 
+IF(MSVC)
+	# Template and dll export interaction requires this to dodge multiply implemented symbols
+	# related to MixinVector
+	SET(CMAKE_MODULE_LINKER_FLAGS_DEBUG "${CMAKE_MODULE_LINKER_FLAGS_DEBUG} /FORCE:MULTIPLE")
+ENDIF(MSVC)
+
 MACRO(ADD_WRAPPER_LIB SUBDIR EXPORTDEF)
     SET(TARGET_NAME "osgwrapper_${SUBDIR}")
 #    MESSAGE(STATUS "--inizio-->${TARGET_NAME}<->${LINK}<-")
