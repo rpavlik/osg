@@ -330,7 +330,7 @@ END_REFLECTOR
 
 TYPE_NAME_ALIAS(osg::VectorGLubyte, osg::DrawElementsUByte::vector_type)
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::DrawElementsUByte)
+BEGIN_OBJECT_REFLECTOR(osg::DrawElementsUByte)
 	I_DeclaringFile("osg/PrimitiveSet");
 	I_BaseType(osg::DrawElements);
 	I_BaseType(osg::MixinVector< GLubyte >);
@@ -460,7 +460,7 @@ END_REFLECTOR
 
 TYPE_NAME_ALIAS(osg::VectorGLuint, osg::DrawElementsUInt::vector_type)
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::DrawElementsUInt)
+BEGIN_OBJECT_REFLECTOR(osg::DrawElementsUInt)
 	I_DeclaringFile("osg/PrimitiveSet");
 	I_BaseType(osg::DrawElements);
 	I_BaseType(osg::MixinVector< GLuint >);
@@ -590,7 +590,7 @@ END_REFLECTOR
 
 TYPE_NAME_ALIAS(osg::VectorGLushort, osg::DrawElementsUShort::vector_type)
 
-BEGIN_ABSTRACT_OBJECT_REFLECTOR(osg::DrawElementsUShort)
+BEGIN_OBJECT_REFLECTOR(osg::DrawElementsUShort)
 	I_DeclaringFile("osg/PrimitiveSet");
 	I_BaseType(osg::DrawElements);
 	I_BaseType(osg::MixinVector< GLushort >);
