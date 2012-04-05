@@ -33,10 +33,6 @@
 # include "ScopedLock"
 #endif
 
-#if defined(__clang_major__) && (__clang_major__ >= 3)
-# define _OPENTHREADS_ATOMIC_PICKY_CLANG
-#endif
-
 #if defined(_OPENTHREADS_ATOMIC_USE_LIBRARY_ROUTINES)
 #define _OPENTHREADS_ATOMIC_INLINE
 #else
@@ -244,10 +240,8 @@ Atomic::operator unsigned() const
 _OPENTHREADS_ATOMIC_INLINE bool
 AtomicPtr::assign(void* ptrNew, const void* const ptrOld)
 {
-#if defined(_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS) && !defined(_OPENTHREADS_ATOMIC_PICKY_CLANG)
+#if defined(_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS)
     return __sync_bool_compare_and_swap(&_ptr, ptrOld, ptrNew);
-#elif defined(_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS) && defined(_OPENTHREADS_ATOMIC_PICKY_CLANG)
-    return __sync_bool_compare_and_swap(&_ptr, const_cast<void *>(ptrOld), ptrNew);
 #elif defined(_OPENTHREADS_ATOMIC_USE_MIPOSPRO_BUILTINS)
     return __compare_and_swap((unsigned long*)&_ptr, (unsigned long)ptrOld, (unsigned long)ptrNew);
 #elif defined(_OPENTHREADS_ATOMIC_USE_SUN)
