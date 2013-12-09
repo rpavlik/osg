@@ -18,6 +18,7 @@ SET(LIB_PUBLIC_HEADERS
     ${HEADER_PATH}/Exceptions
     ${HEADER_PATH}/Export
     ${HEADER_PATH}/ExtendedTypeInfo
+    ${HEADER_PATH}/GenericReflectorBase
     ${HEADER_PATH}/InstanceCreator
     ${HEADER_PATH}/MethodInfo
     ${HEADER_PATH}/ParameterInfo
@@ -37,6 +38,7 @@ SET(LIB_PUBLIC_HEADERS
     ${HEADER_PATH}/Value
     ${HEADER_PATH}/Version
     ${HEADER_PATH}/variant_cast
+    ${HEADER_PATH}/variant_cast_fwd
 )
 
 # FIXME: For OS X, need flag for Framework or dylib
@@ -46,6 +48,7 @@ ADD_LIBRARY(${LIB_NAME}
     ConstructorInfo.cpp
     CustomAttributeProvider.cpp
     DefaultReflectors.cpp
+	GenericReflectorBase.cpp
     MethodInfo.cpp
     PropertyInfo.cpp
     Reflection.cpp

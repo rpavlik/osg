@@ -13,15 +13,17 @@
 //osgIntrospection - Copyright (C) 2005 Marco Jez
 
 #include <osgIntrospection/Value>
-#include <osgIntrospection/Type>
+#include <algorithm>                    // for swap
+#include <osgIntrospection/Comparator>  // for Comparator
+#include <osgIntrospection/Converter>   // for CompositeConverter, etc
 #include <osgIntrospection/Exceptions>
-#include <osgIntrospection/ReaderWriter>
-#include <osgIntrospection/Comparator>
-#include <osgIntrospection/Converter>
-#include <osgIntrospection/Reflection>
+#include <osgIntrospection/ReaderWriter>  // for ReaderWriter, etc
+#include <osgIntrospection/Reflection>  // for Reflection
+#include <osgIntrospection/Type>        // for Type
 
-#include <sstream>
-#include <memory>
+#include <memory>                       // for auto_ptr, etc
+#include <sstream>                      // for ostream, istream, etc
+
 
 using namespace osgIntrospection;
 

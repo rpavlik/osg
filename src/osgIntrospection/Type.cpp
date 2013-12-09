@@ -13,17 +13,19 @@
 //osgIntrospection - Copyright (C) 2005 Marco Jez
 
 #include <osgIntrospection/Type>
-#include <osgIntrospection/Value>
-#include <osgIntrospection/Reflection>
-#include <osgIntrospection/PropertyInfo>
-#include <osgIntrospection/MethodInfo>
-#include <osgIntrospection/ReaderWriter>
-#include <osgIntrospection/Utility>
-#include <osgIntrospection/ConstructorInfo>
-#include <osgIntrospection/Comparator>
+#include <osgIntrospection/Comparator>  // for Comparator
+#include <osgIntrospection/ConstructorInfo>  // for ConstructorInfo
+#include <osgIntrospection/CustomAttributeProvider>
+#include <osgIntrospection/Exceptions>
+#include <osgIntrospection/ExtendedTypeInfo>  // for ExtendedTypeInfo
+#include <osgIntrospection/MethodInfo>  // for MethodInfo
+#include <osgIntrospection/PropertyInfo>  // for PropertyInfo
+#include <osgIntrospection/ReaderWriter>  // for ReaderWriter
+#include <osgIntrospection/Utility>     // for areParametersCompatible, etc
+#include <osgIntrospection/Value>       // for ValueList, Value
 
-#include <iterator>
-#include <algorithm>
+#include <algorithm>                    // for copy, sort
+#include <iterator>                     // for back_insert_iterator, etc
 
 using namespace osgIntrospection;
 

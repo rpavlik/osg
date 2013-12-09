@@ -20,9 +20,11 @@ using namespace osgIntrospection;
 
 void PropertyInfo::getInheritedProviders(CustomAttributeProviderList& providers) const
 {
-    for (int i=0; i<_declarationType.getNumBaseTypes(); ++i)
+    const int n = _declarationType.getNumBaseTypes();
+    const ParameterInfoList& indexParams = getIndexParameters();
+    for (int i=0; i<n; ++i)
     {
-        const PropertyInfo* pi = _declarationType.getBaseType(i).getProperty(_name, _ptype, getIndexParameters(), false);
+        const PropertyInfo* pi = _declarationType.getBaseType(i).getProperty(_name, _ptype, indexParams, false);
         if (pi)
         {
             providers.push_back(pi);
@@ -83,8 +85,7 @@ void PropertyInfo::setValue(Value& instance, const Value& value) const
     if (!_setm)
         throw PropertyAccessException(_declarationType.getQualifiedName() + "::" + _name, PropertyAccessException::SET);
 
-    ValueList args;
-    args.push_back(value);
+    ValueList args(1, value);
     _setm->invoke(instance, args);
 }
 
@@ -171,8 +172,7 @@ Value PropertyInfo::getArrayItem(const Value& instance, int i) const
     if (!_getm) 
         throw PropertyAccessException(_declarationType.getQualifiedName() + "::" + _name, PropertyAccessException::AGET);
 
-    ValueList args;
-    args.push_back(i);
+    ValueList args(1, i);
 
     if (pta)
         return _getm->invoke(instance, args).convertTo(pta->getPropertyType());
@@ -194,8 +194,7 @@ Value PropertyInfo::getArrayItem(Value& instance, int i) const
     if (!_getm) 
         throw PropertyAccessException(_declarationType.getQualifiedName() + "::" + _name, PropertyAccessException::AGET);
 
-    ValueList args;
-    args.push_back(i);
+    ValueList args(1, i);
 
     if (pta)
         return _getm->invoke(instance, args).convertTo(pta->getPropertyType());
@@ -232,8 +231,7 @@ void PropertyInfo::addArrayItem(Value& instance, const Value& value) const
     if (!_addm) 
         throw PropertyAccessException(_declarationType.getQualifiedName() + "::" + _name, PropertyAccessException::ADD);
 
-    ValueList args;
-    args.push_back(value);
+    ValueList args(1, value);
     _addm->invoke(instance, args);
 }
 
@@ -267,8 +265,7 @@ void PropertyInfo::removeArrayItem(Value& instance, int i) const
     if (!_remm) 
         throw PropertyAccessException(_declarationType.getQualifiedName() + "::" + _name, PropertyAccessException::REMOVE);
 
-    ValueList args;
-    args.push_back(i);
+    ValueList args(1, i);
     _remm->invoke(instance, args);
 }
 
