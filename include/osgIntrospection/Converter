@@ -17,11 +17,12 @@
 
 #include <osgIntrospection/Value>
 #include <osgIntrospection/variant_cast>
+#include <osgIntrospection/Export>
 #include <list>
 
 namespace osgIntrospection
 {
-    struct Converter
+    struct OSGINTROSPECTION_EXPORT Converter
     {
         virtual CastType getCastType() const = 0;
         virtual Value convert(const Value& ) const = 0;
@@ -30,7 +31,7 @@ namespace osgIntrospection
     
     typedef std::list<const Converter* > ConverterList;
     
-    class CompositeConverter: public Converter
+    class OSGINTROSPECTION_EXPORT CompositeConverter: public Converter
     {
     public:
         CompositeConverter(const ConverterList& cvt);
