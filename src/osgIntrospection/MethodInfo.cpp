@@ -16,6 +16,12 @@
 
 using namespace osgIntrospection;
 
+MethodInfo::~MethodInfo() 
+{
+    for (ParameterInfoList::iterator i=_params.begin(); i!=_params.end(); ++i)
+        delete *i;
+}
+
 void MethodInfo::getInheritedProviders(CustomAttributeProviderList& providers) const
 {
     for (int i=0; i<_declarationType.getNumBaseTypes(); ++i)
@@ -38,7 +44,8 @@ bool MethodInfo::overrides(const MethodInfo* other) const
 
     ParameterInfoList::const_iterator i=_params.begin();
     ParameterInfoList::const_iterator j=other->_params.begin();
-    for (; i!=_params.end(); ++i, ++j)
+    ParameterInfoList::const_iterator e=_params.end();
+    for (; i!=e; ++i, ++j)
     {
         if (&(*i)->getParameterType() != &(*j)->getParameterType())
             return false;

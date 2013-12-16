@@ -26,14 +26,26 @@ using namespace osgIntrospection;
 
 Reflection::StaticData* Reflection::_static_data = 0;
 
+struct Reflection::StaticData
+{
+    TypeMap typemap;
+    const Type* type_void;
+
+    typedef std::map<const Type*, const Converter*> ConverterMap;
+    typedef std::map<const Type*, ConverterMap> ConverterMapMap;
+    ConverterMapMap convmap;
+
+    ~StaticData();
+};
+
 Reflection::StaticData::~StaticData()
 {
-    for (TypeMap::iterator i=typemap.begin(); i!=typemap.end(); ++i)
+    for (TypeMap::iterator i=typemap.begin(), e = typemap.end(); i!=e; ++i)
         delete i->second;
 
-    for (ConverterMapMap::iterator i=convmap.begin(); i!=convmap.end(); ++i)
+    for (ConverterMapMap::iterator i=convmap.begin(), e=convmap.end(); i!= e; ++i)
     {
-        for (ConverterMap::iterator j=i->second.begin(); j!=i->second.end(); ++j)
+        for (ConverterMap::iterator j=i->second.begin(), e2=i->second.end(); j != e2; ++j)
         {
             delete j->second;
         }
@@ -76,9 +88,12 @@ const Type& Reflection::getType(const std::string& qname)
 {
     const TypeMap& types = getTypes();
 
-    for (TypeMap::const_iterator i=types.begin(); i!=types.end(); ++i)
+    for (TypeMap::const_iterator i=types.begin(), e=types.end(); i!=e; ++i)
     {
-        if (i->second->isDefined() && i->second->getQualifiedName().compare(qname) == 0)
+        if (!i->second->isDefined()) {
+            continue;
+        }
+        if (i->second->getQualifiedName().compare(qname) == 0)
             return *i->second;
         for (int j=0; j<i->second->getNumAliases(); ++j)
             if (i->second->getAlias(j).compare(qname) == 0)
@@ -127,12 +142,13 @@ Type* Reflection::getOrRegisterType(const ExtendedTypeInfo &ti, bool replace_if_
 void Reflection::registerConverter(const Type& source, const Type& dest, const Converter* cvt)
 {
     const Converter* old = NULL;
-    StaticData::ConverterMap::iterator it = getOrCreateStaticData().convmap[&source].find(&dest);
+    StaticData::ConverterMap & mapFromSource = getOrCreateStaticData().convmap[&source];
+    StaticData::ConverterMap::iterator it = mapFromSource.find(&dest);
 
-    if(it != getOrCreateStaticData().convmap[&source].end())
+    if(it != mapFromSource.end())
         old = it->second;
 
-    getOrCreateStaticData().convmap[&source][&dest] = cvt;
+    mapFromSource[&dest] = cvt;
     
     if(old)
         delete old;
@@ -151,7 +167,6 @@ bool Reflection::getConversionPath(const Type& source, const Type& dest, Convert
         std::vector<const Type* > chain;
         if (accum_conv_path(source, dest, temp, chain, STATIC_CAST))
         {
-            std::cerr << "STATIC_CAST success getConversionPath for " << source.getQualifiedName() << " to " << dest.getQualifiedName() << std::endl;
             conv.swap(temp);
             return true;
         }
@@ -163,13 +178,11 @@ bool Reflection::getConversionPath(const Type& source, const Type& dest, Convert
         std::vector<const Type* > chain;
         if (accum_conv_path(source, dest, temp, chain, DYNAMIC_CAST))
         {
-            std::cerr << "DYNAMIC_CAST success getConversionPath for " << source.getQualifiedName() << " to " << dest.getQualifiedName() << std::endl;
             conv.swap(temp);
             return true;
         }
     }
 
-    std::cerr << "FAILED getConversionPath for " << source.getQualifiedName() << " to " << dest.getQualifiedName() << std::endl;
     return false;
 }
 
@@ -185,28 +198,21 @@ bool Reflection::accum_conv_path(const Type& source, const Type& dest, Converter
     // search a converter from "source"
     StaticData::ConverterMapMap::const_iterator i = getOrCreateStaticData().convmap.find(&source);
     if (i == getOrCreateStaticData().convmap.end()) {
-        std::cerr << "No conversions known from source! " << source.getQualifiedName() << std::endl;
         return false;
     }
 
     // search a converter to "dest"
     const StaticData::ConverterMap& cmap = i->second;
-    std::cerr << "Know " << cmap.size() << " conversions from source: " << source.getQualifiedName() << " to type with address " << &dest << std::endl;
-    if (source.getQualifiedName() == "osg::LineSegment *") {
-        for (StaticData::ConverterMap::const_iterator i2 = cmap.begin(), e = cmap.end(); i2 != e; ++i2) {
-            const Converter * c = (*i2).second;
-            std::cerr << "to " << (*i2).first << ": " << (*i2).first->getQualifiedName()  << std::endl;
-        }
-    }
     StaticData::ConverterMap::const_iterator j = cmap.find(&dest);
-    if (j != cmap.end() && (j->second->getCastType() == castType))
+    StaticData::ConverterMap::const_iterator e = cmap.end();
+    if (j != e && (j->second->getCastType() == castType))
     {
         conv.push_back(j->second);
         return true;
     }
 
     // search a undirect converter from "source" to ... to "dest"
-    for (j=cmap.begin(); j!=cmap.end(); ++j)
+    for (j=cmap.begin(); j!=e; ++j)
     {
         if ((j->second->getCastType() == castType) && accum_conv_path(*j->first, dest, conv, chain, castType))
         {

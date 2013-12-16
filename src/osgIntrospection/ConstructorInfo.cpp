@@ -16,6 +16,12 @@
 
 using namespace osgIntrospection;
 
+ConstructorInfo::~ConstructorInfo()
+{
+    for (ParameterInfoList::iterator i=_params.begin(), e=_params.end(); i!=e; ++i)
+        delete *i;
+}
+
 void ConstructorInfo::getInheritedProviders(CustomAttributeProviderList& providers) const
 {
     for (int i=0; i<_declarationType.getNumBaseTypes(); ++i)

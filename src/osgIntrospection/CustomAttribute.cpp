@@ -12,20 +12,8 @@
 */
 //osgIntrospection - Copyright (C) 2005 Marco Jez
 
-#ifndef OSGINTROSPECTION_CUSTOMATTRIBUTE_
-#define OSGINTROSPECTION_CUSTOMATTRIBUTE_
+#include <osgIntrospection/CustomAttribute>
 
-namespace osgIntrospection
-{
+using namespace osgIntrospection;
 
-    /// The base class for custom attributes. This is an empty class
-    /// for now.
-    class CustomAttribute
-    {
-    public:
-        virtual ~CustomAttribute();
-    };
-
-}
-
-#endif
+CustomAttribute::~CustomAttribute() {}

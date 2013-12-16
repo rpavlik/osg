@@ -46,6 +46,8 @@ ADD_LIBRARY(${LIB_NAME}
     ${OPENSCENEGRAPH_USER_DEFINED_DYNAMIC_OR_STATIC}
     ${LIB_PUBLIC_HEADERS}
     ConstructorInfo.cpp
+	Converter.cpp
+	CustomAttribute.cpp
     CustomAttributeProvider.cpp
     DefaultReflectors.cpp
 	GenericReflectorBase.cpp
