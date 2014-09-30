@@ -58,14 +58,14 @@ size_t displayBitsPerPixel( CGDirectDisplayID displayId )
     CGDisplayModeRef mode = CGDisplayCopyDisplayMode(displayId);
     if (!mode)
     {
-        OSG_WARN << "CGDisplayCopyDisplayMode returned NULL" << std::endl;
+        OSG_NOTIFY(osg::WARN) << "CGDisplayCopyDisplayMode returned NULL" << std::endl;
         return 0;
     }
 
     CFStringRef pixEnc = CGDisplayModeCopyPixelEncoding(mode);
     if (!pixEnc)
     {
-        OSG_WARN << "CGDisplayModeCopyPixelEncoding returned NULL" << std::endl;
+        OSG_NOTIFY(osg::WARN) << "CGDisplayModeCopyPixelEncoding returned NULL" << std::endl;
         CGDisplayModeRelease(mode);
         return 0;
     }
@@ -85,7 +85,7 @@ size_t displayBitsPerPixel( CGDirectDisplayID displayId )
     }
     else
     {
-        OSG_WARN << "Unable to match pixel encoding '" << CFStringGetCStringPtr(pixEnc, kCFStringEncodingUTF8) << "'" << std::endl;
+        OSG_NOTIFY(osg::WARN) << "Unable to match pixel encoding '" << CFStringGetCStringPtr(pixEnc, kCFStringEncodingUTF8) << "'" << std::endl;
     }
 
     CGDisplayModeRelease(mode);
